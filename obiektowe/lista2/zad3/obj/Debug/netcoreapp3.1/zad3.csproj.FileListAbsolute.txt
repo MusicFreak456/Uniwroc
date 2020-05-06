@@ -1,0 +1,11 @@
+/home/cezary/Projekty/c_sharp/zad3/bin/Debug/netcoreapp3.1/zad3
+/home/cezary/Projekty/c_sharp/zad3/bin/Debug/netcoreapp3.1/zad3.deps.json
+/home/cezary/Projekty/c_sharp/zad3/bin/Debug/netcoreapp3.1/zad3.runtimeconfig.json
+/home/cezary/Projekty/c_sharp/zad3/bin/Debug/netcoreapp3.1/zad3.runtimeconfig.dev.json
+/home/cezary/Projekty/c_sharp/zad3/bin/Debug/netcoreapp3.1/zad3.dll
+/home/cezary/Projekty/c_sharp/zad3/bin/Debug/netcoreapp3.1/zad3.pdb
+/home/cezary/Projekty/c_sharp/zad3/obj/Debug/netcoreapp3.1/zad3.csprojAssemblyReference.cache
+/home/cezary/Projekty/c_sharp/zad3/obj/Debug/netcoreapp3.1/zad3.AssemblyInfoInputs.cache
+/home/cezary/Projekty/c_sharp/zad3/obj/Debug/netcoreapp3.1/zad3.AssemblyInfo.cs
+/home/cezary/Projekty/c_sharp/zad3/obj/Debug/netcoreapp3.1/zad3.dll
+/home/cezary/Projekty/c_sharp/zad3/obj/Debug/netcoreapp3.1/zad3.pdb

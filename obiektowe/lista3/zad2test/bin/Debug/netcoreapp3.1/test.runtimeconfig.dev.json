@@ -1,0 +1,8 @@
+{
+  "runtimeOptions": {
+    "additionalProbingPaths": [
+      "/home/cezary/.dotnet/store/|arch|/|tfm|",
+      "/home/cezary/.nuget/packages"
+    ]
+  }
+}

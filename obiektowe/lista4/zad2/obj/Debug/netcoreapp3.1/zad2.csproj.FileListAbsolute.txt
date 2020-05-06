@@ -1,0 +1,11 @@
+/home/cezary/Pobrane/obiektowe/lista4/zad2/obj/Debug/netcoreapp3.1/zad2.csprojAssemblyReference.cache
+/home/cezary/Pobrane/obiektowe/lista4/zad2/obj/Debug/netcoreapp3.1/zad2.AssemblyInfoInputs.cache
+/home/cezary/Pobrane/obiektowe/lista4/zad2/obj/Debug/netcoreapp3.1/zad2.AssemblyInfo.cs
+/home/cezary/Pobrane/obiektowe/lista4/zad2/bin/Debug/netcoreapp3.1/zad2
+/home/cezary/Pobrane/obiektowe/lista4/zad2/bin/Debug/netcoreapp3.1/zad2.deps.json
+/home/cezary/Pobrane/obiektowe/lista4/zad2/bin/Debug/netcoreapp3.1/zad2.runtimeconfig.json
+/home/cezary/Pobrane/obiektowe/lista4/zad2/bin/Debug/netcoreapp3.1/zad2.runtimeconfig.dev.json
+/home/cezary/Pobrane/obiektowe/lista4/zad2/bin/Debug/netcoreapp3.1/zad2.dll
+/home/cezary/Pobrane/obiektowe/lista4/zad2/bin/Debug/netcoreapp3.1/zad2.pdb
+/home/cezary/Pobrane/obiektowe/lista4/zad2/obj/Debug/netcoreapp3.1/zad2.dll
+/home/cezary/Pobrane/obiektowe/lista4/zad2/obj/Debug/netcoreapp3.1/zad2.pdb
