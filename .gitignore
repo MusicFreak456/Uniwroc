@@ -2,3 +2,6 @@
 *.log
 *.gz
 *.dvi
+
+*.out
+*.o
