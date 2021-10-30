@@ -1,0 +1,121 @@
+\documentclass[12pt,a4paper]{article}
+\usepackage[polish]{babel}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath,amsfonts}
+\usepackage{titling}
+\usepackage{textcomp}
+\usepackage{gensymb}
+\usepackage{mathtools}
+\usepackage[margin=0.43in]{geometry} 
+\usepackage{ulem}
+
+\pagestyle{empty}
+
+\begin{document}
+
+
+\noindent
+\textbf{Zadanie 10.} Centralizatorem elementu \(a\) w grupie \(G\) nazywamy zbiór elementów przemiennych z \(a\), czyli
+\[
+	G(a) = \{ b \in G : ab = ba\}
+\]
+Centrum grupy \(G\) nazywamy zbiór
+\[
+	Z(G) = \{a : \forall b \in G : ab = ba\}
+\]
+(czyli: przemiennych ze wszystkimi elementami w \(G\)). Udowodnij, że dla dowolnej grupy \(G\) i elementu \(a\) centralizator \(G(a)\) oraz centrum \(Z(G)\) są podgrupami \(G\). Pokaż też, że 
+\[
+Z(G) = \bigcap_{g\in G} G(g) .
+\]
+
+\noindent
+\textbf{Rozwiązanie: Część pierwsza} 
+
+W pierwszej części zadania pokażemy, że \(G(a)\) oraz \(Z(G)\) są podgrupami \(G\) dla dowolnej grupy \(G\) oraz elementu \(a\). Zacznijmy od centralizatora. Weźmy dowolną grupę G i element \(a \in G\). Aby zbiór \(G(a)\) był podgrupą muszą zostać spełnione poniższe warunki:
+
+\vskip 0.4cm
+\textbf{1. G(a) zawiera element neutralny.} Wiemy, że dla elementu neutralnego \(e \in G\) prawdziwa jest równość \( ae = ea\). Zatem na pewno \(e \in G(a)\).
+
+\vskip 0.4cm
+\textbf{2. G(a) zamknięty na działanie.} Weźmy dowolne elementy \(x,y \in G(a)\), pokażemy że \(xy \in G(a)\), czyli że \(a(xy) = (xy)a\). Korzystając z łączności działania i definicji centralizatora:
+\[
+a(xy) = (ax)y = (xa)y = x(ay) = x(ya) = (xy)a
+\]
+Zatem \(xy \in G(a)\).
+
+\vskip 0.4cm
+\textbf{3. Każdy element w G(a) ma element  \sout{przeciwny} odwrotny} Weźmy dowolny element \(x \in G(a)\), pokażemy że \(x^{-1} \in G(a)\). Z definicji centralizatora:
+\[
+\begin{array}{cc}
+ax = xa & \cdot /x^{-1} \\
+x^{-1}ax = x^{-1} x a & \\
+x^{-1}ax = ea & \\
+x^{-1}ax = a & \cdot /x^{-1} \\
+x^{-1}axx^{-1} = ax^{-1} & \\
+x^{-1}ae = ax^{-1} & \\
+x^{-1}a = ax^{-1} & \\
+\end{array}
+\]
+Zatem \(x^{-1} \in G(a) \).
+
+
+Ze spełnienia powyższych warunków wnioskujemy, że 
+\[
+G(a) \leq G.
+\]
+
+Dla centrum dowód będzie wyglądał bardzo podobnie. Weźmy dowolną grupę G i sprawdźmy czy zachodzą poniższe warunki:
+
+\vskip 0.4cm
+\textbf{1. Z(G) zawiera element neutralny.} Wiemy, że dla dowolnego elementu \(x \in G \) element neutralny \(e \in G \) spełnia równość \( ex = xe \), zatem \( e \in Z(G) \).
+
+\vskip 0.4cm
+\textbf{2. Z(G) zamknięty na działanie.} Weźmy dowolne elementy \(x,y \in Z(G)\), pokażemy że \(xy \in G(a)\), czyli że dla dowolnego \(a \in G\) \((xy)a = a(xy)\). Korzystając z łączności działania i definicji centrum mamy:
+\[
+(xy)a = x(ya) = x(ay) = (xa)y = (ax)y = a(xy)
+\]
+Zatem \(xy \in Z(G)\).
+
+\vskip 0.4cm
+\textbf{3. Każdy element w Z(G) ma element \sout{przeciwny} odwrotny} Weźmy dowolny element \(x \in Z(G)\), pokażemy że \(x^{-1} \in Z(G)\). Z definicji centrum \(\forall a \in G\) mamy:
+\[
+\begin{array}{cc}
+xa = ax & \cdot /x^{-1} \\
+x^{-1}xa = x^{-1} a x & \\
+ea = x^{-1} a x & \\
+a = x^{-1} a x & \cdot /x^{-1} \\
+ax^{-1} = x^{-1} a x x^{-1} & \\
+ax^{-1} = x^{-1}ae & \\
+ax^{-1} = x^{-1}a & \\
+\end{array}
+\]
+Zatem \(x^{-1} \in Z(G) \).
+
+Tak jak poprzednio wnioskujemy z tego, że
+\[
+Z(G) \leq G.
+\]
+
+\noindent
+\textbf{Rozwiązanie: Część druga}
+
+
+W drugiej części pokazać mamy, że dla dowolnej grupy \(G\) zachodzi równość
+\[
+Z(G) = \bigcap_{g\in G} G(g) .
+\]
+Jest to równość zbiorów, zatem wystarczy że zachodzić będzie zawieranie w obie strony. 
+
+\vskip 0.4cm
+Pokażemy więc najpierw, że \(Z(G) \subseteq \bigcap_{g\in G} G(g)\), czyli że \( \forall_{x \in G} \): \( x \in Z(G) \implies \bigcap_{g\in G} G(g)\).
+Niech \(G\) będzie dowolną grupą, a \(x\) będzie dowolnym elementem z \(Z(G)\):
+\[
+x \in Z(G) \iff \forall_{g \in G}: \ xg = gx \iff \forall_{g \in G}: \ x \in G(g)
+\iff x \in \bigcap_{g \in G} G(g)
+\]
+Zatem \(Z(G) \subseteq \bigcap_{g\in G} G(g)\). Można również zauważyć, że wszystkie zastosowane przez nas przejścia działają w obie strony, zatem pokazują one jednocześnie że \(x \in \bigcap_{g \in G} G(g) \implies x \in Z(G)\), czyli że \(Z(G) \supseteq \bigcap_{g\in G} G(g)\). Z faktu zawierania w obie strony wnioskujemy, że zachodzi równość tych dwóch, co kończy dowód.
+
+No i siup
+
+\end{document}

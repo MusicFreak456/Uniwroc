@@ -1,0 +1,258 @@
+\documentclass[12pt,a4paper]{article}
+\usepackage[polish]{babel}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath,amsfonts}
+\usepackage{titling}
+\usepackage{textcomp}
+\usepackage{gensymb}
+\usepackage{mathtools}
+\usepackage[margin=0.5in]{geometry} 
+
+\pagestyle{empty}
+
+\begin{document}
+\noindent
+\textbf{Zadanie 5. }
+Znajdź wartości własne, ich krotności algebraiczne i geometryczne dla poniższych macierzy:
+\[
+\left[
+\begin{array}{ccc}
+7 & -12 & 6\\
+10 & -19 & 10\\
+12 & -24 & 13
+\end{array}\right]
+,
+\left[
+\begin{array}{ccc}
+2 & -1 & 2\\
+5 & -3 & 3\\
+-1 & 0 & -2
+\end{array}\right]
+,
+\left[
+\begin{array}{ccc}
+0 & 1 & 0\\
+-4 & 4 & 0\\
+-2 & 1 & 2
+\end{array}\right]
+.
+\]
+Dla jednej z wartości oblicz odpowiadające wektory własne.
+
+\vskip 0.4cm
+\noindent
+\textbf{Rozwiązanie.}
+Z \textbf{Lematu 8.10} wiemy, że da macierzy kwadratowej \(\lambda\) jest wartością własną wtedy i tylko wtedy, gdy jest pierwiastkiem wielomianu charakterystycznego tej macierzy, więc zaczniemy od jego wyznaczenia metodą Sarrusa.
+\[
+A=
+\left[
+\begin{array}{ccc}
+7 & -12 & 6\\
+10 & -19 & 10\\
+12 & -24 & 13
+\end{array}\right]
+~~A-\lambda Id=
+\left[
+\begin{array}{ccc}
+7 - \lambda & -12 & 6\\
+10 & -19 - \lambda & 10\\
+12 & -24 & 13 - \lambda
+\end{array}\right]
+\]
+\[
+\begin{array}{c}
+det(A-\lambda Id) = (7-\lambda) (-19-\lambda)(13 - \lambda) - 1440 - 1440 -72(-19 - \lambda)+240(7-\lambda)+120(13 - \lambda)= \\
+= (-133 + 12\lambda + \lambda^2) (13 - \lambda) - 2880 + 1368 + 72\lambda + 1680 - 240\lambda + 1560 - 120\lambda=\\
+= (\lambda^2 + 12\lambda -133) (13 - \lambda) - 288\lambda + 1728=\\
+= 13\lambda^2 - \lambda^3 + 156\lambda - 12\lambda^2 - 1729 + 133\lambda - 288\lambda + 1728 = \\
+= -\lambda^3 + \lambda^2 + \lambda -1 = \\
+= -\lambda^2(\lambda-1) + \lambda - 1 = \\
+= (\lambda - 1) (1-\lambda^2)
+\end{array}
+\]
+Zauważamy, że wielomian zeruje się dla \(\lambda\) równej 1, lub -1, są to zatem wartości własne macierzy. Z wielomianu możemy również odczytać ich krotności algebraiczne. Dla -1 wynosi ona 1, a więc korzystając z uwagi przy \textbf{Lemacie 8.17} możemy powiedzieć, że jej krotność geometryczna również wynosi 1. Dla 1 krotność algebraiczna wynosi 2, a jej krotność geometryczną ustalimy przy okazji wyznaczania wektorów własnych.
+
+Zbiór wektorów własnych to \(ker(A-\lambda Id)\) (\textbf{Lemat 8.14}), a więc by go wyznaczyć rozwiążemy równanie
+\[
+(A-Id)\vec{X}=\vec{0}
+\]
+W tym celu doprowadzimy macierz do postaci schodkowej
+\[
+\left[
+\begin{array}{ccc}
+6 & -12 & 6\\
+10 & -20 & 10\\
+12 & -24 & 12
+\end{array}\right]
+\xrightarrow{(3) = (3) - 2(1)}
+\left[
+\begin{array}{ccc}
+6 & -12 & 6\\
+10 & -20 & 10\\
+0 & 0 & 0
+\end{array}\right]
+\xrightarrow{(2) = \frac{1}{2} (2)}
+\left[
+\begin{array}{ccc}
+6 & -12 & 6\\
+5 & -10 & 5\\
+0 & 0 & 0
+\end{array}\right]
+\xrightarrow{(1)=(1)-(2)}
+\left[
+\begin{array}{ccc}
+1 & -2 & 1\\
+5 & -10 & 5\\
+0 & 0 & 0
+\end{array}\right]
+\]
+\[
+\xrightarrow{(2)=(2)-5(1)}
+\left[
+\begin{array}{ccc}
+1 & -2 & 1\\
+0 & 0 & 0\\
+0 & 0 & 0
+\end{array}\right]
+\]
+Macierz pomnożoną przez wektor zmiennych przyrównujemy do wektora zerowego zatem otrzymujemy równanie
+\[
+\
+x_1 - 2x_2 + x_3 = 0\\
+\]
+Z którego mamy \(x_1 = 2x_2-x_3\), więc zbiór wektorów własnych ma postać
+\[
+\{(2x_2-x_3,x_2,x_3)| x_2,x_3\in \mathbb{R}\}=
+\{(2x_2,x_2,0)+(-x_3,0,x_3)| x_2,x_3\in \mathbb{R}\}
+\]
+Widać, że jego baza to \(\{(2,1,0),(-1,0,1)\}\), co na podstawie \textbf{Faktu 8.16} implikuje, że krotność geometryczna 1 wynosi 2.
+\newpage
+Kolejne dwie macierze rozwiązuje się zupełnie tak samo. Przedstawię więc same rachunki, bez podobnych do powyższych komentarzy.
+\[
+B=
+\left[
+\begin{array}{ccc}
+2 & -1 & 2\\
+5 & -3 & 3\\
+-1 & 0 & -2
+\end{array}\right]
+~~B-\lambda Id=
+\left[
+\begin{array}{ccc}
+2-\lambda & -1 & 2\\
+5 & -3-\lambda & 3\\
+-1 & 0 & -2-\lambda
+\end{array}\right]
+\]
+\[
+\begin{array}{c}
+det(B-\lambda Id) = (2-\lambda)(-3-\lambda)(-2-\lambda) + 3 + 2(-2-\lambda) + 5(-2-\lambda)=\\
+=(-6-2\lambda+3\lambda+\lambda^2)(-2-\lambda)+3-6-2\lambda-10-5\lambda=\\
+=-2\lambda^2-\lambda^3-2\lambda-\lambda^2+12+6\lambda-13-7\lambda=\\
+=-\lambda^3-3\lambda^2-3\lambda-1=\\
+=-(\lambda+1)^3
+\end{array}
+\]
+Jedna wartość własna równa -1 o krotności algebraicznej 3. Analogicznie do poprzedniego przykładu wyznaczamy zbiór wektorów własnych.
+
+\[
+(B+Id)\vec{X}=\vec{0}
+\]
+
+\[
+B+Id=
+\left[
+\begin{array}{ccc}
+3 & -1 & 2\\
+5 & -2 & 3\\
+-1 & 0 & -1
+\end{array}\right]
+\xrightarrow{(1)=(1)+3(3), (2)=(2)+5(3)}
+\left[
+\begin{array}{ccc}
+0 & -1 & -1\\
+0 & -2 & -2\\
+-1 & 0 & -1
+\end{array}\right]
+\xrightarrow{(2)=(2)-2(1)}
+\left[
+\begin{array}{ccc}
+0 & -1 & -1\\
+0 & 0 & 0\\
+-1 & 0 & -1
+\end{array}\right]
+\]
+\[
+\left\{ 
+\begin{array}{llllllll}
+-x_2 - x_3 = 0 & \rightarrow & x_2=-x_3\\
+-x_1 - x_3 = 0 & \rightarrow & x_1=-x_3
+\end{array} \right.
+\]
+Zbiór wektorów własnych (\(ker(B+Id)\)):
+\[
+\{(-x_3,-x_3,x_3)| x_3\in \mathbb{R}\}
+\]
+Baza to zbiór \(\{(-1,-1,1)\}\) o mocy 1, zatem krotność geometryczna wartości własnej -1 to 1. Kolejny przykład analogicznie:
+\[
+C=
+\left[
+\begin{array}{ccc}
+0 & 1 & 0\\
+-4 & 4 & 0\\
+-2 & 1 & 2
+\end{array}\right]
+~~C-\lambda Id=
+\left[
+\begin{array}{ccc}
+-\lambda & 1 & 0\\
+-4 & 4-\lambda & 0\\
+-2 & 1 & 2-\lambda
+\end{array}\right]
+\]
+
+\[
+\begin{array}{c}
+det(C-\lambda Id) = -\lambda(4-\lambda)(2-\lambda)+4(2-\lambda)=\\
+=-\lambda(8-4\lambda-2\lambda+\lambda^2)+8-4\lambda=\\
+=-\lambda^3+6\lambda^2-8\lambda+8-4\lambda=\\
+=-\lambda^3+6\lambda^2-12\lambda+8=\\
+=-(\lambda-2)^3
+\end{array}
+\]
+Mamy wartość własną 2 o krotności algebraicznej 3.
+\[
+(C-2Id)\vec{X}=\vec{0}
+\]
+
+\[
+C-2Id=
+\left[
+\begin{array}{ccc}
+-2 & 1 & 0\\
+-4 & 2 & 0\\
+-2 & 1 & 0
+\end{array}\right]
+\xrightarrow{(2)=(2)-2(1),(3)=(3)-(1)}
+\left[
+\begin{array}{ccc}
+-2 & 1 & 0\\
+0 & 0 & 0\\
+0 & 0 & 0
+\end{array}\right]
+\]
+\[
+-2x_1+x_2 = 0 \rightarrow x_1=\frac{1}{2}x_2
+\]
+
+Zbiór wektorów własnych (\(ker(C-2Id)\)):
+\[
+\{(\frac{1}{2}x_2,x_2,x_3)| x_3,x_2\in \mathbb{R}\} = 
+\{(\frac{1}{2}x_2,x_2,0) + (0,0,x_3)| x_3,x_2\in \mathbb{R}\}=
+\]
+\[
+\{x_2( \frac{1}{2},1,0) + x_3(0,0,1)| x_3,x_2\in \mathbb{R}\}
+\]
+Baza to zbiór \(\{(\frac{1}{2},1,0),(0,0,1)\}\) a jej moc to 2, zatem krotność geometryczna wartości własnej 2 to 2.
+\end{document}

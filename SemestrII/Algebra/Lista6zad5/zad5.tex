@@ -1,0 +1,231 @@
+\documentclass[12pt,a4paper]{article}
+\usepackage[polish]{babel}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath,amsfonts}
+\usepackage{titling}
+\usepackage{textcomp}
+\usepackage{gensymb}
+\usepackage{mathtools}
+\usepackage[margin=0.5in]{geometry} 
+
+\pagestyle{empty}
+
+
+
+
+\begin{document}
+\noindent
+\textbf {Zadanie 5. }
+Ile rozwiązań ma poniższy układ w zależności od parametru \(\lambda\)? Układ jest nad \(\mathbb{Z}_{13}\), tym samym \(\lambda\in\mathbb{Z}_{13}\).
+
+\[
+\left\{ 
+\begin{array}{llllllll}
+\lambda x & + & \lambda^2y & + &\lambda^3z & = & 1\\ 
+x & + & \lambda^2y & + &\lambda^3z & = & \lambda\\ 
+x & + & y& + &\lambda^3z & = & \lambda^2
+\end{array} \right.
+\]
+
+\textbf{Rozwiązanie. }
+Zacznijmy od przedstawienie powyższego układu w postaci macierzowej \(A\vec{X}=\vec{B}\).
+
+\[
+A=
+\left[
+\begin{array}{ccc}
+\lambda & \lambda^2 & \lambda^3\\
+1 & \lambda^2 & \lambda^3 \\
+1 & 1 & \lambda^3
+\end{array}\right]
+,\vec{X}=
+\left[
+\begin{array}{c}
+x\\
+y\\
+z\\
+\end{array}\right]
+,\vec{B}=
+\left[
+\begin{array}{c}
+1\\
+\lambda\\
+\lambda^2
+\end{array}\right]
+\]
+Z \textbf{Twierdzenia 7.1} wiemy, że jeśli \(det(A)\ne0\) to równanie ma jedno rozwiązanie. Wyznaczmy zatem \(det(A)\) korzystając z reguły Sarrusa.
+
+\[
+\begin{array}{c}
+det(A)=\lambda^6 + \lambda^5 + \lambda^3 - \lambda^5 - \lambda^4-\lambda^5 =\\
+=\lambda^6 - \lambda^5 -\lambda^4 +\lambda^3=\\
+=\lambda^3( \lambda^3 - \lambda^2 - \lambda + 1)=\\
+=\lambda^3(\lambda^2(\lambda - 1) - (\lambda - 1))=\\
+=\lambda^3(\lambda^2-1)(\lambda-1)
+\end{array}
+\]
+Zauważamy, że nasz wyznacznik zeruje się dla \(\lambda = 0\), \(\lambda = 1\) lub \(\lambda=-1\), zatem dla innych wartości parametru \(\lambda\) jest różny od zera, czyli istnieje dokładnie jedno rozwiązanie. Pozostaje nam zbadać ile rozwiązań pojawi się w pozostałych przypadkach. W tym celu dla każdego przypadku policzymy \(rk(A)\) oraz \(rk(A|B)\) stosując eliminację Gaussa na wierszach.
+\vskip 0.4cm
+\noindent
+\textbf{\(1\degree\)} \(\lambda=-1\)
+\[
+A=
+\left[
+\begin{array}{ccc}
+-1 & 1 & -1\\
+1 & 1 & -1 \\
+1 & 1 & -1
+\end{array}\right]
+\xrightarrow{(2)=(2)-(3)}
+\left[
+\begin{array}{ccc}
+-1 & 1 & -1\\
+0 & 0 & 0 \\
+1 & 1 & -1
+\end{array}\right]
+\xrightarrow{(1)=(1)+(3)}
+\left[
+\begin{array}{ccc}
+0 & 2 & -2\\
+0 & 0 & 0 \\
+1 & 1 & -1
+\end{array}\right]
+\xrightarrow{}
+\left[
+\begin{array}{ccc}
+1 & 1 & -1\\
+0 & 2 & -2\\
+0 & 0 & 0 
+\end{array}\right]
+\]
+Jak widać, w tym przypadku \(rk(A)=2\). Te same operacje zastosujemy na macierzy rozszerzonej.
+\[
+\left[
+\begin{array}{cccc}
+-1 & 1 & -1 & 1\\
+1 & 1 & -1 & -1\\
+1 & 1 & -1 & 1
+\end{array}\right]
+\xrightarrow{}
+\left[
+\begin{array}{cccc}
+-1 & 1 & -1 &1\\
+0 & 0 & 0 &-2\\
+1 & 1 & -1 & 1
+\end{array}\right]
+\xrightarrow{}
+\left[
+\begin{array}{cccc}
+0 & 2 & -2 & 2\\
+0 & 0 & 0 & -2\\
+1 & 1 & -1 & 1
+\end{array}\right]
+\xrightarrow{}
+\left[
+\begin{array}{cccc}
+1 & 1 & -1 & 1\\
+0 & 2 & -2 & 2\\
+0 & 0 & 0 &-2 
+\end{array}\right]
+\]
+Okazuje się, że macierz \(A|B\) ma rząd równy 3, a więc \(rk(A)\ne rk(A|B)\), czyli na podstawie\\ \textbf{Faktu 7.4} mówimy, że układ nie ma rozwiązania dla \(\lambda=-1\).
+\vskip 0.4cm
+\noindent
+\textbf{\(2\degree\)} \(\lambda=0\)
+\[
+A=
+\left[
+\begin{array}{ccc}
+0 & 0 & 0\\
+1 & 0 & 0\\
+1 & 1 & 0
+\end{array}\right]
+\xrightarrow{(3)=(3)-(2)}
+\left[
+\begin{array}{ccc}
+0 & 0 & 0\\
+1 & 0 & 0\\
+0 & 1 & 0
+\end{array}\right]
+\xrightarrow{}
+\left[
+\begin{array}{ccc}
+1 & 0 & 0\\
+0 & 1 & 0\\
+0 & 0 & 0
+\end{array}\right]
+\]
+\(rk(A)=2\), podobnie jak wcześniej sprawdzamy \(A|B\).
+\[
+A=
+\left[
+\begin{array}{cccc}
+0 & 0 & 0 & 1\\
+1 & 0 & 0 & 0\\
+1 & 1 & 0 & 0
+\end{array}\right]
+\xrightarrow{(3)=(3)-(2)}
+\left[
+\begin{array}{cccc}
+0 & 0 & 0 & 1\\
+1 & 0 & 0 & 0\\
+0 & 1 & 0 & 0
+\end{array}\right]
+\xrightarrow{}
+\left[
+\begin{array}{cccc}
+1 & 0 & 0 & 0\\
+0 & 1 & 0 & 0\\
+0 & 0 & 0 & 1
+\end{array}\right]
+\]
+I znów \(rk(A|B) = 3\), więc \(rk(A)\ne rk(A|B)\) i układ nie ma rozwiązania dla \(\lambda = 0\).
+
+\newpage
+\noindent
+\textbf{\(3\degree\)} \(\lambda=1\)
+\[
+A=
+\left[
+\begin{array}{ccc}
+1 & 1 & 1\\
+1 & 1 & 1\\
+1 & 1 & 1
+\end{array}\right]
+\xrightarrow{(2)=(2)-(1),(3)=(3)-(1)}
+\left[
+\begin{array}{ccc}
+1 & 1 & 1\\
+0 & 0 & 0\\
+0 & 0 & 0
+\end{array}\right]
+\]
+Rząd \(A\) to tym razem 1, sprawdzamy rząd \(A|B\).
+\[
+A=
+\left[
+\begin{array}{cccc}
+1 & 1 & 1 & 1\\
+1 & 1 & 1 & 1\\
+1 & 1 & 1 & 1
+\end{array}\right]
+\xrightarrow{(2)=(2)-(1),(3)=(3)-(1)}
+\left[
+\begin{array}{cccc}
+1 & 1 & 1 & 1\\
+0 & 0 & 0 & 0\\
+0 & 0 & 0 & 0
+\end{array}\right]
+\]
+Mamy \(rk(A) = rk(A|B)\) zatem istnieje co najmniej jedno rozwiązanie. Ustalimy zatem zbiór rozwiązań.\\
+Po eliminacji mamy równanie \(x+y+z=1\), możemy wyznaczyć z niego \(x\). Otrzymujemy \(x=1-y-z\).
+Zatem zbiór rozwiązań będzie miał postać:
+\[
+\{(1-y-z,y,z) | y,z\in \mathbb{Z}_{13}\}
+\]
+Zmienne \(y\) i \(x\) możemy ustalić na \(13^2\) możliwości, więc dla \(\lambda=1\) mamy 169 możliwych rozwiązań.
+
+
+
+\end{document}
