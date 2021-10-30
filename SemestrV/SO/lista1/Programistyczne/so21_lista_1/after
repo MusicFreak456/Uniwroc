@@ -1,0 +1,814 @@
+COMMAND    PID   USER   FD      TYPE             DEVICE  SIZE/OFF    NODE NAME
+GeckoMain 2320 cezary  cwd       DIR                8,2      4096 1627780 /home/cezary
+GeckoMain 2320 cezary  rtd       DIR                8,2      4096       2 /
+GeckoMain 2320 cezary  txt       REG                8,2    744832  262438 /usr/lib/firefox/firefox
+GeckoMain 2320 cezary  DEL       REG                0,1             36777 /memfd:mozilla-ipc
+GeckoMain 2320 cezary  DEL       REG                0,1             52342 /memfd:mozilla-ipc
+GeckoMain 2320 cezary  DEL       REG               0,27                78 /i915
+GeckoMain 2320 cezary  DEL       REG                0,1             47665 /memfd:mozilla-ipc
+GeckoMain 2320 cezary  DEL       REG                0,1             53620 /memfd:mozilla-ipc
+GeckoMain 2320 cezary  DEL       REG                0,1             53619 /memfd:mozilla-ipc
+GeckoMain 2320 cezary  DEL       REG               0,27               568 /i915
+GeckoMain 2320 cezary  DEL       REG               0,27               812 /i915
+GeckoMain 2320 cezary  DEL       REG               0,27               811 /i915
+GeckoMain 2320 cezary  DEL       REG                0,1             53618 /memfd:mozilla-ipc
+GeckoMain 2320 cezary  DEL       REG               0,27               810 /i915
+GeckoMain 2320 cezary  mem       REG                8,2    509848 1209033 /usr/share/fonts/truetype/noto/NotoSans-Regular.ttf
+GeckoMain 2320 cezary  DEL       REG                0,1             52244 /memfd:pulseaudio
+GeckoMain 2320 cezary  DEL       REG                0,1             35295 /memfd:pulseaudio
+GeckoMain 2320 cezary  DEL       REG                0,1             46532 /memfd:pulseaudio
+GeckoMain 2320 cezary  DEL       REG               0,27               756 /i915
+GeckoMain 2320 cezary  DEL       REG               0,27               742 /i915
+GeckoMain 2320 cezary  DEL       REG               0,27               516 /i915
+GeckoMain 2320 cezary  DEL       REG                0,1             52438 /memfd:mozilla-ipc
+GeckoMain 2320 cezary  DEL       REG                0,1             52437 /memfd:mozilla-ipc
+GeckoMain 2320 cezary  DEL       REG                0,1             52436 /memfd:mozilla-ipc
+GeckoMain 2320 cezary  DEL       REG               0,27               227 /i915
+GeckoMain 2320 cezary  DEL       REG               0,27               738 /i915
+GeckoMain 2320 cezary  DEL       REG                0,1             47738 /memfd:mozilla-ipc
+GeckoMain 2320 cezary  mem       REG                8,2    100640  262657 /usr/lib/x86_64-linux-gnu/libnss_myhostname.so.2
+GeckoMain 2320 cezary  DEL       REG                0,1             52435 /memfd:mozilla-ipc
+GeckoMain 2320 cezary  DEL       REG                0,1             49275 /memfd:mozilla-ipc
+GeckoMain 2320 cezary  DEL       REG               0,27               293 /i915
+GeckoMain 2320 cezary  mem       REG                8,2    341324 1184598 /usr/share/fonts/truetype/ubuntu/Ubuntu-M.ttf
+GeckoMain 2320 cezary  DEL       REG               0,27               884 /i915
+GeckoMain 2320 cezary  DEL       REG               0,27               859 /i915
+GeckoMain 2320 cezary  DEL       REG               0,27               429 /i915
+GeckoMain 2320 cezary  DEL       REG                0,1                46 /SYSV00000000
+GeckoMain 2320 cezary  DEL       REG                0,1                38 /SYSV00000000
+GeckoMain 2320 cezary  DEL       REG                0,1                37 /SYSV00000000
+GeckoMain 2320 cezary  DEL       REG               0,27               832 /i915
+GeckoMain 2320 cezary  mem       REG                8,2    513000 1209030 /usr/share/fonts/truetype/noto/NotoSans-Bold.ttf
+GeckoMain 2320 cezary  DEL       REG               0,27               970 /i915
+GeckoMain 2320 cezary  DEL       REG                0,1                45 /SYSV00000000
+GeckoMain 2320 cezary  DEL       REG               0,27               426 /i915
+GeckoMain 2320 cezary  DEL       REG                0,1             46036 /memfd:mozilla-ipc
+GeckoMain 2320 cezary  DEL       REG                0,1             52430 /memfd:mozilla-ipc
+GeckoMain 2320 cezary  DEL       REG               0,27               827 /i915
+GeckoMain 2320 cezary  DEL       REG               0,27               824 /i915
+GeckoMain 2320 cezary  DEL       REG               0,27               190 /i915
+GeckoMain 2320 cezary  DEL       REG                0,1             48215 /memfd:mozilla-ipc
+GeckoMain 2320 cezary  DEL       REG                0,1             48211 /memfd:mozilla-ipc
+GeckoMain 2320 cezary  DEL       REG                0,1             48210 /memfd:mozilla-ipc
+GeckoMain 2320 cezary  DEL       REG                0,1             50255 /memfd:mozilla-ipc
+GeckoMain 2320 cezary  DEL       REG                0,1             48209 /memfd:mozilla-ipc
+GeckoMain 2320 cezary  DEL       REG               0,27               768 /i915
+GeckoMain 2320 cezary  DEL       REG                0,1             47663 /memfd:mozilla-ipc
+GeckoMain 2320 cezary  DEL       REG               0,27               165 /i915
+GeckoMain 2320 cezary  mem       REG                8,2    320258  262376 /usr/lib/firefox/browser/features/screenshots@mozilla.org.xpi
+GeckoMain 2320 cezary  DEL       REG                0,1             52267 /memfd:mozilla-ipc
+GeckoMain 2320 cezary  DEL       REG               0,27               299 /i915
+GeckoMain 2320 cezary  DEL       REG               0,27               286 /i915
+GeckoMain 2320 cezary  DEL       REG               0,27               252 /i915
+GeckoMain 2320 cezary  DEL       REG                0,1             43722 /memfd:mozilla-ipc
+GeckoMain 2320 cezary  DEL       REG                0,1             45934 /memfd:mozilla-ipc
+GeckoMain 2320 cezary  DEL       REG                0,1             38748 /memfd:mozilla-ipc
+GeckoMain 2320 cezary  DEL       REG                0,1             43537 /memfd:mozilla-ipc
+GeckoMain 2320 cezary  DEL       REG                0,1             41949 /memfd:mozilla-ipc
+GeckoMain 2320 cezary  mem       REG                8,2     14528  271113 /usr/lib/x86_64-linux-gnu/libXss.so.1.0.0
+GeckoMain 2320 cezary  DEL       REG               0,27               726 /i915
+GeckoMain 2320 cezary  DEL       REG               0,27               709 /i915
+GeckoMain 2320 cezary  DEL       REG               0,27               647 /i915
+GeckoMain 2320 cezary  DEL       REG               0,27               622 /i915
+GeckoMain 2320 cezary  DEL       REG               0,27               621 /i915
+GeckoMain 2320 cezary  DEL       REG               0,27               619 /i915
+GeckoMain 2320 cezary  DEL       REG               0,27               615 /i915
+GeckoMain 2320 cezary  DEL       REG                0,1             38747 /memfd:mozilla-ipc
+GeckoMain 2320 cezary  DEL       REG               0,27               713 /i915
+GeckoMain 2320 cezary  DEL       REG               0,27               671 /i915
+GeckoMain 2320 cezary  mem       REG                8,2    380132 1184371 /usr/share/fonts/truetype/dejavu/DejaVuSerif.ttf
+GeckoMain 2320 cezary  mem       REG                8,2    239661  918141 /usr/share/glib-2.0/schemas/gschemas.compiled
+GeckoMain 2320 cezary  DEL       REG               0,27               724 /i915
+GeckoMain 2320 cezary  DEL       REG               0,27               711 /i915
+GeckoMain 2320 cezary  DEL       REG               0,27               708 /i915
+GeckoMain 2320 cezary  DEL       REG                0,1             49252 /memfd:mozilla-ipc
+GeckoMain 2320 cezary  DEL       REG                0,1             38787 /memfd:mozilla-ipc
+GeckoMain 2320 cezary  DEL       REG               0,27               641 /i915
+GeckoMain 2320 cezary  mem       REG                8,2    525752  265713 /usr/lib/firefox/libnssckbi.so
+GeckoMain 2320 cezary  mem       REG                8,2    833808  265693 /usr/lib/firefox/libfreeblpriv3.so
+GeckoMain 2320 cezary  DEL       REG               0,27               595 /i915
+GeckoMain 2320 cezary  DEL       REG               0,27               593 /i915
+GeckoMain 2320 cezary  DEL       REG               0,27               586 /i915
+GeckoMain 2320 cezary  DEL       REG               0,27               585 /i915
+GeckoMain 2320 cezary  DEL       REG               0,27               582 /i915
+GeckoMain 2320 cezary  DEL       REG               0,27               707 /i915
+GeckoMain 2320 cezary  DEL       REG                0,1             34816 /memfd:xshmfence
+GeckoMain 2320 cezary  mem       REG                8,2     31176  272117 /usr/lib/x86_64-linux-gnu/libnss_dns-2.31.so
+GeckoMain 2320 cezary  mem       REG                8,2    330056  265725 /usr/lib/firefox/libsoftokn3.so
+GeckoMain 2320 cezary  DEL       REG                0,1             52262 /memfd:mozilla-ipc
+GeckoMain 2320 cezary  DEL       REG                0,1             40742 /memfd:mozilla-ipc
+GeckoMain 2320 cezary  DEL       REG               0,27               453 /i915
+GeckoMain 2320 cezary  DEL       REG               0,27               447 /i915
+GeckoMain 2320 cezary  DEL       REG               0,27               445 /i915
+GeckoMain 2320 cezary  DEL       REG               0,27               443 /i915
+GeckoMain 2320 cezary  DEL       REG               0,27               442 /i915
+GeckoMain 2320 cezary  DEL       REG                0,1             49262 /memfd:mozilla-ipc
+GeckoMain 2320 cezary  DEL       REG                0,1             46534 /memfd:mozilla-ipc
+GeckoMain 2320 cezary  mem       REG                8,2    100520  272451 /usr/lib/x86_64-linux-gnu/libtdb.so.1.4.2
+GeckoMain 2320 cezary  DEL       REG                0,1             46835 /memfd:mozilla-ipc
+GeckoMain 2320 cezary  DEL       REG                0,1             45841 /memfd:xshmfence
+GeckoMain 2320 cezary  mem       REG                8,2     39368  271959 /usr/lib/x86_64-linux-gnu/libltdl.so.7.3.1
+GeckoMain 2320 cezary  DEL       REG               0,27               677 /i915
+GeckoMain 2320 cezary  mem       REG                8,2     38904  272572 /usr/lib/x86_64-linux-gnu/libvorbisfile.so.3.3.7
+GeckoMain 2320 cezary  mem       REG                8,2     71680  271286 /usr/lib/x86_64-linux-gnu/libcanberra.so.0.2.5
+GeckoMain 2320 cezary  DEL       REG                0,1                42 /SYSV00000000
+GeckoMain 2320 cezary  DEL       REG                0,1                41 /SYSV00000000
+GeckoMain 2320 cezary  DEL       REG                0,1             38876 /memfd:mozilla-ipc
+GeckoMain 2320 cezary  DEL       REG                0,1             38871 /memfd:mozilla-ipc
+GeckoMain 2320 cezary  DEL       REG                0,1             38870 /memfd:mozilla-ipc
+GeckoMain 2320 cezary  DEL       REG                0,1             38869 /memfd:mozilla-ipc
+GeckoMain 2320 cezary  DEL       REG                0,1             38868 /memfd:mozilla-ipc
+GeckoMain 2320 cezary  DEL       REG                0,1             38867 /memfd:mozilla-ipc
+GeckoMain 2320 cezary  DEL       REG                0,1             38866 /memfd:mozilla-ipc
+GeckoMain 2320 cezary  DEL       REG                0,1             38865 /memfd:mozilla-ipc
+GeckoMain 2320 cezary  DEL       REG                0,1             38864 /memfd:mozilla-ipc
+GeckoMain 2320 cezary  DEL       REG                0,1             38863 /memfd:mozilla-ipc
+GeckoMain 2320 cezary  DEL       REG                0,1             38862 /memfd:mozilla-ipc
+GeckoMain 2320 cezary  DEL       REG                0,1             36863 /memfd:mozilla-ipc
+GeckoMain 2320 cezary  DEL       REG               0,27               385 /i915
+GeckoMain 2320 cezary  DEL       REG               0,27               235 /i915
+GeckoMain 2320 cezary  DEL       REG                0,1             45894 /memfd:mozilla-ipc
+GeckoMain 2320 cezary  DEL       REG                0,1             43767 /memfd:mozilla-ipc
+GeckoMain 2320 cezary  DEL       REG                0,1             43766 /memfd:mozilla-ipc
+GeckoMain 2320 cezary  DEL       REG                0,1             46834 /memfd:mozilla-ipc
+GeckoMain 2320 cezary  DEL       REG                0,1             46833 /memfd:mozilla-ipc
+GeckoMain 2320 cezary  DEL       REG                0,1             43781 /memfd:mozilla-ipc
+GeckoMain 2320 cezary  DEL       REG                0,1             55566 /memfd:mozilla-ipc
+GeckoMain 2320 cezary  DEL       REG                0,1             48804 /memfd:mozilla-ipc
+GeckoMain 2320 cezary  DEL       REG                0,1             49407 /memfd:mozilla-ipc
+GeckoMain 2320 cezary  DEL       REG                0,1             53682 /memfd:mozilla-ipc
+GeckoMain 2320 cezary  mem       REG                8,2     83264 1184282 /usr/share/fonts/opentype/urw-base35/NimbusSans-Bold.otf
+GeckoMain 2320 cezary  DEL       REG                0,1             43713 /memfd:mozilla-ipc
+GeckoMain 2320 cezary  DEL       REG                0,1             43712 /memfd:mozilla-ipc
+GeckoMain 2320 cezary  DEL       REG               0,27               717 /i915
+GeckoMain 2320 cezary  DEL       REG                0,1             51697 /memfd:mozilla-ipc
+GeckoMain 2320 cezary  DEL       REG               0,27               755 /i915
+GeckoMain 2320 cezary  DEL       REG                0,1             50709 /memfd:mozilla-ipc
+GeckoMain 2320 cezary  DEL       REG                0,1             55341 /memfd:mozilla-ipc
+GeckoMain 2320 cezary  DEL       REG                0,1             52341 /memfd:mozilla-ipc
+GeckoMain 2320 cezary  DEL       REG               0,27               692 /i915
+GeckoMain 2320 cezary  DEL       REG                0,1             55336 /memfd:mozilla-ipc
+GeckoMain 2320 cezary  DEL       REG               0,27               490 /i915
+GeckoMain 2320 cezary  DEL       REG                0,1             40953 /memfd:mozilla-ipc
+GeckoMain 2320 cezary  DEL       REG               0,27               244 /i915
+GeckoMain 2320 cezary  DEL       REG                0,1             45982 /memfd:mozilla-ipc
+GeckoMain 2320 cezary  mem       REG                8,2     82264 1184285 /usr/share/fonts/opentype/urw-base35/NimbusSans-Regular.otf
+GeckoMain 2320 cezary  DEL       REG                0,1             51696 /memfd:mozilla-ipc
+GeckoMain 2320 cezary  DEL       REG                0,1             51695 /memfd:mozilla-ipc
+GeckoMain 2320 cezary  DEL       REG                0,1             51694 /memfd:mozilla-ipc
+GeckoMain 2320 cezary  DEL       REG                0,1             51693 /memfd:mozilla-ipc
+GeckoMain 2320 cezary  DEL       REG                0,1             51692 /memfd:mozilla-ipc
+GeckoMain 2320 cezary  DEL       REG                0,1             51691 /memfd:mozilla-ipc
+GeckoMain 2320 cezary  DEL       REG                0,1             51690 /memfd:mozilla-ipc
+GeckoMain 2320 cezary  mem       REG                8,2     73344  931189 /usr/share/locale-langpack/pl/LC_MESSAGES/pulseaudio.mo
+GeckoMain 2320 cezary  mem       REG                8,2     34656  792087 /usr/lib/x86_64-linux-gnu/libcanberra-0.30/libcanberra-pulse.so
+GeckoMain 2320 cezary  DEL       REG                0,1             45936 /memfd:mozilla-ipc
+GeckoMain 2320 cezary  DEL       REG                0,1             54425 /memfd:mozilla-ipc
+GeckoMain 2320 cezary  DEL       REG               0,27               381 /i915
+GeckoMain 2320 cezary  DEL       REG               0,27               392 /i915
+GeckoMain 2320 cezary  DEL       REG               0,27               401 /i915
+GeckoMain 2320 cezary  DEL       REG               0,27               398 /i915
+GeckoMain 2320 cezary  DEL       REG               0,27               394 /i915
+GeckoMain 2320 cezary  DEL       REG               0,27               321 /i915
+GeckoMain 2320 cezary  DEL       REG               0,27               309 /i915
+GeckoMain 2320 cezary  DEL       REG               0,27               290 /i915
+GeckoMain 2320 cezary  DEL       REG                0,1             52340 /memfd:mozilla-ipc
+GeckoMain 2320 cezary  DEL       REG                0,1             55335 /memfd:mozilla-ipc
+GeckoMain 2320 cezary  DEL       REG                0,1             55334 /memfd:mozilla-ipc
+GeckoMain 2320 cezary  DEL       REG                0,1             54335 /memfd:mozilla-ipc
+GeckoMain 2320 cezary  DEL       REG                0,1             54334 /memfd:mozilla-ipc
+GeckoMain 2320 cezary  DEL       REG                0,1             54332 /memfd:mozilla-ipc
+GeckoMain 2320 cezary  DEL       REG               0,27               600 /i915
+GeckoMain 2320 cezary  DEL       REG                0,1             51944 /memfd:mozilla-ipc
+GeckoMain 2320 cezary  DEL       REG                0,1             49388 /memfd:mozilla-ipc
+GeckoMain 2320 cezary  DEL       REG                0,1             46794 /memfd:mozilla-ipc
+GeckoMain 2320 cezary  DEL       REG               0,27               747 /i915
+GeckoMain 2320 cezary  DEL       REG               0,27               583 /i915
+GeckoMain 2320 cezary  DEL       REG                0,1             46001 /memfd:mozilla-ipc
+GeckoMain 2320 cezary  DEL       REG                0,1             47745 /memfd:mozilla-ipc
+GeckoMain 2320 cezary  DEL       REG                0,1             55356 /memfd:mozilla-ipc
+GeckoMain 2320 cezary  DEL       REG                0,1             46793 /memfd:mozilla-ipc
+GeckoMain 2320 cezary  DEL       REG                0,1             50718 /memfd:mozilla-ipc
+GeckoMain 2320 cezary  DEL       REG                0,1             49387 /memfd:mozilla-ipc
+GeckoMain 2320 cezary  DEL       REG                0,1             46792 /memfd:mozilla-ipc
+GeckoMain 2320 cezary  DEL       REG                0,1             47739 /memfd:mozilla-ipc
+GeckoMain 2320 cezary  DEL       REG                0,1             49386 /memfd:mozilla-ipc
+GeckoMain 2320 cezary  DEL       REG                0,1             51939 /memfd:mozilla-ipc
+GeckoMain 2320 cezary  DEL       REG                0,1             46000 /memfd:mozilla-ipc
+GeckoMain 2320 cezary  DEL       REG                0,1             48766 /memfd:mozilla-ipc
+GeckoMain 2320 cezary  DEL       REG                0,1             50717 /memfd:mozilla-ipc
+GeckoMain 2320 cezary  DEL       REG                0,1             55355 /memfd:mozilla-ipc
+GeckoMain 2320 cezary  DEL       REG                0,1             46791 /memfd:mozilla-ipc
+GeckoMain 2320 cezary  DEL       REG                0,1             55565 /memfd:mozilla-ipc
+GeckoMain 2320 cezary  DEL       REG               0,27               344 /i915
+GeckoMain 2320 cezary  DEL       REG               0,27               545 /i915
+GeckoMain 2320 cezary  DEL       REG                0,1             52357 /memfd:mozilla-ipc
+GeckoMain 2320 cezary  DEL       REG                0,1             52356 /memfd:mozilla-ipc
+GeckoMain 2320 cezary  DEL       REG                0,1             52355 /memfd:mozilla-ipc
+GeckoMain 2320 cezary  DEL       REG                0,1             52354 /memfd:mozilla-ipc
+GeckoMain 2320 cezary  DEL       REG                0,1             52353 /memfd:mozilla-ipc
+GeckoMain 2320 cezary  DEL       REG                0,1             52352 /memfd:mozilla-ipc
+GeckoMain 2320 cezary  DEL       REG                0,1             52351 /memfd:mozilla-ipc
+GeckoMain 2320 cezary  DEL       REG                0,1             45999 /memfd:mozilla-ipc
+GeckoMain 2320 cezary  DEL       REG                0,1             49385 /memfd:mozilla-ipc
+GeckoMain 2320 cezary  DEL       REG                0,1             45998 /memfd:mozilla-ipc
+GeckoMain 2320 cezary  DEL       REG                0,1             48763 /memfd:mozilla-ipc
+GeckoMain 2320 cezary  DEL       REG                0,1             52350 /memfd:mozilla-ipc
+GeckoMain 2320 cezary  DEL       REG                0,1             48762 /memfd:mozilla-ipc
+GeckoMain 2320 cezary  DEL       REG                0,1             46790 /memfd:mozilla-ipc
+GeckoMain 2320 cezary  DEL       REG                0,1             49384 /memfd:mozilla-ipc
+GeckoMain 2320 cezary  DEL       REG                0,1             43744 /memfd:mozilla-ipc
+GeckoMain 2320 cezary  DEL       REG                0,1             50716 /memfd:mozilla-ipc
+GeckoMain 2320 cezary  DEL       REG                0,1             52349 /memfd:mozilla-ipc
+GeckoMain 2320 cezary  DEL       REG                0,1             45997 /memfd:mozilla-ipc
+GeckoMain 2320 cezary  DEL       REG                0,1             54352 /memfd:mozilla-ipc
+GeckoMain 2320 cezary  DEL       REG                0,1             53661 /memfd:mozilla-ipc
+GeckoMain 2320 cezary  DEL       REG                0,1             48816 /memfd:mozilla-ipc
+GeckoMain 2320 cezary  DEL       REG                0,1             48815 /memfd:mozilla-ipc
+GeckoMain 2320 cezary  DEL       REG               0,27               680 /i915
+GeckoMain 2320 cezary  DEL       REG                0,1             52431 /memfd:mozilla-ipc
+GeckoMain 2320 cezary  DEL       REG                0,1             54418 /memfd:mozilla-ipc
+GeckoMain 2320 cezary  DEL       REG                0,1             46830 /memfd:mozilla-ipc
+GeckoMain 2320 cezary  DEL       REG                0,1             46033 /memfd:mozilla-ipc
+GeckoMain 2320 cezary  DEL       REG               0,27               239 /i915
+GeckoMain 2320 cezary  DEL       REG               0,27               207 /i915
+GeckoMain 2320 cezary  DEL       REG               0,27               814 /i915
+GeckoMain 2320 cezary  DEL       REG               0,27               263 /i915
+GeckoMain 2320 cezary  DEL       REG               0,27               248 /i915
+GeckoMain 2320 cezary  DEL       REG               0,27               211 /i915
+GeckoMain 2320 cezary  mem       REG                8,2     18504  272125 /usr/lib/x86_64-linux-gnu/libnss_mdns4_minimal.so.2
+GeckoMain 2320 cezary  mem       REG                8,2      7032 1650398 /home/cezary/.config/dconf/user
+GeckoMain 2320 cezary  mem       REG               0,56         2      37 /run/user/1000/dconf/user
+GeckoMain 2320 cezary  mem       REG                8,2     67656  791260 /usr/lib/x86_64-linux-gnu/gio/modules/libdconfsettings.so
+GeckoMain 2320 cezary  DEL       REG               0,27               607 /i915
+GeckoMain 2320 cezary  DEL       REG                0,1             51689 /memfd:mozilla-ipc
+GeckoMain 2320 cezary  DEL       REG                0,1             51688 /memfd:mozilla-ipc
+GeckoMain 2320 cezary  DEL       REG                0,1             51687 /memfd:mozilla-ipc
+GeckoMain 2320 cezary  DEL       REG                0,1             47726 /memfd:mozilla-ipc
+GeckoMain 2320 cezary  DEL       REG                0,1             49381 /memfd:mozilla-ipc
+GeckoMain 2320 cezary  DEL       REG                0,1             45933 /memfd:mozilla-ipc
+GeckoMain 2320 cezary  DEL       REG               0,27               646 /i915
+GeckoMain 2320 cezary  DEL       REG               0,27               636 /i915
+GeckoMain 2320 cezary  DEL       REG               0,27               623 /i915
+GeckoMain 2320 cezary  DEL       REG                0,1             43711 /memfd:mozilla-ipc
+GeckoMain 2320 cezary  DEL       REG                0,1             51686 /memfd:mozilla-ipc
+GeckoMain 2320 cezary  DEL       REG                0,1             51685 /memfd:mozilla-ipc
+GeckoMain 2320 cezary  DEL       REG                0,1             46536 /memfd:mozilla-ipc
+GeckoMain 2320 cezary  DEL       REG                0,1             47651 /memfd:mozilla-ipc
+GeckoMain 2320 cezary  DEL       REG               0,27               294 /i915
+GeckoMain 2320 cezary  DEL       REG                0,1             48508 /memfd:mozilla-ipc
+GeckoMain 2320 cezary  DEL       REG                0,1             45932 /memfd:mozilla-ipc
+GeckoMain 2320 cezary  DEL       REG                0,1             47725 /memfd:mozilla-ipc
+GeckoMain 2320 cezary  DEL       REG                0,1             48506 /memfd:mozilla-ipc
+GeckoMain 2320 cezary  DEL       REG                0,1             47650 /memfd:mozilla-ipc
+GeckoMain 2320 cezary  DEL       REG                0,1             38857 /memfd:mozilla-ipc
+GeckoMain 2320 cezary  DEL       REG                0,1             38856 /memfd:mozilla-ipc
+GeckoMain 2320 cezary  DEL       REG                0,1             38855 /memfd:mozilla-ipc
+GeckoMain 2320 cezary  DEL       REG                0,1             38854 /memfd:mozilla-ipc
+GeckoMain 2320 cezary  DEL       REG                0,1             38853 /memfd:mozilla-ipc
+GeckoMain 2320 cezary  DEL       REG                0,1             38852 /memfd:mozilla-ipc
+GeckoMain 2320 cezary  DEL       REG                0,1             45983 /memfd:mozilla-ipc
+GeckoMain 2320 cezary  DEL       REG               0,27               389 /i915
+GeckoMain 2320 cezary  DEL       REG                0,1             54337 /memfd:mozilla-ipc
+GeckoMain 2320 cezary  DEL       REG                0,1             49332 /memfd:mozilla-ipc
+GeckoMain 2320 cezary  DEL       REG                0,1             47662 /memfd:mozilla-ipc
+GeckoMain 2320 cezary  DEL       REG                0,1             46789 /memfd:mozilla-ipc
+GeckoMain 2320 cezary  DEL       REG                0,1             38851 /memfd:mozilla-ipc
+GeckoMain 2320 cezary  DEL       REG                0,1             38850 /memfd:mozilla-ipc
+GeckoMain 2320 cezary  DEL       REG                0,1             38849 /memfd:mozilla-ipc
+GeckoMain 2320 cezary  DEL       REG                0,1             38848 /memfd:mozilla-ipc
+GeckoMain 2320 cezary  DEL       REG                0,1             38847 /memfd:mozilla-ipc
+GeckoMain 2320 cezary  DEL       REG                0,1             38846 /memfd:mozilla-ipc
+GeckoMain 2320 cezary  DEL       REG                0,1             38845 /memfd:mozilla-ipc
+GeckoMain 2320 cezary  DEL       REG                0,1             38844 /memfd:mozilla-ipc
+GeckoMain 2320 cezary  DEL       REG               0,27               229 /i915
+GeckoMain 2320 cezary  DEL       REG                0,1                44 /SYSV00000000
+GeckoMain 2320 cezary  DEL       REG               0,27               550 /i915
+GeckoMain 2320 cezary  DEL       REG                0,1             50708 /memfd:mozilla-ipc
+GeckoMain 2320 cezary  DEL       REG               0,27               399 /i915
+GeckoMain 2320 cezary  DEL       REG                0,1                43 /SYSV00000000
+GeckoMain 2320 cezary  DEL       REG               0,27               506 /i915
+GeckoMain 2320 cezary  DEL       REG               0,27               505 /i915
+GeckoMain 2320 cezary  DEL       REG               0,27               504 /i915
+GeckoMain 2320 cezary  DEL       REG               0,27               503 /i915
+GeckoMain 2320 cezary  DEL       REG                0,1             52339 /memfd:mozilla-ipc
+GeckoMain 2320 cezary  DEL       REG               0,27               491 /i915
+GeckoMain 2320 cezary  DEL       REG                0,1             54341 /memfd:mozilla-ipc
+GeckoMain 2320 cezary  DEL       REG               0,27               476 /i915
+GeckoMain 2320 cezary  DEL       REG                0,1             54342 /memfd:mozilla-ipc
+GeckoMain 2320 cezary  DEL       REG               0,27               471 /i915
+GeckoMain 2320 cezary  DEL       REG               0,27               470 /i915
+GeckoMain 2320 cezary  DEL       REG                0,1             46822 /memfd:mozilla-ipc
+GeckoMain 2320 cezary  DEL       REG                0,1             54336 /memfd:mozilla-ipc
+GeckoMain 2320 cezary  DEL       REG                0,1             40831 /memfd:mozilla-ipc
+GeckoMain 2320 cezary  DEL       REG                0,1             40830 /memfd:mozilla-ipc
+GeckoMain 2320 cezary  DEL       REG                0,1             48185 /memfd:mozilla-ipc
+GeckoMain 2320 cezary  DEL       REG                0,1             48175 /memfd:mozilla-ipc
+GeckoMain 2320 cezary  DEL       REG               0,27               524 /i915
+GeckoMain 2320 cezary  DEL       REG                0,1             45843 /memfd:xshmfence
+GeckoMain 2320 cezary  DEL       REG                0,1             54333 /memfd:mozilla-ipc
+GeckoMain 2320 cezary  DEL       REG                0,1             48187 /memfd:mozilla-ipc
+GeckoMain 2320 cezary  DEL       REG                0,1             48183 /memfd:mozilla-ipc
+GeckoMain 2320 cezary  DEL       REG                0,1             48181 /memfd:mozilla-ipc
+GeckoMain 2320 cezary  DEL       REG                0,1             48179 /memfd:mozilla-ipc
+GeckoMain 2320 cezary  DEL       REG                0,1             48177 /memfd:mozilla-ipc
+GeckoMain 2320 cezary  DEL       REG                0,1             48173 /memfd:mozilla-ipc
+GeckoMain 2320 cezary  DEL       REG                0,1             48171 /memfd:mozilla-ipc
+GeckoMain 2320 cezary  DEL       REG                0,1             48169 /memfd:mozilla-ipc
+GeckoMain 2320 cezary  DEL       REG                0,1             48168 /memfd:mozilla-ipc
+GeckoMain 2320 cezary  DEL       REG                0,1             48167 /memfd:mozilla-ipc
+GeckoMain 2320 cezary  DEL       REG                0,1             48166 /memfd:mozilla-ipc
+GeckoMain 2320 cezary  DEL       REG                0,1             48165 /memfd:mozilla-ipc
+GeckoMain 2320 cezary  DEL       REG                0,1             48164 /memfd:mozilla-ipc
+GeckoMain 2320 cezary  DEL       REG                0,1             34795 /memfd:mozilla-ipc
+GeckoMain 2320 cezary  DEL       REG                0,1             52399 /memfd:mozilla-ipc
+GeckoMain 2320 cezary  DEL       REG                0,1             50748 /memfd:mozilla-ipc
+GeckoMain 2320 cezary  DEL       REG                0,1             52099 /memfd:mozilla-ipc
+GeckoMain 2320 cezary  DEL       REG                0,1             46021 /memfd:mozilla-ipc
+GeckoMain 2320 cezary  DEL       REG                0,1             48802 /memfd:mozilla-ipc
+GeckoMain 2320 cezary  DEL       REG                0,1             54413 /memfd:mozilla-ipc
+GeckoMain 2320 cezary  DEL       REG                0,1             43774 /memfd:mozilla-ipc
+GeckoMain 2320 cezary  DEL       REG               0,27               540 /i915
+GeckoMain 2320 cezary  DEL       REG               0,27               343 /i915
+GeckoMain 2320 cezary  DEL       REG               0,27               339 /i915
+GeckoMain 2320 cezary  DEL       REG               0,27               332 /i915
+GeckoMain 2320 cezary  DEL       REG               0,27               226 /i915
+GeckoMain 2320 cezary  DEL       REG                0,1             50749 /memfd:mozilla-ipc
+GeckoMain 2320 cezary  mem       REG                8,2    274450  262378 /usr/lib/firefox/browser/features/webcompat@mozilla.org.xpi
+GeckoMain 2320 cezary  DEL       REG                0,1             48163 /memfd:mozilla-ipc
+GeckoMain 2320 cezary  DEL       REG               0,27               523 /i915
+GeckoMain 2320 cezary  DEL       REG               0,27               518 /i915
+GeckoMain 2320 cezary  DEL       REG                0,1             54331 /memfd:mozilla-ipc
+GeckoMain 2320 cezary  DEL       REG               0,27               187 /i915
+GeckoMain 2320 cezary  DEL       REG               0,27                46 /i915
+GeckoMain 2320 cezary  DEL       REG               0,27               541 /i915
+GeckoMain 2320 cezary  DEL       REG               0,27               170 /i915
+GeckoMain 2320 cezary  DEL       REG               0,27               813 /i915
+GeckoMain 2320 cezary  DEL       REG               0,27               809 /i915
+GeckoMain 2320 cezary  DEL       REG               0,27               808 /i915
+GeckoMain 2320 cezary  DEL       REG               0,27               789 /i915
+GeckoMain 2320 cezary  mem       REG                8,2     13605  956944 /home/cezary/.mozilla/firefox/6cimc6kr.default-release/features/{84242956-0899-45cd-9f26-21ee439d478f}/addons-search-detection@mozilla.com.xpi
+GeckoMain 2320 cezary  mem       REG                8,2     16544  262375 /usr/lib/firefox/browser/features/pictureinpicture@mozilla.org.xpi
+GeckoMain 2320 cezary  DEL       REG               0,27               744 /i915
+GeckoMain 2320 cezary  DEL       REG               0,27               743 /i915
+GeckoMain 2320 cezary  DEL       REG               0,27               807 /i915
+GeckoMain 2320 cezary  DEL       REG               0,27               806 /i915
+GeckoMain 2320 cezary  DEL       REG               0,27               805 /i915
+GeckoMain 2320 cezary  DEL       REG               0,27               533 /i915
+GeckoMain 2320 cezary  DEL       REG               0,27               358 /i915
+GeckoMain 2320 cezary  DEL       REG               0,27               313 /i915
+GeckoMain 2320 cezary  DEL       REG               0,27               801 /i915
+GeckoMain 2320 cezary  DEL       REG               0,27               357 /i915
+GeckoMain 2320 cezary  DEL       REG               0,27               799 /i915
+GeckoMain 2320 cezary  DEL       REG               0,27               791 /i915
+GeckoMain 2320 cezary  DEL       REG               0,27               790 /i915
+GeckoMain 2320 cezary  DEL       REG               0,27               788 /i915
+GeckoMain 2320 cezary  DEL       REG               0,27               787 /i915
+GeckoMain 2320 cezary  DEL       REG               0,27               577 /i915
+GeckoMain 2320 cezary  DEL       REG                0,1             49235 /memfd:mozilla-ipc
+GeckoMain 2320 cezary  DEL       REG                0,1             48162 /memfd:mozilla-ipc
+GeckoMain 2320 cezary  DEL       REG                0,1             48161 /memfd:mozilla-ipc
+GeckoMain 2320 cezary  DEL       REG                0,1             48160 /memfd:mozilla-ipc
+GeckoMain 2320 cezary  DEL       REG               0,27               551 /i915
+GeckoMain 2320 cezary  DEL       REG                0,1             43529 /memfd:mozilla-ipc
+GeckoMain 2320 cezary  DEL       REG               0,27               278 /i915
+GeckoMain 2320 cezary  mem       REG                8,2    142141  262373 /usr/lib/firefox/browser/features/formautofill@mozilla.org.xpi
+GeckoMain 2320 cezary  DEL       REG               0,27               508 /i915
+GeckoMain 2320 cezary  DEL       REG               0,27               549 /i915
+GeckoMain 2320 cezary  mem       REG                8,2    495440  265744 /usr/lib/firefox-addons/extensions/langpack-pl@firefox.mozilla.org.xpi
+GeckoMain 2320 cezary  mem       REG                8,2    694408  272570 /usr/lib/x86_64-linux-gnu/libvorbisenc.so.2.0.11
+GeckoMain 2320 cezary  mem       REG                8,2    182344  272568 /usr/lib/x86_64-linux-gnu/libvorbis.so.0.4.8
+GeckoMain 2320 cezary  mem       REG                8,2     47064  272143 /usr/lib/x86_64-linux-gnu/libogg.so.0.8.4
+GeckoMain 2320 cezary  mem       REG                8,2    247896  271013 /usr/lib/x86_64-linux-gnu/libFLAC.so.8.3.0
+GeckoMain 2320 cezary  mem       REG                8,2    105528  272111 /usr/lib/x86_64-linux-gnu/libnsl-2.31.so
+GeckoMain 2320 cezary  mem       REG                8,2     80736  271144 /usr/lib/x86_64-linux-gnu/libapparmor.so.1.6.1
+GeckoMain 2320 cezary  mem       REG                8,2     22368  271171 /usr/lib/x86_64-linux-gnu/libasyncns.so.0.3.1
+GeckoMain 2320 cezary  mem       REG                8,2    504048  270050 /usr/lib/x86_64-linux-gnu/libsndfile.so.1.0.28
+GeckoMain 2320 cezary  mem       REG                8,2     44848  272624 /usr/lib/x86_64-linux-gnu/libwrap.so.0.7.6
+GeckoMain 2320 cezary  mem       REG                8,2    526688  787582 /usr/lib/x86_64-linux-gnu/pulseaudio/libpulsecommon-13.99.so
+GeckoMain 2320 cezary  mem       REG                8,2    343240  263306 /usr/lib/x86_64-linux-gnu/libpulse.so.0.21.2
+GeckoMain 2320 cezary  DEL       REG               0,27               786 /i915
+GeckoMain 2320 cezary  DEL       REG               0,27               538 /i915
+GeckoMain 2320 cezary  DEL       REG               0,27               537 /i915
+GeckoMain 2320 cezary  DEL       REG               0,27               536 /i915
+GeckoMain 2320 cezary  DEL       REG               0,27               526 /i915
+GeckoMain 2320 cezary  DEL       REG               0,27               347 /i915
+GeckoMain 2320 cezary  mem       REG                8,2     15666  956946 /home/cezary/.mozilla/firefox/6cimc6kr.default-release/features/{84242956-0899-45cd-9f26-21ee439d478f}/reset-search-defaults@mozilla.com.xpi
+GeckoMain 2320 cezary  mem       REG                8,2     13788  956945 /home/cezary/.mozilla/firefox/6cimc6kr.default-release/features/{84242956-0899-45cd-9f26-21ee439d478f}/proxy-failover@mozilla.com.xpi
+GeckoMain 2320 cezary  mem       REG                8,2     31000  791250 /usr/lib/x86_64-linux-gnu/gdk-pixbuf-2.0/2.10.0/loaders/libpixbufloader-png.so
+GeckoMain 2320 cezary  DEL       REG                0,1             43525 /memfd:mozilla-ipc
+GeckoMain 2320 cezary  DEL       REG               0,27               481 /i915
+GeckoMain 2320 cezary  DEL       REG               0,27               465 /i915
+GeckoMain 2320 cezary  DEL       REG               0,27               464 /i915
+GeckoMain 2320 cezary  DEL       REG               0,27               455 /i915
+GeckoMain 2320 cezary  DEL       REG               0,27               435 /i915
+GeckoMain 2320 cezary  mem       REG                8,2   1310728 1627829 /home/cezary/.cache/mesa_shader_cache/index
+GeckoMain 2320 cezary  mem       REG                8,2    192032  272475 /usr/lib/x86_64-linux-gnu/libtinfo.so.6.2
+GeckoMain 2320 cezary  mem       REG                8,2    208152  271481 /usr/lib/x86_64-linux-gnu/libedit.so.2.0.63
+GeckoMain 2320 cezary  mem       REG                8,2    346840  272579 /usr/lib/x86_64-linux-gnu/libvulkan.so.1.2.131
+GeckoMain 2320 cezary  mem       REG                8,2     39216  269567 /usr/lib/x86_64-linux-gnu/libdrm_nouveau.so.2.0.0
+GeckoMain 2320 cezary  mem       REG                8,2     43544  269119 /usr/lib/x86_64-linux-gnu/libdrm_amdgpu.so.1.0.0
+GeckoMain 2320 cezary  mem       REG                8,2    109200  271486 /usr/lib/x86_64-linux-gnu/libelf-0.176.so
+GeckoMain 2320 cezary  mem       REG                8,2     55616  269705 /usr/lib/x86_64-linux-gnu/libdrm_radeon.so.1.0.1
+GeckoMain 2320 cezary  mem       REG                8,2     64024  272364 /usr/lib/x86_64-linux-gnu/libsensors.so.5.0.0
+GeckoMain 2320 cezary  mem       REG                8,2    686160  272716 /usr/lib/x86_64-linux-gnu/libzstd.so.1.4.4
+GeckoMain 2320 cezary  mem       REG                8,2  91489024  263696 /usr/lib/x86_64-linux-gnu/libLLVM-12.so.1
+GeckoMain 2320 cezary  mem       REG                8,2  23987392  794189 /usr/lib/x86_64-linux-gnu/dri/iris_dri.so
+GeckoMain 2320 cezary  mem       REG                8,2     35032  272664 /usr/lib/x86_64-linux-gnu/libxcb-xfixes.so.0.0.0
+GeckoMain 2320 cezary  mem       REG                8,2      6160  272696 /usr/lib/x86_64-linux-gnu/libxshmfence.so.1.0.0
+GeckoMain 2320 cezary  mem       REG                8,2     35064  272660 /usr/lib/x86_64-linux-gnu/libxcb-sync.so.1.0.0
+GeckoMain 2320 cezary  mem       REG                8,2     14552  272646 /usr/lib/x86_64-linux-gnu/libxcb-present.so.0.0.0
+GeckoMain 2320 cezary  mem       REG                8,2    112856  272638 /usr/lib/x86_64-linux-gnu/libxcb-glx.so.0.0.0
+GeckoMain 2320 cezary  mem       REG                8,2     76376  263670 /usr/lib/x86_64-linux-gnu/libdrm.so.2.4.0
+GeckoMain 2320 cezary  mem       REG                8,2    488216  269709 /usr/lib/x86_64-linux-gnu/libGLX_mesa.so.0.0.0
+GeckoMain 2320 cezary  mem       REG                8,2    715200  271026 /usr/lib/x86_64-linux-gnu/libGLdispatch.so.0.0.0
+GeckoMain 2320 cezary  mem       REG                8,2    547152  271015 /usr/lib/x86_64-linux-gnu/libGL.so.1.7.0
+GeckoMain 2320 cezary  DEL       REG               0,27               782 /i915
+GeckoMain 2320 cezary  DEL       REG                0,1             34792 /memfd:mozilla-ipc
+GeckoMain 2320 cezary  mem       REG                8,2     18664  272636 /usr/lib/x86_64-linux-gnu/libxcb-dri3.so.0.0.0
+GeckoMain 2320 cezary  mem       REG                8,2     22872  271127 /usr/lib/x86_64-linux-gnu/libXxf86vm.so.1.0.0
+GeckoMain 2320 cezary  mem       REG                8,2    227736  269714 /usr/lib/x86_64-linux-gnu/libglapi.so.0.0.0
+GeckoMain 2320 cezary  mem       REG                8,2    141912  271021 /usr/lib/x86_64-linux-gnu/libGLX.so.0.0.0
+GeckoMain 2320 cezary  mem       REG                8,2    489608  271835 /usr/lib/x86_64-linux-gnu/libibus-1.0.so.5.0.522
+GeckoMain 2320 cezary  DEL       REG               0,27               521 /i915
+GeckoMain 2320 cezary  mem       REG                8,2      2632 1634705 /home/cezary/.cache/fontconfig/a41116dafaf8b233ac2c61cb73f2ea5f-le64.cache-7
+GeckoMain 2320 cezary  DEL       REG                0,1             41944 /memfd:xshmfence
+GeckoMain 2320 cezary  DEL       REG               0,27               459 /i915
+GeckoMain 2320 cezary  DEL       REG               0,27               448 /i915
+GeckoMain 2320 cezary  DEL       REG               0,27               446 /i915
+GeckoMain 2320 cezary  DEL       REG               0,27               375 /i915
+GeckoMain 2320 cezary  DEL       REG               0,27               402 /i915
+GeckoMain 2320 cezary  DEL       REG               0,27               395 /i915
+GeckoMain 2320 cezary  mem       REG                8,2     39104  803808 /usr/lib/x86_64-linux-gnu/gtk-3.0/3.0.0/immodules/im-ibus.so
+GeckoMain 2320 cezary  mem       REG                8,2    340712 1184369 /usr/share/fonts/truetype/dejavu/DejaVuSansMono.ttf
+GeckoMain 2320 cezary  mem       REG                8,2    426968 2022854 /var/cache/fontconfig/ded65f40-07df-4430-8595-36bd0b8417c2-le64.cache-7
+GeckoMain 2320 cezary  mem       REG                8,2   9603656  272330 /usr/lib/x86_64-linux-gnu/librsvg-2.so.2.47.0
+GeckoMain 2320 cezary  mem       REG                8,2     22744  272634 /usr/lib/x86_64-linux-gnu/libxcb-dri2.so.0.0.0
+GeckoMain 2320 cezary  mem       REG                8,2     44064 1988601 /var/cache/fontconfig/936bad6c-9234-447d-bfb4-e435846d2ce6-le64.cache-7
+GeckoMain 2320 cezary  mem       REG                8,2     46128 1988629 /var/cache/fontconfig/f73ea717-cb6c-42d2-8b36-9989e5604c1a-le64.cache-7
+GeckoMain 2320 cezary  mem       REG                8,2     22960 1988574 /var/cache/fontconfig/28a623fc-db07-4f7f-a584-28b8ae25bc26-le64.cache-7
+GeckoMain 2320 cezary  mem       REG                8,2      3520 1988595 /var/cache/fontconfig/6fba8502-a7f6-45c1-a061-42f912d0a34e-le64.cache-7
+GeckoMain 2320 cezary  mem       REG                8,2     87624 1988571 /var/cache/fontconfig/1a80d61d-73a6-45de-a9a8-723e94c83091-le64.cache-7
+GeckoMain 2320 cezary  mem       REG                8,2      3200 1988592 /var/cache/fontconfig/622cbe7a-fb57-4c9e-aa23-3938548cf1a5-le64.cache-7
+GeckoMain 2320 cezary  mem       REG                8,2      1688 1988621 /var/cache/fontconfig/cf3243a2-9b9f-4873-86b2-74c553f8a4ff-le64.cache-7
+GeckoMain 2320 cezary  mem       REG                8,2      4792 1988568 /var/cache/fontconfig/13e1a81c-3672-4c0d-87c3-61d50ec9de42-le64.cache-7
+GeckoMain 2320 cezary  mem       REG                8,2      1792 1988593 /var/cache/fontconfig/6499a7d9-fb67-4b7e-af60-c24e7053b4bf-le64.cache-7
+GeckoMain 2320 cezary  mem       REG                8,2      6384 1988623 /var/cache/fontconfig/26d4fde4-5ed0-4497-824f-09f128be5acd-le64.cache-7
+GeckoMain 2320 cezary  mem       REG                8,2      4224 1988596 /var/cache/fontconfig/7a54eab7-7537-4495-8f68-b2a197af8343-le64.cache-7
+GeckoMain 2320 cezary  mem       REG                8,2      6560 1988604 /var/cache/fontconfig/9a231d67-a90f-440b-bae1-5d7d91b46e95-le64.cache-7
+GeckoMain 2320 cezary  mem       REG                8,2      2416 1988565 /var/cache/fontconfig/0d9971b2-3410-4d42-a344-82a7970f14c8-le64.cache-7
+GeckoMain 2320 cezary  mem       REG                8,2     16784 1988600 /var/cache/fontconfig/8b575b03-176f-4f5e-80dc-3d8c9b071b1d-le64.cache-7
+GeckoMain 2320 cezary  mem       REG                8,2      1864 1988586 /var/cache/fontconfig/4e306601-ec8d-4340-bcca-51333bfc8aa7-le64.cache-7
+GeckoMain 2320 cezary  mem       REG                8,2      1904 1988583 /var/cache/fontconfig/453dfd5b-8709-4f2f-a7db-ff5ffe3422c2-le64.cache-7
+GeckoMain 2320 cezary  mem       REG                8,2      1968 1988579 /var/cache/fontconfig/3af16682-16a9-4ca7-9868-200d2583d79b-le64.cache-7
+GeckoMain 2320 cezary  mem       REG                8,2      1872 1988624 /var/cache/fontconfig/e7c92a02-262c-4e22-8265-6394487469f6-le64.cache-7
+GeckoMain 2320 cezary  mem       REG                8,2      1784 1988576 /var/cache/fontconfig/2e6dd9ce-a66e-4c0e-87a7-355c7a6bbdca-le64.cache-7
+GeckoMain 2320 cezary  mem       REG                8,2      1800 1988628 /var/cache/fontconfig/f3f4d97e-2c55-4b8e-a1aa-b6e0ead199c4-le64.cache-7
+GeckoMain 2320 cezary  mem       REG                8,2      1792 1988598 /var/cache/fontconfig/888904a8-176e-477b-80fc-c006607a6028-le64.cache-7
+GeckoMain 2320 cezary  mem       REG                8,2      1880 1988577 /var/cache/fontconfig/308933df-8530-4520-bac0-d22fa9b90cb2-le64.cache-7
+GeckoMain 2320 cezary  mem       REG                8,2     20008 1988562 /var/cache/fontconfig/00ce61a7-4b60-4d04-b2d6-7f7a9e8eed7e-le64.cache-7
+GeckoMain 2320 cezary  mem       REG                8,2     24856 1988580 /var/cache/fontconfig/3b374f09-a3ac-4aba-a76f-14c4f102c28f-le64.cache-7
+GeckoMain 2320 cezary  mem       REG                8,2     22280 1988588 /var/cache/fontconfig/5ac60392-4b57-444e-908e-782f5f825d72-le64.cache-7
+GeckoMain 2320 cezary  mem       REG                8,2     77200 1988589 /var/cache/fontconfig/5b49cb48-5dd4-4abb-b271-01fbf791fb77-le64.cache-7
+GeckoMain 2320 cezary  mem       REG                8,2    283476 2022890 /usr/share/icons/breeze-dark/icon-theme.cache
+GeckoMain 2320 cezary  mem       REG                8,2      2128 1988610 /var/cache/fontconfig/aa07bcbc-54f6-4f48-8fa6-6c615fdebd68-le64.cache-7
+GeckoMain 2320 cezary  mem       REG                8,2      1792 1988566 /var/cache/fontconfig/0da060c7-f7cb-433a-98b0-13c1aff88782-le64.cache-7
+GeckoMain 2320 cezary  mem       REG                8,2      1800 1988627 /var/cache/fontconfig/f0d04bcc-3a31-49bf-9e28-6919dbd3c6f3-le64.cache-7
+GeckoMain 2320 cezary  mem       REG                8,2      3008 1988609 /var/cache/fontconfig/a4cdb78d-ef94-44d8-8f93-54b07cf9ac5a-le64.cache-7
+GeckoMain 2320 cezary  mem       REG                8,2      3288 1988585 /var/cache/fontconfig/4e13e351-67b9-47b9-aac7-a5a7b2bcd52a-le64.cache-7
+GeckoMain 2320 cezary  mem       REG                8,2      7928 2022852 /var/cache/fontconfig/e2b4d74e-80ec-4959-9352-69d25b6c3e35-le64.cache-7
+GeckoMain 2320 cezary  mem       REG                8,2     16312 1988570 /var/cache/fontconfig/17fe28ce-69c0-4394-ada4-3c93e80ae15d-le64.cache-7
+GeckoMain 2320 cezary  mem       REG                8,2      3224 1988572 /var/cache/fontconfig/20ecc3c4-0b02-4d3f-9210-9e9057280073-le64.cache-7
+GeckoMain 2320 cezary  mem       REG                8,2      1968 1988606 /var/cache/fontconfig/9c46b5a3-629a-4af4-899b-76dcfa9a0deb-le64.cache-7
+GeckoMain 2320 cezary  mem       REG                8,2      9208 1988584 /var/cache/fontconfig/4672fee8-be37-4c9b-97e6-8e81ebbcd5de-le64.cache-7
+GeckoMain 2320 cezary  mem       REG                8,2      5360 1988581 /var/cache/fontconfig/3b819fea-0966-45f3-bd49-1ede7e03b20a-le64.cache-7
+GeckoMain 2320 cezary  mem       REG                8,2     10128 1988632 /var/cache/fontconfig/feecd630-6a65-4127-ba58-0a133484c046-le64.cache-7
+GeckoMain 2320 cezary  mem       REG                8,2     55112 1988612 /var/cache/fontconfig/b4fac5cf-c5c8-4741-9c37-40638110daea-le64.cache-7
+GeckoMain 2320 cezary  mem       REG                8,2     62456 1988622 /var/cache/fontconfig/ddfbdbb9-62e3-4aa9-802d-a4b05b417f08-le64.cache-7
+GeckoMain 2320 cezary  mem       REG                8,2     37056 1988602 /var/cache/fontconfig/972e9b6d-e869-4492-aa10-45bc4d049fe7-le64.cache-7
+GeckoMain 2320 cezary  mem       REG                8,2     15560 1988631 /var/cache/fontconfig/fe759cbf-01c6-40dc-8278-ee741b00dc7e-le64.cache-7
+GeckoMain 2320 cezary  mem       REG                8,2   7788847 1210851 /home/cezary/.cache/mozilla/firefox/6cimc6kr.default-release/startupCache/scriptCache-current.bin
+GeckoMain 2320 cezary  mem       REG                8,2    571750 1227752 /home/cezary/.cache/mozilla/firefox/6cimc6kr.default-release/startupCache/scriptCache-child-current.bin
+GeckoMain 2320 cezary  DEL       REG                0,1             43521 /memfd:mozilla-ipc
+GeckoMain 2320 cezary  mem       REG                8,2      1824 1988597 /var/cache/fontconfig/81098ec5-886b-4acf-8538-65d61226c1da-le64.cache-7
+GeckoMain 2320 cezary  mem       REG                8,2     92428 1059450 /usr/share/icons/gnome/icon-theme.cache
+GeckoMain 2320 cezary  mem       REG                8,2    153424  930030 /usr/share/mime/mime.cache
+GeckoMain 2320 cezary  mem       REG                8,2   2092798 1211029 /home/cezary/.cache/mozilla/firefox/6cimc6kr.default-release/startupCache/startupCache.8.little
+GeckoMain 2320 cezary  mem       REG                8,2    116664  923971 /usr/share/icons/Adwaita/icon-theme.cache
+GeckoMain 2320 cezary  mem       REG                8,2  41581280  262379 /usr/lib/firefox/browser/omni.ja
+GeckoMain 2320 cezary  mem       REG                8,2  28830755  265733 /usr/lib/firefox/omni.ja
+GeckoMain 2320 cezary  mem       REG                8,2     39144  271067 /usr/lib/x86_64-linux-gnu/libSM.so.6.0.1
+GeckoMain 2320 cezary  mem       REG                8,2    106176  271030 /usr/lib/x86_64-linux-gnu/libICE.so.6.3.0
+GeckoMain 2320 cezary  mem       REG                8,2     51832  272119 /usr/lib/x86_64-linux-gnu/libnss_files-2.31.so
+GeckoMain 2320 cezary  mem       REG                8,2    130829  930622 /usr/share/locale-langpack/pl/LC_MESSAGES/glib20.mo
+GeckoMain 2320 cezary  mem       REG                8,2    256232  791918 /usr/lib/x86_64-linux-gnu/gvfs/libgvfscommon.so
+GeckoMain 2320 cezary  mem       REG                8,2    231928  791265 /usr/lib/x86_64-linux-gnu/gio/modules/libgvfsdbus.so
+GeckoMain 2320 cezary  mem       REG                8,2      1872 1988615 /var/cache/fontconfig/bbfdb3da-8497-452f-8f5d-9e3f4cec5a23-le64.cache-7
+GeckoMain 2320 cezary  mem       REG                8,2      3368 1988630 /var/cache/fontconfig/fa8a65e8-90ab-4dd7-b875-53e50787d326-le64.cache-7
+GeckoMain 2320 cezary  mem       REG                8,2      2360 1988620 /var/cache/fontconfig/cee008e8-ff75-4709-9de1-bd7399e16751-le64.cache-7
+GeckoMain 2320 cezary  mem       REG                8,2      1728 1988619 /var/cache/fontconfig/c0cbb0c6-36f6-485a-a792-0d55f9fa654b-le64.cache-7
+GeckoMain 2320 cezary  mem       REG                8,2      2144 1988611 /var/cache/fontconfig/b040e047-6841-4a6a-9514-1d97804560ce-le64.cache-7
+GeckoMain 2320 cezary  mem       REG                8,2     11272 1988608 /var/cache/fontconfig/a0c0ff8f-6411-4db1-b68a-ce45a03a32a3-le64.cache-7
+GeckoMain 2320 cezary  mem       REG                8,2  28046896  271849 /usr/lib/x86_64-linux-gnu/libicudata.so.66.1
+GeckoMain 2320 cezary  mem       REG                8,2   1976648  271859 /usr/lib/x86_64-linux-gnu/libicuuc.so.66.1
+GeckoMain 2320 cezary  mem       REG                8,2    155584  272680 /usr/lib/x86_64-linux-gnu/libxkbfile.so.1.0.2
+GeckoMain 2320 cezary  mem       REG                8,2   1799408  263294 /usr/lib/x86_64-linux-gnu/libxml2.so.2.9.10
+GeckoMain 2320 cezary  mem       REG                8,2    113832  272682 /usr/lib/x86_64-linux-gnu/libxklavier.so.16.4.0
+GeckoMain 2320 cezary  mem       REG                8,2     34688  271685 /usr/lib/x86_64-linux-gnu/libgnomekbd.so.8.0.0
+GeckoMain 2320 cezary  mem       REG                8,2     96256  271687 /usr/lib/x86_64-linux-gnu/libgnomekbdui.so.8.0.0
+GeckoMain 2320 cezary  mem       REG                8,2    240040  262807 /usr/lib/x86_64-linux-gnu/libxapp.so.2.2.3
+GeckoMain 2320 cezary  mem       REG                8,2      1688 1988603 /var/cache/fontconfig/979e5ca4-c431-4aea-ab36-43a9a5e020d0-le64.cache-7
+GeckoMain 2320 cezary  mem       REG                8,2      2120 1988626 /var/cache/fontconfig/ed39bdaa-e9ee-44f1-bde0-203c836c1a9a-le64.cache-7
+GeckoMain 2320 cezary  mem       REG                8,2     10336 1988590 /var/cache/fontconfig/5d1780ec-4395-4f57-8f2e-4b25d3636f68-le64.cache-7
+GeckoMain 2320 cezary  mem       REG                8,2     32296 1086176 /usr/share/icons/hicolor/icon-theme.cache
+GeckoMain 2320 cezary  mem       REG                8,2     23870  930596 /usr/share/locale-langpack/pl/LC_MESSAGES/gdk-pixbuf.mo
+GeckoMain 2320 cezary  mem       REG                8,2    213640  930684 /usr/share/locale-langpack/pl/LC_MESSAGES/gtk30-properties.mo
+GeckoMain 2320 cezary  mem       REG                8,2    150917  931047 /usr/share/locale-langpack/pl/LC_MESSAGES/libc.mo
+GeckoMain 2320 cezary  mem       REG                8,2   8290544  269542 /usr/lib/locale/locale-archive
+GeckoMain 2320 cezary  mem       REG                8,2    170064  271396 /usr/lib/x86_64-linux-gnu/libdbus-glib-1.so.2.3.4
+GeckoMain 2320 cezary  mem       REG                8,2    111399  930685 /usr/share/locale-langpack/pl/LC_MESSAGES/gtk30.mo
+GeckoMain 2320 cezary  mem       REG                8,2 141614800  265729 /usr/lib/firefox/libxul.so
+GeckoMain 2320 cezary  mem       REG                8,2    137584  271699 /usr/lib/x86_64-linux-gnu/libgpg-error.so.0.28.0
+GeckoMain 2320 cezary  mem       REG                8,2   1168056  269073 /usr/lib/x86_64-linux-gnu/libgcrypt.so.20.2.5
+GeckoMain 2320 cezary  mem       REG                8,2    129248  271966 /usr/lib/x86_64-linux-gnu/liblz4.so.1.9.2
+GeckoMain 2320 cezary  mem       REG                8,2    162264  271968 /usr/lib/x86_64-linux-gnu/liblzma.so.5.2.4
+GeckoMain 2320 cezary  mem       REG                8,2     96728  271265 /usr/lib/x86_64-linux-gnu/libbsd.so.0.10.0
+GeckoMain 2320 cezary  mem       REG                8,2     34888  271390 /usr/lib/x86_64-linux-gnu/libdatrie.so.1.3.5
+GeckoMain 2320 cezary  mem       REG                8,2    584392  272213 /usr/lib/x86_64-linux-gnu/libpcre2-8.so.0.9.0
+GeckoMain 2320 cezary  mem       REG                8,2    351352  271242 /usr/lib/x86_64-linux-gnu/libblkid.so.1.1.0
+GeckoMain 2320 cezary  mem       REG                8,2    709496  269496 /usr/lib/x86_64-linux-gnu/libsystemd.so.0.28.0
+GeckoMain 2320 cezary  mem       REG                8,2     26800  271089 /usr/lib/x86_64-linux-gnu/libXdmcp.so.6.0.0
+GeckoMain 2320 cezary  mem       REG                8,2     18688  271078 /usr/lib/x86_64-linux-gnu/libXau.so.6.0.0
+GeckoMain 2320 cezary  mem       REG                8,2     30936  272541 /usr/lib/x86_64-linux-gnu/libuuid.so.1.3.0
+GeckoMain 2320 cezary  mem       REG                8,2    182560  271514 /usr/lib/x86_64-linux-gnu/libexpat.so.1.6.11
+GeckoMain 2320 cezary  mem       REG                8,2    178488  271716 /usr/lib/x86_64-linux-gnu/libgraphite2.so.3.2.1
+GeckoMain 2320 cezary  mem       REG                8,2    465008  272207 /usr/lib/x86_64-linux-gnu/libpcre.so.3.13.3
+GeckoMain 2320 cezary  mem       REG                8,2     43416  271528 /usr/lib/x86_64-linux-gnu/libffi.so.7.1.0
+GeckoMain 2320 cezary  mem       REG                8,2     41152  272459 /usr/lib/x86_64-linux-gnu/libthai.so.0.3.1
+GeckoMain 2320 cezary  mem       REG                8,2    101320  272313 /usr/lib/x86_64-linux-gnu/libresolv-2.31.so
+GeckoMain 2320 cezary  mem       REG                8,2    163200  272361 /usr/lib/x86_64-linux-gnu/libselinux.so.1
+GeckoMain 2320 cezary  mem       REG                8,2    387768  272004 /usr/lib/x86_64-linux-gnu/libmount.so.1.1.0
+GeckoMain 2320 cezary  mem       REG                8,2    219464  271187 /usr/lib/x86_64-linux-gnu/libatspi.so.0.0.1
+GeckoMain 2320 cezary  mem       REG                8,2    325944  271394 /usr/lib/x86_64-linux-gnu/libdbus-1.so.3.19.11
+GeckoMain 2320 cezary  mem       REG                8,2    108936  272710 /usr/lib/x86_64-linux-gnu/libz.so.1.2.11
+GeckoMain 2320 cezary  mem       REG                8,2     39448  271111 /usr/lib/x86_64-linux-gnu/libXrender.so.1.3.0
+GeckoMain 2320 cezary  mem       REG                8,2     55544  272652 /usr/lib/x86_64-linux-gnu/libxcb-render.so.0.0.0
+GeckoMain 2320 cezary  mem       REG                8,2     14568  272658 /usr/lib/x86_64-linux-gnu/libxcb-shm.so.0.0.0
+GeckoMain 2320 cezary  mem       REG                8,2    223304  272247 /usr/lib/x86_64-linux-gnu/libpng16.so.16.37.0
+GeckoMain 2320 cezary  mem       REG                8,2    678064  272231 /usr/lib/x86_64-linux-gnu/libpixman-1.so.0.38.4
+GeckoMain 2320 cezary  mem       REG                8,2    166488  272674 /usr/lib/x86_64-linux-gnu/libxcb.so.1.1.0
+GeckoMain 2320 cezary  mem       REG                8,2     81600  271091 /usr/lib/x86_64-linux-gnu/libXext.so.6.4.0
+GeckoMain 2320 cezary  mem       REG                8,2     64808  272587 /usr/lib/x86_64-linux-gnu/libwayland-client.so.0.3.0
+GeckoMain 2320 cezary  mem       REG                8,2     14368  272591 /usr/lib/x86_64-linux-gnu/libwayland-egl.so.1.0.0
+GeckoMain 2320 cezary  mem       REG                8,2     39448  272589 /usr/lib/x86_64-linux-gnu/libwayland-cursor.so.0.0.0
+GeckoMain 2320 cezary  mem       REG                8,2    264768  272678 /usr/lib/x86_64-linux-gnu/libxkbcommon.so.0.0.0
+GeckoMain 2320 cezary  mem       REG                8,2     14512  271087 /usr/lib/x86_64-linux-gnu/libXdamage.so.1.1.0
+GeckoMain 2320 cezary  mem       REG                8,2     14488  271083 /usr/lib/x86_64-linux-gnu/libXcomposite.so.1.0.0
+GeckoMain 2320 cezary  mem       REG                8,2     47584  271085 /usr/lib/x86_64-linux-gnu/libXcursor.so.1.0.2
+GeckoMain 2320 cezary  mem       REG                8,2     47504  271109 /usr/lib/x86_64-linux-gnu/libXrandr.so.2.2.0
+GeckoMain 2320 cezary  mem       REG                8,2     14496  271101 /usr/lib/x86_64-linux-gnu/libXinerama.so.1.0.0
+GeckoMain 2320 cezary  mem       REG                8,2    776264  271592 /usr/lib/x86_64-linux-gnu/libfreetype.so.6.17.1
+GeckoMain 2320 cezary  mem       REG                8,2    285840  271574 /usr/lib/x86_64-linux-gnu/libfontconfig.so.1.12.0
+GeckoMain 2320 cezary  mem       REG                8,2   1065824  271807 /usr/lib/x86_64-linux-gnu/libharfbuzz.so.0.20600.4
+GeckoMain 2320 cezary  mem       REG                8,2   1207920  262697 /usr/lib/x86_64-linux-gnu/libglib-2.0.so.0.6400.6
+GeckoMain 2320 cezary  mem       REG                8,2    387448  262722 /usr/lib/x86_64-linux-gnu/libgobject-2.0.so.0.6400.6
+GeckoMain 2320 cezary  mem       REG                8,2    317512  272182 /usr/lib/x86_64-linux-gnu/libpango-1.0.so.0.4400.7
+GeckoMain 2320 cezary  mem       REG                8,2     96248  272186 /usr/lib/x86_64-linux-gnu/libpangoft2-1.0.so.0.4400.7
+GeckoMain 2320 cezary  mem       REG                8,2   1957200  262673 /usr/lib/x86_64-linux-gnu/libgio-2.0.so.0.6400.6
+GeckoMain 2320 cezary  mem       REG                8,2    112960  271594 /usr/lib/x86_64-linux-gnu/libfribidi.so.0.4.0
+GeckoMain 2320 cezary  mem       REG                8,2   1255152  271493 /usr/lib/x86_64-linux-gnu/libepoxy.so.0.0.0
+GeckoMain 2320 cezary  mem       REG                8,2    219008  271177 /usr/lib/x86_64-linux-gnu/libatk-bridge-2.0.so.0.0.0
+GeckoMain 2320 cezary  mem       REG                8,2    165968  271175 /usr/lib/x86_64-linux-gnu/libatk-1.0.so.0.23510.1
+GeckoMain 2320 cezary  mem       REG                8,2    157944  271645 /usr/lib/x86_64-linux-gnu/libgdk_pixbuf-2.0.so.0.4000.0
+GeckoMain 2320 cezary  mem       REG                8,2   1183496  271278 /usr/lib/x86_64-linux-gnu/libcairo.so.2.11600.0
+GeckoMain 2320 cezary  mem       REG                8,2     42920  271276 /usr/lib/x86_64-linux-gnu/libcairo-gobject.so.2.11600.0
+GeckoMain 2320 cezary  mem       REG                8,2     26824  271093 /usr/lib/x86_64-linux-gnu/libXfixes.so.3.1.0
+GeckoMain 2320 cezary  mem       REG                8,2     68128  271099 /usr/lib/x86_64-linux-gnu/libXi.so.6.1.0
+GeckoMain 2320 cezary  mem       REG                8,2   1293928  271074 /usr/lib/x86_64-linux-gnu/libX11.so.6.3.0
+GeckoMain 2320 cezary  mem       REG                8,2     67712  272184 /usr/lib/x86_64-linux-gnu/libpangocairo-1.0.so.0.4400.7
+GeckoMain 2320 cezary  mem       REG                8,2     18640  262721 /usr/lib/x86_64-linux-gnu/libgmodule-2.0.so.0.6400.6
+GeckoMain 2320 cezary  mem       REG                8,2   1063760  271641 /usr/lib/x86_64-linux-gnu/libgdk-3.so.0.2404.16
+GeckoMain 2320 cezary  mem       REG                8,2   8037912  271776 /usr/lib/x86_64-linux-gnu/libgtk-3.so.0.2404.16
+GeckoMain 2320 cezary  mem       REG                8,2     14360  791253 /usr/lib/x86_64-linux-gnu/gdk-pixbuf-2.0/2.10.0/loaders/libpixbufloader-svg.so
+GeckoMain 2320 cezary  mem       REG                8,2     14328  790425 /usr/lib/x86_64-linux-gnu/gtk-3.0/modules/libxapp-gtk3-module.so
+GeckoMain 2320 cezary  mem       REG                8,2     27002  791232 /usr/lib/x86_64-linux-gnu/gconv/gconv-modules.cache
+GeckoMain 2320 cezary  mem       REG                8,2     14048  271072 /usr/lib/x86_64-linux-gnu/libX11-xcb.so.1.0.0
+GeckoMain 2320 cezary  mem       REG                8,2     18296  265707 /usr/lib/firefox/libmozwayland.so
+GeckoMain 2320 cezary  mem       REG                8,2    398608  265727 /usr/lib/firefox/libssl3.so
+GeckoMain 2320 cezary  mem       REG                8,2   1271216  265705 /usr/lib/firefox/libmozsqlite3.so
+GeckoMain 2320 cezary  mem       REG                8,2    159664  265721 /usr/lib/firefox/libsmime3.so
+GeckoMain 2320 cezary  mem       REG                8,2    682472  265711 /usr/lib/firefox/libnss3.so
+GeckoMain 2320 cezary  mem       REG                8,2    203664  265715 /usr/lib/firefox/libnssutil3.so
+GeckoMain 2320 cezary  mem       REG                8,2     43120  265695 /usr/lib/firefox/liblgpllibs.so
+GeckoMain 2320 cezary  mem       REG                8,2    239272  265709 /usr/lib/firefox/libnspr4.so
+GeckoMain 2320 cezary  mem       REG                8,2      1696 1988614 /var/cache/fontconfig/b7ebae6f-dc82-4698-8fab-c292348fb133-le64.cache-7
+GeckoMain 2320 cezary  mem       REG                8,2      1872 1988564 /var/cache/fontconfig/03e2ff54-ba4a-4a63-b8f9-c800b68994a8-le64.cache-7
+GeckoMain 2320 cezary  DEL       REG               0,27               517 /i915
+GeckoMain 2320 cezary  mem       REG                8,2     14128  265701 /usr/lib/firefox/libmozgtk.so
+GeckoMain 2320 cezary  mem       REG                8,2    154400  265703 /usr/lib/firefox/libmozsandbox.so
+GeckoMain 2320 cezary  mem       REG                8,2   2029224  271269 /usr/lib/x86_64-linux-gnu/libc-2.31.so
+GeckoMain 2320 cezary  mem       REG                8,2    104984  266504 /usr/lib/x86_64-linux-gnu/libgcc_s.so.1
+GeckoMain 2320 cezary  mem       REG                8,2   1369352  271971 /usr/lib/x86_64-linux-gnu/libm-2.31.so
+GeckoMain 2320 cezary  mem       REG                8,2   1956992  269071 /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.28
+GeckoMain 2320 cezary  mem       REG                8,2     18816  271430 /usr/lib/x86_64-linux-gnu/libdl-2.31.so
+GeckoMain 2320 cezary  mem       REG                8,2    157224  272272 /usr/lib/x86_64-linux-gnu/libpthread-2.31.so
+GeckoMain 2320 cezary  DEL       REG                0,1             34794 /memfd:mozilla-ipc
+GeckoMain 2320 cezary  mem       REG                8,2     10471  930529 /usr/share/locale-langpack/pl/LC_MESSAGES/atk10.mo
+GeckoMain 2320 cezary  mem       REG                8,2     40040  272331 /usr/lib/x86_64-linux-gnu/librt-2.31.so
+GeckoMain 2320 cezary  mem       REG                8,2     18544  265719 /usr/lib/firefox/libplds4.so
+GeckoMain 2320 cezary  mem       REG                8,2     22728  265717 /usr/lib/firefox/libplc4.so
+GeckoMain 2320 cezary  mem       REG                8,2    191472  271004 /usr/lib/x86_64-linux-gnu/ld-2.31.so
+GeckoMain 2320 cezary  DEL       REG                0,1             48149 /memfd:mozilla-ipc
+GeckoMain 2320 cezary    0r     FIFO               0,13       0t0   45460 pipe
+GeckoMain 2320 cezary    1w      CHR                1,3       0t0       6 /dev/null
+GeckoMain 2320 cezary    2w      REG                8,2     28293 1623512 /home/cezary/.xsession-errors
+GeckoMain 2320 cezary    3u      CHR              226,0       0t0     343 /dev/dri/card0
+GeckoMain 2320 cezary    4u     unix 0x0000000000000000       0t0   34785 type=STREAM
+GeckoMain 2320 cezary    5u  a_inode               0,14         0   11476 [eventfd]
+GeckoMain 2320 cezary    6u  a_inode               0,14         0   11476 [eventfd]
+GeckoMain 2320 cezary    7u     unix 0x0000000000000000       0t0   44924 type=STREAM
+GeckoMain 2320 cezary    8u  a_inode               0,14         0   11476 [eventfd]
+GeckoMain 2320 cezary    9uw     REG                8,2    524288 1201838 /home/cezary/.mozilla/firefox/6cimc6kr.default-release/cookies.sqlite
+GeckoMain 2320 cezary   10u     unix 0x0000000000000000       0t0   44927 type=STREAM
+GeckoMain 2320 cezary   11wW     REG                8,2         0 1201794 /home/cezary/.mozilla/firefox/6cimc6kr.default-release/.parentlock
+GeckoMain 2320 cezary   12u  a_inode               0,14         0   11476 [eventpoll]
+GeckoMain 2320 cezary   13r     FIFO               0,13       0t0   48141 pipe
+GeckoMain 2320 cezary   14w     FIFO               0,13       0t0   48141 pipe
+GeckoMain 2320 cezary   15r     FIFO               0,13       0t0   48142 pipe
+GeckoMain 2320 cezary   16w     FIFO               0,13       0t0   48142 pipe
+GeckoMain 2320 cezary   17r      REG                8,2  28830755  265733 /usr/lib/firefox/omni.ja
+GeckoMain 2320 cezary   18r      REG                8,2  41581280  262379 /usr/lib/firefox/browser/omni.ja
+GeckoMain 2320 cezary   19r     FIFO               0,13       0t0   43519 pipe
+GeckoMain 2320 cezary   20w     FIFO               0,13       0t0   43519 pipe
+GeckoMain 2320 cezary   21r     FIFO               0,13       0t0   48143 pipe
+GeckoMain 2320 cezary   22w     FIFO               0,13       0t0   48143 pipe
+GeckoMain 2320 cezary   23u  netlink                          0t0   43520 ROUTE
+GeckoMain 2320 cezary   24r     FIFO               0,13       0t0   40716 pipe
+GeckoMain 2320 cezary   25w     FIFO               0,13       0t0   40716 pipe
+GeckoMain 2320 cezary   26r      CHR                1,9       0t0      11 /dev/urandom
+GeckoMain 2320 cezary   27r      REG                8,2   2092798 1211029 /home/cezary/.cache/mozilla/firefox/6cimc6kr.default-release/startupCache/startupCache.8.little
+GeckoMain 2320 cezary   28r      REG                0,1       264   48149 /memfd:mozilla-ipc (deleted)
+GeckoMain 2320 cezary   29r     FIFO               0,13       0t0   48150 pipe
+GeckoMain 2320 cezary   30w     FIFO               0,13       0t0   48150 pipe
+GeckoMain 2320 cezary   31r      REG                8,2    571750 1227752 /home/cezary/.cache/mozilla/firefox/6cimc6kr.default-release/startupCache/scriptCache-child-current.bin
+GeckoMain 2320 cezary   32r      REG                0,1    286204   43521 /memfd:mozilla-ipc (deleted)
+GeckoMain 2320 cezary   33uw     REG                8,2     98304 1201798 /home/cezary/.mozilla/firefox/6cimc6kr.default-release/permissions.sqlite
+GeckoMain 2320 cezary   34r      REG                8,2   7788847 1210851 /home/cezary/.cache/mozilla/firefox/6cimc6kr.default-release/startupCache/scriptCache-current.bin
+GeckoMain 2320 cezary   35r  a_inode               0,14         0   11476 inotify
+GeckoMain 2320 cezary   36r      REG                0,1    521576   48215 /memfd:mozilla-ipc (deleted)
+GeckoMain 2320 cezary   37uw     REG                8,2     65536 1202986 /home/cezary/.mozilla/firefox/6cimc6kr.default-release/protections.sqlite
+GeckoMain 2320 cezary   38u      CHR              226,0       0t0     343 /dev/dri/card0
+GeckoMain 2320 cezary   39u      CHR              226,0       0t0     343 /dev/dri/card0
+GeckoMain 2320 cezary   40u      CHR              226,0       0t0     343 /dev/dri/card0
+GeckoMain 2320 cezary   41u     unix 0x0000000000000000       0t0   41943 type=STREAM
+GeckoMain 2320 cezary   42u      CHR              226,0       0t0     343 /dev/dri/card0
+GeckoMain 2320 cezary   43u      CHR              226,0       0t0     343 /dev/dri/card0
+GeckoMain 2320 cezary   44u      CHR              226,0       0t0     343 /dev/dri/card0
+GeckoMain 2320 cezary   45r      REG                8,2    495440  265744 /usr/lib/firefox-addons/extensions/langpack-pl@firefox.mozilla.org.xpi
+GeckoMain 2320 cezary   46r      REG                0,1   1048576   43525 /memfd:mozilla-ipc (deleted)
+GeckoMain 2320 cezary   47u     unix 0x0000000000000000       0t0   44932 type=STREAM
+GeckoMain 2320 cezary   48u      REG                8,2    557496 1210655 /home/cezary/.mozilla/firefox/6cimc6kr.default-release/cookies.sqlite-wal
+GeckoMain 2320 cezary   49r      REG                0,1    460800   36777 /memfd:mozilla-ipc (deleted)
+GeckoMain 2320 cezary   50uw     REG                8,2     22528 1201839 /home/cezary/.mozilla/firefox/6cimc6kr.default-release/storage.sqlite
+GeckoMain 2320 cezary   51r      REG                0,1      6522   34792 /memfd:mozilla-ipc (deleted)
+GeckoMain 2320 cezary   52r      REG                8,2     13788  956945 /home/cezary/.mozilla/firefox/6cimc6kr.default-release/features/{84242956-0899-45cd-9f26-21ee439d478f}/proxy-failover@mozilla.com.xpi
+GeckoMain 2320 cezary   53r      REG                8,2    142141  262373 /usr/lib/firefox/browser/features/formautofill@mozilla.org.xpi
+GeckoMain 2320 cezary   54r      REG                8,2     15666  956946 /home/cezary/.mozilla/firefox/6cimc6kr.default-release/features/{84242956-0899-45cd-9f26-21ee439d478f}/reset-search-defaults@mozilla.com.xpi
+GeckoMain 2320 cezary   55r      REG                8,2    274450  262378 /usr/lib/firefox/browser/features/webcompat@mozilla.org.xpi
+GeckoMain 2320 cezary   56rw     REG                8,2   5242880 1201837 /home/cezary/.mozilla/firefox/6cimc6kr.default-release/places.sqlite
+GeckoMain 2320 cezary   57u      REG                8,2   2393848 1210653 /home/cezary/.mozilla/firefox/6cimc6kr.default-release/places.sqlite-wal
+GeckoMain 2320 cezary   58r     FIFO               0,13       0t0   46531 pipe
+GeckoMain 2320 cezary   59r      REG                0,1    246961   34795 /memfd:mozilla-ipc (deleted)
+GeckoMain 2320 cezary   60r      REG                0,1       252   34794 /memfd:mozilla-ipc (deleted)
+GeckoMain 2320 cezary   61u     unix 0x0000000000000000       0t0   48156 type=SEQPACKET
+GeckoMain 2320 cezary   62u     unix 0x0000000000000000       0t0   48488 type=STREAM
+GeckoMain 2320 cezary   63w     FIFO               0,13       0t0   46531 pipe
+GeckoMain 2320 cezary   64u     unix 0x0000000000000000       0t0   34797 type=SEQPACKET
+GeckoMain 2320 cezary   65u     unix 0x0000000000000000       0t0   34798 type=SEQPACKET
+GeckoMain 2320 cezary   66u     unix 0x0000000000000000       0t0   45459 /run/user/1000/plasmashellDcBrLK.3.slave-socket type=STREAM
+GeckoMain 2320 cezary   67r     FIFO               0,13       0t0   34799 pipe
+GeckoMain 2320 cezary   68w     FIFO               0,13       0t0   34799 pipe
+GeckoMain 2320 cezary   69u     unix 0x0000000000000000       0t0   34800 type=SEQPACKET
+GeckoMain 2320 cezary   70u     unix 0x0000000000000000       0t0   34801 type=SEQPACKET
+GeckoMain 2320 cezary   71u  a_inode               0,14         0   11476 [eventpoll]
+GeckoMain 2320 cezary   72u      REG                8,2    229376 1201860 /home/cezary/.mozilla/firefox/6cimc6kr.default-release/cert9.db
+GeckoMain 2320 cezary   73rw     REG                8,2   5242880 1201859 /home/cezary/.mozilla/firefox/6cimc6kr.default-release/favicons.sqlite
+GeckoMain 2320 cezary   74u  a_inode               0,14         0   11476 [eventfd]
+GeckoMain 2320 cezary   75r     FIFO               0,13       0t0   40719 pipe
+GeckoMain 2320 cezary   76w     FIFO               0,13       0t0   40719 pipe
+GeckoMain 2320 cezary   77u  a_inode               0,14         0   11476 [eventpoll]
+GeckoMain 2320 cezary   78r     FIFO               0,13       0t0   45515 pipe
+GeckoMain 2320 cezary   79w     FIFO               0,13       0t0   45515 pipe
+GeckoMain 2320 cezary   80u     IPv4              52226       0t0     TCP cezary-MSI:52768->par10s21-in-f197.1e100.net:https (ESTABLISHED)
+GeckoMain 2320 cezary   81u      REG                0,1      4096   43529 /memfd:mozilla-ipc (deleted)
+GeckoMain 2320 cezary   82u     unix 0x0000000000000000       0t0   46533 type=STREAM
+GeckoMain 2320 cezary   83u      REG                8,2    721456 1210832 /home/cezary/.mozilla/firefox/6cimc6kr.default-release/favicons.sqlite-wal
+GeckoMain 2320 cezary   84r      REG                0,1      8526   48169 /memfd:mozilla-ipc (deleted)
+GeckoMain 2320 cezary   85r      REG                0,1      2810   48171 /memfd:mozilla-ipc (deleted)
+GeckoMain 2320 cezary   86r      REG                0,1      2516   48173 /memfd:mozilla-ipc (deleted)
+GeckoMain 2320 cezary   87r      REG                0,1     67400   48175 /memfd:mozilla-ipc (deleted)
+GeckoMain 2320 cezary   88r      REG                0,1     23928   48177 /memfd:mozilla-ipc (deleted)
+GeckoMain 2320 cezary   89r      REG                0,1       206   48179 /memfd:mozilla-ipc (deleted)
+GeckoMain 2320 cezary   90r      REG                0,1      3000   48181 /memfd:mozilla-ipc (deleted)
+GeckoMain 2320 cezary   91r      REG                0,1      1758   48183 /memfd:mozilla-ipc (deleted)
+GeckoMain 2320 cezary   92r      REG                0,1     22156   48185 /memfd:mozilla-ipc (deleted)
+GeckoMain 2320 cezary   93r      REG                0,1     10722   48187 /memfd:mozilla-ipc (deleted)
+GeckoMain 2320 cezary   94u      REG                8,2    294912 1201861 /home/cezary/.mozilla/firefox/6cimc6kr.default-release/key4.db
+GeckoMain 2320 cezary   95u  a_inode               0,14         0   11476 [eventfd]
+GeckoMain 2320 cezary   96u     unix 0x0000000000000000       0t0   38745 type=STREAM
+GeckoMain 2320 cezary   97u     IPv4              43533       0t0     TCP cezary-MSI:43544->82.221.107.34.bc.googleusercontent.com:http (ESTABLISHED)
+GeckoMain 2320 cezary   98u     unix 0x0000000000000000       0t0   36795 type=SEQPACKET
+GeckoMain 2320 cezary   99u  a_inode               0,14         0   11476 [eventfd]
+GeckoMain 2320 cezary  100u     unix 0x0000000000000000       0t0   49233 type=SEQPACKET
+GeckoMain 2320 cezary  101u     unix 0x0000000000000000       0t0   46240 type=STREAM
+GeckoMain 2320 cezary  102r     FIFO               0,13       0t0   45001 pipe
+GeckoMain 2320 cezary  103u     IPv4              51252       0t0     TCP cezary-MSI:53912->239.237.117.34.bc.googleusercontent.com:https (ESTABLISHED)
+GeckoMain 2320 cezary  104u      REG                8,2     12288 1635255 /home/cezary/.cache/event-sound-cache.tdb.dafd9a61376b4676aa8b190bc1ed4b43.x86_64-pc-linux-gnu
+GeckoMain 2320 cezary  105u     IPv4              43534       0t0     TCP cezary-MSI:43546->82.221.107.34.bc.googleusercontent.com:http (ESTABLISHED)
+GeckoMain 2320 cezary  106u     IPv4              51987       0t0     UDP *:56624 
+GeckoMain 2320 cezary  107uw     REG                8,2    262144 1201862 /home/cezary/.mozilla/firefox/6cimc6kr.default-release/formhistory.sqlite
+GeckoMain 2320 cezary  108u     IPv4              51988       0t0     TCP cezary-MSI:33262->waw02s22-in-f2.1e100.net:https (ESTABLISHED)
+GeckoMain 2320 cezary  109uw     REG                8,2     49152 1729910 /home/cezary/.mozilla/firefox/6cimc6kr.default-release/storage/default/https+++www.instagram.com/idb/3932499597rxeud.sqlite
+GeckoMain 2320 cezary  110u     unix 0x0000000000000000       0t0   38749 type=STREAM
+GeckoMain 2320 cezary  111r     FIFO               0,13       0t0   45052 pipe
+GeckoMain 2320 cezary  112u     unix 0x0000000000000000       0t0   46242 type=STREAM
+GeckoMain 2320 cezary  113u     IPv4              47962       0t0     TCP cezary-MSI:41916->waw02s18-in-f14.1e100.net:http (ESTABLISHED)
+GeckoMain 2320 cezary  114uw     REG                8,2   5242880 1201837 /home/cezary/.mozilla/firefox/6cimc6kr.default-release/places.sqlite
+GeckoMain 2320 cezary  115u     IPv4              50760       0t0     UDP *:51088 
+GeckoMain 2320 cezary  116u     IPv4              54357       0t0     UDP *:36856 
+GeckoMain 2320 cezary  117r      REG                8,2     13605  956944 /home/cezary/.mozilla/firefox/6cimc6kr.default-release/features/{84242956-0899-45cd-9f26-21ee439d478f}/addons-search-detection@mozilla.com.xpi
+GeckoMain 2320 cezary  118u     unix 0x0000000000000000       0t0   53266 type=SEQPACKET
+GeckoMain 2320 cezary  119r      REG                8,2    320258  262376 /usr/lib/firefox/browser/features/screenshots@mozilla.org.xpi
+GeckoMain 2320 cezary  120u     IPv4              41951       0t0     TCP cezary-MSI:38882->ec2-52-38-118-33.us-west-2.compute.amazonaws.com:https (ESTABLISHED)
+GeckoMain 2320 cezary  121u     IPv4              43750       0t0     TCP cezary-MSI:58942->waw07s03-in-f4.1e100.net:https (ESTABLISHED)
+GeckoMain 2320 cezary  122r      REG                8,2     16544  262375 /usr/lib/firefox/browser/features/pictureinpicture@mozilla.org.xpi
+GeckoMain 2320 cezary  123u      REG                8,2   2393848 1210653 /home/cezary/.mozilla/firefox/6cimc6kr.default-release/places.sqlite-wal
+GeckoMain 2320 cezary  124uw     REG                8,2   5242880 1201859 /home/cezary/.mozilla/firefox/6cimc6kr.default-release/favicons.sqlite
+GeckoMain 2320 cezary  125u      REG                8,2    721456 1210832 /home/cezary/.mozilla/firefox/6cimc6kr.default-release/favicons.sqlite-wal
+GeckoMain 2320 cezary  126rw     REG                8,2   5242880 1201837 /home/cezary/.mozilla/firefox/6cimc6kr.default-release/places.sqlite
+GeckoMain 2320 cezary  127uw     REG                8,2    229376 1210609 /home/cezary/.mozilla/firefox/6cimc6kr.default-release/content-prefs.sqlite
+GeckoMain 2320 cezary  128u      REG                8,2   2393848 1210653 /home/cezary/.mozilla/firefox/6cimc6kr.default-release/places.sqlite-wal
+GeckoMain 2320 cezary  129rw     REG                8,2   5242880 1201859 /home/cezary/.mozilla/firefox/6cimc6kr.default-release/favicons.sqlite
+GeckoMain 2320 cezary  130u      REG                8,2    721456 1210832 /home/cezary/.mozilla/firefox/6cimc6kr.default-release/favicons.sqlite-wal
+GeckoMain 2320 cezary  132u     IPv4              43751       0t0     TCP cezary-MSI:50722->waw02s14-in-f3.1e100.net:http (ESTABLISHED)
+GeckoMain 2320 cezary  133u     unix 0x0000000000000000       0t0   48223 type=STREAM
+GeckoMain 2320 cezary  134u     IPv4              40735       0t0     TCP cezary-MSI:40550->server-54-230-228-6.waw50.r.cloudfront.net:https (ESTABLISHED)
+GeckoMain 2320 cezary  135rw     REG                8,2   5242880 1201837 /home/cezary/.mozilla/firefox/6cimc6kr.default-release/places.sqlite
+GeckoMain 2320 cezary  136u     IPv4              47946       0t0     UDP *:38727 
+GeckoMain 2320 cezary  137u     IPv4              50726       0t0     UDP *:35775 
+GeckoMain 2320 cezary  138u     IPv4              47594       0t0     TCP cezary-MSI:55026->server-54-230-228-74.waw50.r.cloudfront.net:https (ESTABLISHED)
+GeckoMain 2320 cezary  139u      REG                8,2   2393848 1210653 /home/cezary/.mozilla/firefox/6cimc6kr.default-release/places.sqlite-wal
+GeckoMain 2320 cezary  140u     IPv4              50727       0t0     UDP *:56405 
+GeckoMain 2320 cezary  141r      REG                0,1    521576   48215 /memfd:mozilla-ipc (deleted)
+GeckoMain 2320 cezary  142u     unix 0x0000000000000000       0t0   48221 type=SEQPACKET
+GeckoMain 2320 cezary  143u     IPv4              46829       0t0     UDP *:37452 
+GeckoMain 2320 cezary  144u     IPv4              46803       0t0     UDP *:34219 
+GeckoMain 2320 cezary  145u     unix 0x0000000000000000       0t0   38755 type=STREAM
+GeckoMain 2320 cezary  146r     FIFO               0,13       0t0   51256 pipe
+GeckoMain 2320 cezary  147u     unix 0x0000000000000000       0t0   51974 type=STREAM
+GeckoMain 2320 cezary  148u     IPv4              51976       0t0     UDP *:36000 
+GeckoMain 2320 cezary  149u     IPv4              47940       0t0     UDP *:37270 
+GeckoMain 2320 cezary  150u     IPv4              40777       0t0     TCP cezary-MSI:60512->server-54-230-228-96.waw50.r.cloudfront.net:https (ESTABLISHED)
+GeckoMain 2320 cezary  151u     unix 0x0000000000000000       0t0   51968 type=SEQPACKET
+GeckoMain 2320 cezary  152rw     REG                8,2   5242880 1201859 /home/cezary/.mozilla/firefox/6cimc6kr.default-release/favicons.sqlite
+GeckoMain 2320 cezary  153u      REG                8,2    721456 1210832 /home/cezary/.mozilla/firefox/6cimc6kr.default-release/favicons.sqlite-wal
+GeckoMain 2320 cezary  154uw     REG                8,2     28672 1719944 /home/cezary/.mozilla/firefox/6cimc6kr.default-release/storage/default/https+++skos.ii.uni.wroc.pl/ls/data.sqlite
+GeckoMain 2320 cezary  155u     IPv4              50731       0t0     UDP *:57344 
+GeckoMain 2320 cezary  156u      REG                8,2         0 1729916 /home/cezary/.mozilla/firefox/6cimc6kr.default-release/storage/default/https+++www.instagram.com/idb/3932499597rxeud.sqlite-wal
+GeckoMain 2320 cezary  157u     unix 0x0000000000000000       0t0   53663 type=STREAM
+GeckoMain 2320 cezary  158u     unix 0x0000000000000000       0t0   47641 type=STREAM
+GeckoMain 2320 cezary  159r     FIFO               0,13       0t0   54360 pipe
+GeckoMain 2320 cezary  160u     IPv4              50732       0t0     UDP *:34448 
+GeckoMain 2320 cezary  161u     IPv4              50733       0t0     TCP cezary-MSI:43824->waw07s03-in-f2.1e100.net:https (ESTABLISHED)
+GeckoMain 2320 cezary  162u     IPv4              50736       0t0     UDP *:59825 
+GeckoMain 2320 cezary  163u     IPv4              53665       0t0     TCP cezary-MSI:33084->bom07s16-in-f3.1e100.net:https (ESTABLISHED)
+GeckoMain 2320 cezary  164u     IPv4              36826       0t0     TCP cezary-MSI:53110->waw02s13-in-f13.1e100.net:https (ESTABLISHED)
+GeckoMain 2320 cezary  165u     IPv4              50734       0t0     UDP *:59058 
+GeckoMain 2320 cezary  166u     IPv4              47947       0t0     TCP cezary-MSI:48112->waw02s13-in-f14.1e100.net:https (ESTABLISHED)
+GeckoMain 2320 cezary  167u     IPv4              43772       0t0     UDP *:39258 
+GeckoMain 2320 cezary  168u     IPv4              41972       0t0     TCP cezary-MSI:51400->185.64.189.112:https (ESTABLISHED)
+GeckoMain 2320 cezary  169u     IPv4              50738       0t0     TCP cezary-MSI:52864->par10s21-in-f206.1e100.net:https (ESTABLISHED)
+GeckoMain 2320 cezary  170u     IPv4              50751       0t0     UDP *:39980 
+GeckoMain 2320 cezary  171u     IPv4              41968       0t0     TCP cezary-MSI:60598->ip-185-184-8-65.rtbhouse.net:https (ESTABLISHED)
+GeckoMain 2320 cezary  172u     IPv4              41969       0t0     TCP cezary-MSI:45052->218.64.98.34.bc.googleusercontent.com:https (ESTABLISHED)
+GeckoMain 2320 cezary  173r      REG                0,1      5718   49262 /memfd:mozilla-ipc (deleted)
+GeckoMain 2320 cezary  174u     IPv4              46023       0t0     UDP *:54359 
+GeckoMain 2320 cezary  175u     IPv4              50737       0t0     UDP *:41158 
+GeckoMain 2320 cezary  176u     IPv4              48803       0t0     TCP cezary-MSI:35448->93.184.220.29:http (ESTABLISHED)
+GeckoMain 2320 cezary  177u     IPv4              46828       0t0     UDP *:41740 
+GeckoMain 2320 cezary  178u     unix 0x0000000000000000       0t0   48813 type=STREAM
+GeckoMain 2320 cezary  179u     unix 0x0000000000000000       0t0   48485 type=SEQPACKET
+GeckoMain 2320 cezary  180u     unix 0x0000000000000000       0t0   47636 type=SEQPACKET
+GeckoMain 2320 cezary  181u     IPv4              40809       0t0     TCP cezary-MSI:33040->178.250.0.157:https (ESTABLISHED)
+GeckoMain 2320 cezary  183u     unix 0x0000000000000000       0t0   48809 type=SEQPACKET
+GeckoMain 2320 cezary  184u     IPv4              50762       0t0     UDP *:46670 
+GeckoMain 2320 cezary  185u     unix 0x0000000000000000       0t0   49408 type=STREAM
+GeckoMain 2320 cezary  186r     FIFO               0,13       0t0   55567 pipe
+GeckoMain 2320 cezary  188u     unix 0x0000000000000000       0t0   47617 type=STREAM
+GeckoMain 2320 cezary  189u     IPv4              43689       0t0     TCP cezary-MSI:44604->waw07s02-in-f2.1e100.net:https (ESTABLISHED)
+GeckoMain 2320 cezary  192u     IPv4              43690       0t0     TCP cezary-MSI:44606->waw07s02-in-f2.1e100.net:https (ESTABLISHED)
+GeckoMain 2320 cezary  193r     FIFO               0,13       0t0   40832 pipe
+GeckoMain 2320 cezary  198u     IPv4              49309       0t0     TCP cezary-MSI:45458->waw02s17-in-f14.1e100.net:https (ESTABLISHED)
+GeckoMain 2320 cezary  200u     unix 0x0000000000000000       0t0   46529 type=STREAM
+GeckoMain 2320 cezary  201r     FIFO               0,13       0t0   40892 pipe
+GeckoMain 2320 cezary  203u     IPv4              48253       0t0     TCP cezary-MSI:33042->178.250.0.157:https (ESTABLISHED)
