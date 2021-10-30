@@ -1,0 +1,26 @@
+(Deklaruję to zadanie)
+
+Debugowanie w Chromium:
+ * Otwieramy narzedzia developerskie
+ * Wybieramy zakładkę Sources
+ * Po lewej stronie przechodzimy do zakładki Snippets i tworzymy nowy
+ Snippet
+ * Możemy ustawić breakpointy klikając w numer linii w edytorze kodu
+ * Następnie uruchamiamy program przez ctrl+enter, a jego wykonanie 
+ zatrzyma się an ustalonym breakpoincie.
+ * W lewym górnym rogu dolnej części udostępniony zostnie interfejs
+ do przeskoczenia/wejścia-do/wyjścia-z instrukcji, kontunuowania programu,
+ ponownego uruchomienia i zakończenia wykonywania
+ * W dolnej części zaostną udostępnione informace o obecnym stanie programu
+ (zmiennych, stosie wywołań itd)
+
+Debugowanie w VS Code:
+ * Możemy ustawić breakpointy klikając w czerwony symbol obok numeru linii
+ * Wchodzimy w zakładkę "Uruchom i debuguj"
+ * Na górze panelu klikamy w zielony przycisk play
+ * Program wykona się do ustalonego breakpointu, następnie ukaże się interfejs
+ sterowania wykonaniem identyczny z tym w Chromium.
+ * Na panelu po lewej stronie wyświetlone są informacje dotyczące obecnego
+ stanu programu np. stos wywołań, czy stan zmiennych.
+ * Można również włączyć opcję auto-attach, która automatycznie doczepi
+ debugger do uruchomionego z wbudowanego terminala processu node.
