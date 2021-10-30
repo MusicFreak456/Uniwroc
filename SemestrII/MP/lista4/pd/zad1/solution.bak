@@ -1,0 +1,4 @@
+#lang racket
+
+(define (inc n)
+  (+ n 1))

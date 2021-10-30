@@ -1,0 +1,363 @@
+﻿Zadanie 10
+Autor:Cezary Świtała
+
+Szkic dowodu powstawał we współpracy z Piotrem Dobiechem, Bartoszem Janikowskim, Jakubem Grabarczukiem, 
+Jakubem Skalskim i Krystianem Jasionkiem
+
+W poniższych dowodach pisząc "==" mam na myśli relację równoważności 
+wyrażeń racketowych.  
+
+Dowód przeprowadzam wg. zasady indukcji dla list tj. jeśli zachodzi 
+P(null) i dla dowolnych x, xs jeśli zachodzi P(x) to zachdzi P((cons x xs))
+to dla dowolnego xs, jeśli zachdzi (list? xs) to zachdzi P(xs).
+
+Operujemy pod założeniami, że prawdą są (list? xs) i (list? ys)
+
+Użyte definicje (z SICP'u):
+
+(define (append list1 list2)
+    (if (null? list1)
+        list2
+        (cons (car list1)
+              (append (cdr list1)
+                      list2)))
+)
+(define (map proc items)
+    (if (null? items)
+        null
+        (cons (proc (car items))
+              (map proc (cdr items))))
+)
+(define (filter predicate sequence)
+    (cond ((null? sequence) null)
+        ((predicate (car sequence))
+            (cons (car sequence)
+                  (filter predicate (cdr sequence))))
+        (else (filter predicate (cdr sequence))))
+)
+
+1. 
+Twierdzenie: (map f (append xs ys)) == (append (map f xs) (map f ys)) = P(xs)
+
+Dowód: 
+Podstawa indukcji: P(null)
+
+Lewa strona równoważności:
+(map f (append null ys))
+== z definicji append
+(map f 
+    (if (null? null)
+            ys
+            (cons (car null)
+                (append (cdr null)
+                        ys)))
+)
+== z reguł dla if i null?
+(map f ys)
+
+Prawa strona równoważności:
+(append (map f null) (map f ys))
+== z definicji append
+(if (null? (map f null) )
+        (map f ys)
+        (cons (car (map f null) )
+              (append (cdr (map f null) )
+                      (map f ys)))
+)
+== z definicji map
+(if (null? (if (null? null)
+                null
+                (cons (f (car null))
+                    (map f (cdr null))))
+                )
+        (map f ys)
+        (cons (car (map f null) )
+              (append (cdr (map f null) )
+                      (map f ys)))
+)
+== z reguł dla if i null?
+(if (null? null)
+        (map f ys)
+        (cons (car (map f null) )
+              (append (cdr (map f null) )
+                      (map f ys)))
+)
+== z reguł dla if i null             
+(map f ys)
+
+Więc mamy (map f ys) == (map f ys), czyli podstawa zachodzi.
+Krok indukcyjny: Weźmy dowolny xs i x, załóżmy że zachodzi P(xs), pokażę że zachodzi wtedy 
+P((cons x xs), a więc że (map f (append (cons x xs) ys)) == (append (map f (cons x xs)) (map f ys))
+
+Lewa strona równoważności:
+(map f (append (cons x xs) ys))
+== z definicji append
+(map f (if (null? (cons x xs))
+           ys
+           (cons (car (cons x xs))
+                 (append (cdr (cons x xs))
+                         ys))))
+== z reguł dla if i null?
+(map f  (cons (car (cons x xs))
+                 (append (cdr (cons x xs))
+                         ys)))
+== z reguł dla car i cdr
+(map f  (cons x (append xs ys)))
+== z definicji map
+(if (null? (cons x (append xs ys)))
+    null
+    (cons (f (car (cons x (append xs ys))))
+          (map f (cdr (cons x (append xs ys))))))
+== z reguł dla if i null?
+(cons (f (car (cons x (append xs ys))))
+      (map f (cdr (cons x (append xs ys)))))
+== z reguł dla car i cdr
+(cons (f x) (map f (append xs ys)))
+
+Prawa strona równoważności:
+(append (map f (cons x xs)) (map f ys))
+== z definicji append
+(if (null? (map f (cons x xs)))
+    (map f ys)
+    (cons (car (map f (cons x xs)))
+          (append (cdr (map f (cons x xs)))
+                  (map f ys))))
+
+*/Lemat 1.1
+W tym miejscu być może warto się zatrzymać i rozpisać osobno 
+czemu równe jest (map f (cons x xs))
+== z definicji map
+(if (null? (cons x xs))
+    null
+    (cons (f (car (cons x xs)))
+          (map f (cdr (cons x xs)))))
+== z reguł dla if i null?
+(cons (f (car (cons x xs)))
+          (map f (cdr (cons x xs))))
+== z reguł dla car i cdr
+(cons (f x)(map f xs))
+A więc mam (map f (cons x xs)) == (cons (f x) (map f xs)) */
+
+Wracam do prawej strony równoważności:
+== z Lematu 1.1
+(if (null? (cons (f x) (map f xs)))
+    (map f ys)
+    (cons (car (cons (f x) (map f xs)))
+          (append (cdr (cons (f x) (map f xs)))
+                  (map f ys))))
+== z reguł dla if i null?
+(cons (car (cons (f x) (map f xs)))
+        (append (cdr (cons (f x) (map f xs)))
+                (map f ys)))
+== z reguł dla car i cdr
+(cons (f x) (append (map f xs) (map f ys)))
+
+Mamy więc (cons (f x) (map f (append xs ys))) == (cons (f x) (append (map f xs) (map f ys)))
+Z założenia wiemy, że  (map f (append xs ys)) == (append (map f xs) (map f ys)), więc 
+równoważności zachodzi.
+Na mocy zasady indukcji dla dowolnego xs, jeśli (list? xs) to zachodzi P(xs).
+
+
+2.
+Twierdzenie: (filter p? (append xs ys)) == (append (filter p? xs) (filter p? ys)) = P(xs)
+
+Podstawa: P(null), czyli (filter p? (append null ys)) == (append (filter p? null) (filter p? ys))
+
+Lewa strona równoważności:
+(filter p? (append null ys))
+== z definicji append
+(filter p? 
+    (if (null? null)
+        ys
+        (cons (car null)
+              (append (cdr null ys))))
+    )
+== z reguł dla if i null?
+(filter p? ys)
+
+Prawa strona równoważności:
+(append (filter p? null) (filter p? ys))
+== z definicji append
+(if (null? (filter p? null))
+        (filter p? ys)
+        (cons (car (filter p? null))
+              (append (cdr (filter p? null))
+                      (filter p? ys))))
+== z definicji filter
+(if (null? 
+        (cond 
+            ((null? null) null)
+            ((p? (car null))
+                (cons 
+                    (car null)
+                    (filter p? (cdr null))))
+            (else (filter p? (cdr null))))
+        )
+        (filter p? ys)
+        (cons (car (filter p? null))
+              (append (cdr (filter p? null))
+                      (filter p? ys))))
+== z reguł dla cond i null?
+(if (null? null)
+        (filter p? ys)
+        (cons (car (filter p? null))
+              (append (cdr (filter p? null))
+                      (filter p? ys))))
+== z reguł dla if i null?
+(filter p? ys)
+
+Otrzymaliśmy (filter p? ys) == (filter p? ys), więc podstawa indukcji zachodzi.
+Krok indukcyjny: Weźmy dowolny xs i x, załóżmy że zachodzi P(xs), pokażę że zachodzi wtedy 
+P((cons x xs), a więc że (filter p? (append (cons x xs) ys)) == (append (filter p? (cons x xs)) (filter p? ys))
+
+Lewa strona równoważności:
+(filter p? (append (cons x xs) ys))
+== z definicji append
+(filter p? 
+        (if (null? (cons x xs))
+            ys
+            (cons (car (cons x xs))
+                (append (cdr (cons x xs))
+                        ys))))
+== z reguł dla if i null?
+(filter p? (cons (car (cons x xs))
+                (append (cdr (cons x xs))
+                        ys)))
+== z reguł dla car i cdr
+(filter p? (cons x (append xs ys)))
+== z definicji filter
+(cond ((null? (cons x (append xs ys))) null)
+        ((p? (car (cons x (append xs ys))))
+            (cons (car (cons x (append xs ys)))
+                  (filter p? (cdr (cons x (append xs ys))))))
+      (else (filter p? (cdr (cons x (append xs ys))))))
+== z reguł dla car i cdr
+(cond ((null? (cons x (append xs ys))) null)
+        ((p? x)
+            (cons x
+                  (filter p? (append xs ys))))
+      (else (filter p? (append xs ys))))
+
+Niestety nie zajdziemy dalej bez dodatkowych założeń, tak więc 
+rozpiszę najpierw w podobny sposób do oporu prawą stronę równoważności:
+(append (filter p? (cons x xs)) (filter p? ys))
+== z definicji append
+(if (null? (filter p? (cons x xs)))
+            (filter p? ys)
+            (cons (car (filter p? (cons x xs)))
+              (append (cdr (filter p? (cons x xs)))
+                      (filter p? ys))))
+
+Nadeszła pora na rozpatrzenie dwóch możliwych przypadków, tj. x spełnia predykat p?, lub
+nie.
+
+Przypadek pierwszy: (p? x) spełnione
+
+Lewa strona równoważności:
+(cond ((null? (cons x (append xs ys))) null)
+        ((p? x)
+            (cons x
+                  (filter p? (append xs ys))))
+      (else (filter p?  (append xs ys))))
+== z reguł dla cond, null i p?
+(cons x (filter p? (append xs ys)))
+
+Prawa strona równoważności:
+(if (null? (filter p? (cons x xs)))
+            (filter p? ys)
+            (cons (car (filter p? (cons x xs)))
+              (append (cdr (filter p? (cons x xs)))
+                      (filter p? ys))))
+
+/*Lemat 2.1
+Warto w tym miejscu powiedzieć sobie czym jest (filter p? (cons x xs))
+przy założeniu (p? x):
+(filter p? (cons x xs))
+== z definicji filter
+(cond ((null? (cons x xs)) null)
+    ((p? (car (cons x xs)))
+        (cons (car (cons x xs))
+              (filter p? (cdr (cons x xs)))))
+    (else (filter p? (cdr (cons x xs)))))
+= z reguł dla car i cdr
+(cond ((null? (cons x xs)) null)
+    ((p? x)
+        (cons x
+              (filter p? xs)))
+    (else (filter p? xs)))
+== z reguł dla cond, null? i p?
+(cons x (filter p? xs))
+
+Mamy więc jeśl (p? x) to (filter p? (cons x xs)) == (cons x (filter p? xs)) */
+
+Powrót do prawej strony:
+== z lematu 2.1
+(if (null? (cons x (filter p? xs)))
+            (filter p? ys)
+            (cons (car (cons x (filter p? xs)))
+              (append (cdr (cons x (filter p? xs)))
+                      (filter p? ys))))
+== z reguł dla if i null?
+(cons (car (cons x (filter p? xs)))
+        (append (cdr (cons x (filter p? xs)))
+                      (filter p? ys)))
+== z reguł dla car i cdr
+(cons x (append (filter p? xs) (filter p? ys)))
+
+Mamy teraz (cons x (filter p? (append xs ys))) == (cons x (append (filter p? xs) (filter p? ys))),
+a z założenia wiemy że (filter p? (append xs ys)) == (append (filter p? xs) (filter p? ys)),
+czyli równoważność zachodzi.
+Pozostaje do rozpatrzenia drugi przypadek.
+
+Przypadek drugi: (p? x) nie spełnione
+
+Lewa strona równoważności:
+(cond ((null? (cons x (append xs ys))) null)
+        ((p? x)
+            (cons x
+                  (filter p? (append xs ys))))
+      (else (filter p? (append xs ys))))
+== z reguł dla cond, null i p?
+(filter p? (append xs ys))
+
+Prawa strona równoważności:
+(if (null? (filter p? (cons x xs)))
+            (filter p? ys)
+            (cons (car (filter p? (cons x xs)))
+              (append (cdr (filter p? (cons x xs)))
+                      (filter p? ys))))
+
+*/Lemat 2.2
+Tutaj z kolei chcialibyśmy móc szybko podstawić wartość (filter p? (cons x xs))
+przy założeniu, że (p? x) nie zachdzi. Zobaczmy czemu jest równoważna:
+(filter p? (cons x xs))
+== z definicji filter
+(cond ((null? (cons x xs)) null)
+    ((p? (car (cons x xs)))
+        (cons (car (cons x xs))
+              (filter p? (cdr (cons x xs)))))
+    (else (filter p? (cdr (cons x xs)))))
+= z reguł dla car i cdr
+(cond ((null? (cons x xs)) null)
+    ((p? x)
+        (cons x
+              (filter p? xs)))
+    (else (filter p? xs)))
+= z reguł dla if, null? i cond
+(filter p? xs)
+Tak więc gdy (p? x) nie zachodzi to (filter p? (cons x xs)) == (filter p? xs) */
+
+Powrót do prawej strony:
+== z lematu 2.2
+(if (null? (filter p? xs))
+            (filter p? ys)
+            (cons (car (filter p? xs))
+              (append (cdr (filter p? xs))
+                      (filter p? ys))))
+== z definicji append
+(append (filter p? xs) (filter p? ys))
+
+Otrzymujemy (filter p? (append xs ys)) == (append (filter p? xs) (filter p? ys)), czego 
+prawdziwość wynika z założenia indukcyjnego.
+W obu przypadkach pokazaliśmy, że krok indukcyjny zachodzi, więc na mocy zasady indukcji
+dla dowolnego xs, jeśli (list? xs) to P(xs).
