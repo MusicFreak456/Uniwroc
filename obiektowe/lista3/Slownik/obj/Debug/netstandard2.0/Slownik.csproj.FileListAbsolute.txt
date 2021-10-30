@@ -1,8 +1,0 @@
-/home/cezary/Pobrane/obiektowe/lista3/Slownik/bin/Debug/netstandard2.0/Slownik.deps.json
-/home/cezary/Pobrane/obiektowe/lista3/Slownik/bin/Debug/netstandard2.0/Slownik.dll
-/home/cezary/Pobrane/obiektowe/lista3/Slownik/bin/Debug/netstandard2.0/Slownik.pdb
-/home/cezary/Pobrane/obiektowe/lista3/Slownik/obj/Debug/netstandard2.0/Slownik.csprojAssemblyReference.cache
-/home/cezary/Pobrane/obiektowe/lista3/Slownik/obj/Debug/netstandard2.0/Slownik.AssemblyInfoInputs.cache
-/home/cezary/Pobrane/obiektowe/lista3/Slownik/obj/Debug/netstandard2.0/Slownik.AssemblyInfo.cs
-/home/cezary/Pobrane/obiektowe/lista3/Slownik/obj/Debug/netstandard2.0/Slownik.dll
-/home/cezary/Pobrane/obiektowe/lista3/Slownik/obj/Debug/netstandard2.0/Slownik.pdb

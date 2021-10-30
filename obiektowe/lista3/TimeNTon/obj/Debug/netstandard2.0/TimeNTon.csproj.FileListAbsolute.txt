@@ -1,8 +1,0 @@
-/home/cezary/Pobrane/obiektowe/lista3/TimeNTon/obj/Debug/netstandard2.0/TimeNTon.csprojAssemblyReference.cache
-/home/cezary/Pobrane/obiektowe/lista3/TimeNTon/obj/Debug/netstandard2.0/TimeNTon.AssemblyInfoInputs.cache
-/home/cezary/Pobrane/obiektowe/lista3/TimeNTon/obj/Debug/netstandard2.0/TimeNTon.AssemblyInfo.cs
-/home/cezary/Pobrane/obiektowe/lista3/TimeNTon/bin/Debug/netstandard2.0/TimeNTon.deps.json
-/home/cezary/Pobrane/obiektowe/lista3/TimeNTon/bin/Debug/netstandard2.0/TimeNTon.dll
-/home/cezary/Pobrane/obiektowe/lista3/TimeNTon/bin/Debug/netstandard2.0/TimeNTon.pdb
-/home/cezary/Pobrane/obiektowe/lista3/TimeNTon/obj/Debug/netstandard2.0/TimeNTon.dll
-/home/cezary/Pobrane/obiektowe/lista3/TimeNTon/obj/Debug/netstandard2.0/TimeNTon.pdb
