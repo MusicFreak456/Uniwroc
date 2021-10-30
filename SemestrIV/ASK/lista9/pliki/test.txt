@@ -1,0 +1,4 @@
+_Z4funcPKcRi
+_ZN3Bar3bazEPc
+_ZN3BarC1ERKS_
+_ZN3foo6strlenER6string

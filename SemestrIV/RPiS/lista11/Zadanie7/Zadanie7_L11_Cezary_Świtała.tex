@@ -1,0 +1,127 @@
+\documentclass[12pt,a4paper]{article}
+\usepackage{nopageno}
+\usepackage[polish]{babel}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath,amsfonts}
+\usepackage{titling}
+\usepackage{mathtools}
+\usepackage[margin=0.6in]{geometry} 
+\usepackage{graphicx}
+\usepackage{tikz}
+\usepackage{nicefrac}
+
+
+\title{RPIS Zadanie 7 L11}
+\author{Cezary Świtała}
+
+\begin{document}
+
+\noindent
+\textbf{Zadanie 7.11} Mamy sprawdzić, że \( U,V \sim N(0,1) \), gdzie
+
+\[
+	U = \frac{1}{2 \sqrt{15}} (-3Y_1 + 2Y_2),\ V = \frac{1}{2\sqrt{20}} (3Y_1 + 2Y_2 - 12).
+\]
+
+\noindent
+Wiemy, że \( Y = \left[ \begin{array}{cc}
+	Y_1 \\
+	Y_2
+\end{array} \right] \) ma rozkład \( N(\mu, \Sigma) \), gdzie \( \mu = \left[ \begin{array}{cc}
+	2 \\
+	3
+\end{array} \right] \) oraz \( \Sigma = \left[ \begin{array}{cc}
+	4 & 1 \\
+	1 & 9
+\end{array} \right] \).
+Niech \(X = \left[ \begin{array}{c}
+	U \\
+	V
+\end{array} \right]  = AY + c \), gdzie 
+
+\[
+	A = \left[ \begin{array}{cc}
+			\frac{-3}{2\sqrt{15}} & \frac{1}{\sqrt{15}} \\
+			\frac{3}{2\sqrt{21}}  & \frac{1}{\sqrt{21}} 
+		\end{array}	 \right],
+\]
+a wektor $c$ to
+\[
+	c = \left[ \begin{array}{c}
+			0 \\
+			\frac{-6}{\sqrt{21}}
+		\end{array}	 \right].
+\]
+Niech \( Z = AY = \left[ \begin{array}{c}
+	U' \\
+	V'
+\end{array} \right] \), jeśli \(A\) jest odwracalna, to na podstawie twierdzenia z wykładu
+\[ 
+	Z \sim N(A\mu, A \Sigma A^T) 
+\] 
+
+\noindent
+\( |A| \approx -0.17 \), czyli macierz jest odwracalna. Zatem policzmy macierz wartości oczekiwanych zmiennej \( Z \)
+
+\[
+	A\mu = \left[ \begin{array}{cc}
+			\frac{-3}{2\sqrt{15}} & \frac{1}{\sqrt{15}} \\
+			\frac{3}{2\sqrt{21}}  & \frac{1}{\sqrt{21}} 
+		\end{array}	 \right] \cdot 
+		\left[ \begin{array}{cc}
+			2 \\
+			3
+		\end{array} \right]	=
+		\left[ \begin{array}{c}
+			0 \\
+			\frac{6}{\sqrt{21}}
+		\end{array}	\right].
+\]
+Następnie macierz kowariancji
+\begin{gather*}
+	A \Sigma A^T = \left[ \begin{array}{cc}
+			\frac{-3}{2\sqrt{15}} & \frac{1}{\sqrt{15}} \\
+			\frac{3}{2\sqrt{21}}  & \frac{1}{\sqrt{21}} 
+		\end{array}	 \right] \cdot \left[ \begin{array}{cc}
+			4 & 1 \\
+			1 & 9
+		\end{array} \right] \cdot \left[ \begin{array}{cc}
+			\frac{-3}{2\sqrt{15}} & \frac{3}{2\sqrt{21}} \\
+			\frac{1}{\sqrt{15}}  & \frac{1}{\sqrt{21}} 
+		\end{array}	 \right] = \\ =
+		\left[ \begin{array}{cc}
+			\frac{-5}{\sqrt{15}} & \frac{15}{\sqrt{15}} \\
+			\frac{7}{\sqrt{21}}  & \frac{21}{2\sqrt{21}} 
+		\end{array}	 \right] \cdot 
+		\left[ \begin{array}{cc}
+			\frac{-3}{2\sqrt{15}} & \frac{3}{2\sqrt{21}} \\
+			\frac{1}{\sqrt{15}}  & \frac{1}{\sqrt{21}} 
+		\end{array}	 \right] = \left[ \begin{array}{cc}
+			1 & 0 \\
+			0 & 1 		
+		\end{array}		 \right].
+\end{gather*}
+
+\noindent
+Korzystając z powyższych równań jesteśmy już w stanie odczytać rozkład zmiennej losowej \( U' = U \sim N(0,1) \) oraz \( V' \sim N \left( \frac{6}{\sqrt{21}}, 1 \right)  \). 
+
+Żeby wyznaczyć rozkład zmiennej $V$ możemy skorzystać z faktu, że jeśli zmienna losowa $T$ należy do rozkładu \( N(\mu, \sigma^2) \), to zmienna \(T + b\) będzie należeć do rozkładu \( N(\mu + b , \sigma^2) \).
+
+\noindent
+\textbf{Dowód}. Łatwy dowód można przeprowadzić na MGF'ach
+
+\begin{gather*}
+	M_{T + b}(t) = e^{tb} \cdot M_T(t) = exp(tb) \cdot exp\left( t\mu + \frac{\sigma^2 t^2}{2} \right) =\\=
+	exp\left( t(\mu + b) + \frac{\sigma^2 t^2}{2} \right)
+\end{gather*}
+Wynik jest MGF'em rozkładu \( N( \mu + b, \sigma^2) \), co kończy dowód. 
+
+Korzystając z powyższego
+\[
+	V = V' + \frac{-6}{\sqrt{21}}  \sim N \left( \frac{6}{\sqrt{21}} + \frac{-6}{\sqrt{21}}, 1 \right) = N(0,1).
+\]
+
+
+
+\end{document}

