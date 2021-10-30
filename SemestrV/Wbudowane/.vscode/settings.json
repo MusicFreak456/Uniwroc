@@ -1,0 +1,11 @@
+{
+    "AVR.source.compiler": "/usr/bin/avr-gcc",
+    "AVR.programmer.tool": "/usr/bin/avrdude",
+    "AVR.source.libraries": [],
+    "AVR.device.type": "atmega328p",
+    "AVR.device.frequency": 16000000,
+    "files.associations": {
+        "delay.h": "c",
+        "io.h": "c"
+    }
+}

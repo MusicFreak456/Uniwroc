@@ -5,3 +5,5 @@
 
 *.out
 *.o
+
+.ipynb_checkpoints
