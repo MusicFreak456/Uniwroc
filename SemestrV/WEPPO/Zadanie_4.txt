@@ -1,0 +1,12 @@
+typeof - zwraca string zawierający nazwę typu jego jedynego operandu. Czyli
+dla każdego napisu zwróci 'string', dla każdej wartości boolowskiej 'boolean'
+itd. Oznacza to też, że dla każdego obiektu zwróci po prostu 'object'.
+
+instanceof - operator binarny, którego pierwszym argumentem jest obiekt, a drugim
+konstruktor. Zwraca on wartość boolowską wskazującą czy obiekt zawiera w łańcuchu
+prototypów, prototyp wskazany przez konstruktor. Czyli np.
+
+let string = new String('test')
+console.log(string instanceof String) // true
+console.log(string instanceof Date) // false
+console.log(string instanceof Object) // true
