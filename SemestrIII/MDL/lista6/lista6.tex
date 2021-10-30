@@ -1,0 +1,537 @@
+\documentclass[12pt,a4paper]{article}
+\usepackage{nopageno}
+\usepackage[polish]{babel}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath,amsfonts}
+\usepackage{titling}
+\usepackage{textcomp}
+\usepackage{gensymb}
+\usepackage{mathtools}
+\usepackage[margin=0.6in]{geometry} 
+\usepackage{ulem}
+
+
+\title{MDL Lista 6}
+\author{Cezary Świtała}
+
+\begin{document}
+\maketitle
+
+\noindent
+\textbf{Zadanie 2} Rozwiąż następujące zależności rekurencyjne:
+\vskip 0.1cm
+(a)
+\[
+	\left\{ 
+	\begin{array}{l}
+		a_0 = 1 \\
+		a_1 = 1 \\
+		a_{n + 2 } = \left\lvert \sqrt{a_{n+1}^2 + a_n^2} \right\rvert
+	\end{array} 
+	\right.
+\]
+\[
+ a_{n + 2}^2 =  a_{n+1}^2 + a_n^2
+\]
+\[
+ b_n = a_n^2
+\]
+\[
+ a_n = \left\lvert \sqrt{b_n} \right\rvert
+\]
+\[
+	\left\{ 
+	\begin{array}{l}
+		b_0 = 1 \\
+		b_1 = 1 \\
+		b_{n+2} = b_{n+1} + b_n 
+	\end{array} 
+	\right.
+\]
+
+\[
+	E^2 \left< b_n \right> = \left< b_{n+2} \right> = \left< b_{n+1} + b_n \right> 
+	= \left< b_{n + 1} \right> + \left< b_n \right>
+	= E\left< b_n \right> + \left< b_n \right>
+\]
+Anihilator: \((E^2 - E - 1) = (E - \frac{1 - \sqrt{5}}{2})(E - \frac{1 + \sqrt{5}}{2})\) \\
+Postać ogólna: \( \alpha(\frac{1 - \sqrt{5}}{2})^n + \beta(\frac{1 + \sqrt{5}}{2})^n \) \\
+Rozwiązujemy układ równań za pomocą dwóch pierwszych wyrazów:
+\[
+	\left\{ 
+	\begin{array}{lll}
+		1 = \alpha + \beta & \rightarrow & \alpha = 1 - \beta \\
+		1 = \alpha\frac{1 - \sqrt{5}}{2} + \beta\frac{1 + \sqrt{5}}{2} \
+	\end{array} 
+	\right.
+\]
+\[
+	1 = (1 - \beta)\frac{1 - \sqrt{5}}{2} + \beta\frac{1 + \sqrt{5}}{2} /\cdot2
+\]
+\[
+	2 = (1 - \beta)(1 - \sqrt{5}) + \beta(1 + \sqrt{5})
+\]
+\[
+	2 = 1 - \sqrt{5} - \beta + \beta\sqrt{5} + \beta + \beta\sqrt{5}
+\]
+\[
+	1 + \sqrt{5} = 2\sqrt{5}\beta
+\]
+\[
+	\beta  = \frac{1 + \sqrt{5}}{2\sqrt{5}} = \frac{\sqrt{5} + 5}{10}
+\]
+\[
+	\alpha = 1 - \frac{\sqrt{5} + 5}{10} = \frac{5 - \sqrt{5}}{10}
+\]
+\[
+	b_n = \frac{5 
+	- \sqrt{5}}{10}\left(\frac{1 - \sqrt{5}}{2}\right)^n 
+	+ \frac{\sqrt{5} + 5}{10}\left(\frac{1 + \sqrt{5}}{2}\right)^n
+\]
+Rozwiązanie:
+\[
+	a_n = \left\lvert 
+	\sqrt{
+		\frac{5 
+		- \sqrt{5}}{10}\left(\frac{1 - \sqrt{5}}{2}\right)^n 
+		+ \frac{\sqrt{5} + 5}{10}\left(\frac{1 + \sqrt{5}}{2}\right)^n}
+	\right\rvert
+\]
+
+\newpage
+(b)
+\[
+	\left\{ 
+	\begin{array}{l}
+		b_0 = 1 \\
+		b_{n + 1 } = \left\lvert \sqrt{b_{n}^2 + 3} \right\rvert
+	\end{array} 
+	\right.
+\]
+\[
+ b_{n + 1}^2 =  b_{n}^2 + 3
+\]
+\[
+ a_n = b_n^2
+\]
+\[
+ b_n = \left\lvert \sqrt{a_n} \right\rvert
+\]
+\[
+	\left\{ 
+	\begin{array}{l}
+		a_0 = 64 \\
+		a_{n+1} = b_{n} + 3 
+	\end{array} 
+	\right.
+\]
+\[
+	E \left< a_n \right> = \left< a_{n+1} \right> = \left< a_n + 3 \right> 
+	= \left< a_n \right> + \left< 3 \right>
+\]
+\[
+	(E - 1) \left< a_n \right> = \left< 3 \right>
+\]
+Ciąg \( \left< 3 \right> \) jest anihilowany przez \( (E - 1) \), zatem anihilator \( \left< a_n \right> \) to: 
+\( (E - 1)^2  \) \\
+Postać ogólna: \( \alpha n + \beta \)
+Rozwiązujemy układ równań za pomocą dwóch pierwszych wyrazów:
+\[
+	\left\{ 
+	\begin{array}{lll}
+		64 = \beta \\
+		67 = \alpha + \beta
+	\end{array} 
+	\right.
+\]
+\[
+	\left\{ 
+	\begin{array}{lll}
+		\beta = 64 \\
+		\alpha = 3
+	\end{array} 
+	\right.
+\]
+\[
+	a_n = 3n + 64
+\]
+Rozwiązanie:
+\[
+	b_n = \left\lvert \sqrt{3n + 64} \right\rvert
+\]
+
+(c)
+\[
+	\left\{ 
+	\begin{array}{l}
+		c_0 = 0 \\
+		c_1 = 1 \\
+		c_{n + 1} = (n + 1)c_n + (n^2 + n)c_{n-1}
+	\end{array} 
+	\right.
+\]
+\[
+	\begin{array}{lr}
+		 c_{n + 1} = (n + 1)c_n + n(n + 1)c_{n-1} & \ \ /:(n+1)!
+	\end{array}
+\]
+\[
+	\frac{c_{n+1}}{(n+1)!} = \frac{c_{n}}{n!} + \frac{c_{n-1}}{(n-1)!}
+\]
+\[
+	a_n = \frac{c_n}{n!}
+\]
+\[
+	\left\{ 
+	\begin{array}{l}
+		a_0 = 0 \\
+		a_1 = 1 \\
+		a_{n + 1} = a_n + a_{n-1}
+	\end{array} 
+	\right.
+\]
+Ciąg \( a_n \)  jest ciągiem Fibonacciego, wiemy (choćby z poprzednich zajęć) że jego wzór jawny to:
+\[
+	a_n = 
+	\frac{1}{\sqrt{5}}
+	\left(
+	\left(\frac{1 + \sqrt{5}}{2}\right)^n 
+	- \left(\frac{1 - \sqrt{5}}{2}\right)^n
+	\right)
+\]
+\[
+	c_n = a_n n!
+\]
+Rozwiązanie:
+\[
+	c_n = \frac{n!}{\sqrt{5}}
+	\left(
+	\left(\frac{1 + \sqrt{5}}{2}\right)^n 
+	- \left(\frac{1 - \sqrt{5}}{2}\right)^n
+	\right)
+\]
+\newpage
+\noindent
+\textbf{Zadanie 4} Wykaż, że iloczyn dowolnych kolejnych \(k\) liczb naturalnych jest podzielny prze \(k!\).
+\vskip 0.1cm
+
+Weźmy dowolne \( n \in \mathbb{N} \), wtedy iloczyn \(k\) kolejnych liczb naturalnych ma postać
+\[
+	(n + 1)(n + 2)...(n+k)
+\]
+Chcemy pokazać, że powyższy iloczyn dzieli się przez \( k! \), czyli że:
+\[
+	\frac{(n + 1)(n + 2)...(n+k)}{k!} \in \mathbb{Z}
+\]
+Pomnóżmy licznik i mianownik przez \( n! \).
+\[
+	\frac{n!(n + 1)(n + 2)...(n+k)}{n!k!} 
+	= \frac{(n+k)!}{n!k!} = \frac{(n+k)!}{(n + k - k)!k!} 
+	= \binom{n+k}{k}
+\]
+
+\( \binom{n+k}{k} \in \mathbb{Z} \), co kończy dowód.
+
+\vskip 0.4cm
+\noindent
+\textbf{Zadanie 6} Rozwiąż zależność rekurencyjną.
+\[
+	\left\{ 
+	\begin{array}{l}
+		a_0 = 2 \\
+		a_n^2 = 2a_{n-1}^2 + 1
+	\end{array} 
+	\right.
+\]
+\[
+\begin{array}{cc}
+	 b_n = a_n^2 & (a_n > 0)
+\end{array}
+\]
+\[
+ a_n = \left\lvert \sqrt{b_n} \right\rvert
+\]
+\[
+	\left\{ 
+	\begin{array}{l}
+		b_0 = 4 \\
+		b_n = 2b_{n-1} + 1
+	\end{array} 
+	\right.
+\]
+\[
+	E \left< b_n \right> = \left< b_{n+1} \right> 
+	= \left< 2b_n + 1 \right> 
+	= 2\left< b_n \right> + \left< 1 \right>
+\]
+\[
+	(E - 2) \left< b_n \right> = \left< 1 \right>
+\]
+Ciąg \( \left< 1 \right> \) jest anihilowany przez \( (E - 1) \), zatem anihilator \( \left< b_n \right> \) to: 
+\( (E - 2)(E - 1)  \) \\
+Postać ogólna: \( \alpha 2^n + \beta \) \\
+Rozwiązujemy układ równań za pomocą dwóch pierwszych wyrazów:
+\[
+	\left\{ 
+	\begin{array}{lll}
+		4 = \alpha + \beta & \rightarrow & \alpha = 4 - \beta \\
+		9 = 2\alpha + \beta
+	\end{array} 
+	\right.
+\]
+\[
+	9 = 2(4 - \beta) + \beta
+\]
+\[
+	9 = 8 - 2\beta + \beta
+\]
+\[
+	\beta = -1
+\]
+\[
+	\alpha = 5
+\]
+\[
+	b_n = 5 \cdot 2^n - 1
+\]
+Rozwiązanie:
+\[
+	a_n = \left\lvert \sqrt{5 \cdot 2^n - 1} \right\rvert
+\]
+\newpage
+\noindent
+\textbf{Zadanie 7} Ile jest wyrazów złożonych z \(n\) liter należących do 25-literowego alfabetu łacińskiego, zawierających  parzystą liczbę liter \(a\)?
+
+Niech \(a_n\) będzie liczbą wyrazów o parzystej liczbie \(a\) i o długości \(n\). Będzie na nią składać się liczba wyrazów z parzystą liczbą \(a\) o długości \( n - 1 \), czyli \(a_{n - 1}\), do których dopisano z przodu literę różną od \(a\) oraz liczba wyrazów z nieparzystą liczbą \(a\) o długości \( n -1 \) (oznaczmy jako \(b_{n-1}\)) do których dopisano \(a\). Zatem
+\begin{gather}
+	a_n = 24a_{n-1} + b_{n-1}
+\end{gather}
+Liczba wszystkich wyrazów długości \(n - 1\), jest równa sumie liczb wyrazów z parzystą i nieparzystą liczbą \(a\) o długości \(n-1\).
+\[
+	25^{n-1} = a_{n-1} + b_{n-1}
+\]
+\[
+	b_{n-1} = 25^{n-1} - a_{n-1}
+\]
+Podstawiamy pod (1)
+\[
+	a_n = 24a_{n-1} + 25^{n-1} - a_{n-1}
+\]
+\[
+	a_n = 23a_{n-1} + 25^{n-1}
+\]
+Musimy ustalić warunek początkowy. Jest tylko jeden wyraz długości 0 -- wyraz pusty, który ma parzystą liczbę liter \(a\) -- równą 0. Czyli \(a_0 = 1\). Otrzymujemy związek rekurencyjny.
+\[
+	\left\{ 
+	\begin{array}{l}
+		a_0 = 1 \\
+		a_{n + 1} = 23a_n + 25^n
+	\end{array} 
+	\right.
+\]
+Rozwiążemy go metodą anihilatorów.
+\[
+	E \left< a_n \right> = \left< a_{n+1} \right> 
+	= \left< 23a_n + 25^n \right> 
+	= 23\left< a_n \right> + \left< 25^n \right>
+\]
+\[
+	(E - 23) \left< a_n \right> = \left< 25^n \right>
+\]
+Ciąg \( \left< 25^n \right> \) jest anihilowany przez \( (E - 25) \), zatem anihilator \( \left< a_n \right> \) to: 
+\( (E - 23)(E - 25)  \) \\
+Postać ogólna: \( \alpha 23^n + \beta 25^n \) \\
+Rozwiązujemy układ równań za pomocą dwóch pierwszych wyrazów:
+\[
+	\left\{ 
+	\begin{array}{lll}
+		1 = \alpha + \beta & \rightarrow & \alpha = 1 - \beta \\
+		24 = 23\alpha + 25\beta
+	\end{array} 
+	\right.
+\]
+\[
+	24 = 23(1 - \beta) + 25\beta
+\]
+\[
+	24 = 23 - 23\beta + 25\beta
+\]
+\[
+	1 = 2\beta
+\]
+\[
+	\beta = \frac{1}{2}
+\]
+\[
+	\alpha = \frac{1}{2}
+\]
+Rozwiązanie: 
+\[
+	a_n = \frac{1}{2}23^n + \frac{1}{2}25^n
+\]
+\newpage
+\noindent
+\textbf{Zadanie 8} Znajdź ogólną postać rozwiązań następujących równań rekurencyjnych za pomocą anihilatorów i rozwiąż jedno z równań do końca:
+\vskip 0.1cm
+(a)
+\[
+	\left\{ 
+	\begin{array}{l}
+		a_0 = 0 \\
+		a_1 = 0 \\
+		a_{n + 2} = 2a_{n+1} - a_{n} + 3^n - 1
+	\end{array} 
+	\right.
+\]
+\[
+	E^2 \left< a_n \right> = \left< a_{n+2} \right> 
+	= \left< 2a_{n+1} - a_{n} + 3^n - 1 \right> 
+	= 2E\left< a_n \right> - \left< a_n \right> + \left< 3^n \right> + \left< -1 \right>
+\]
+\[
+	(E^2 - 2E + 1) \left< a_n \right> = \left< 3^n \right> + \left< -1 \right>
+\]
+Ciąg \( \left< 3^n \right> \) jest anihilowany przez \( (E - 3) \), ciąg \( \left< -1 \right> \) jest anihilowany przez \( (E - 1) \), zatem anihilator \( \left< a_n \right> \) to: 
+\( (E^2 - 2E + 1)(E - 3)(E - 1) = (E - 3)(E - 1)^3  \) \\
+Postać ogólna: \( a n^2 + b n + c + d 3^n \)
+\vskip 0.4cm
+(b)
+\[
+	\left\{ 
+	\begin{array}{l}
+		a_0 = 1 \\
+		a_1 = 1 \\
+		a_{n + 2} = 4a_{n+1} - 4a_{n} + n2^{n+1}
+	\end{array} 
+	\right.
+\]
+\[
+	E^2 \left< a_n \right> = \left< a_{n+2} \right> 
+	= \left< 4a_{n+1} - 4a_{n} + n2^{n+1} \right> 
+	= 4E\left< a_n \right> - 4\left< a_n \right> + \left< n2^{n+1} \right>
+\]
+\[
+	(E^2 - 4E + 4) \left< a_n \right> = \left< n2^{n+1} \right>
+\]
+Ciąg \( \left< n2^{n+1} \right> \) jest anihilowany przez \( (E - 2)^2 \), zatem anihilator 
+\( \left< a_n \right> \) to: 
+\( (E^2 - 4E + 4)(E - 2)^2 = (E - 2)^4  \) \\
+Postać ogólna: \( 2^n(an^3 + bn^2 + cn + d) \)
+\vskip 0.4cm
+(c)
+\[
+	\left\{ 
+	\begin{array}{l}
+		a_0 = 1 \\
+		a_1 = 1 \\
+		a_{n + 2} = \frac{1}{2^{n+1}} - 2a_{n+1} - a_n
+	\end{array} 
+	\right.
+\]
+\[
+	E^2 \left< a_n \right> = \left< a_{n+2} \right> 
+	= \left< \frac{1}{2^{n+1}} - 2a_{n+1} - a_n \right> 
+	= \left< \left(\frac{1}{2}\right)^{n+1} \right> - 2E\left< a_n \right> - \left< a_n \right>
+\]
+\[
+	(E^2 + 2E + 1) \left< a_n \right> = \left< \left(\frac{1}{2}\right)^{n+1} \right>
+\]
+Ciąg \( \left< \left(\frac{1}{2}\right)^{n+1} \right> \) jest anihilowany przez \( (E - \frac{1}{2}) \), zatem anihilator \( \left< a_n \right> \) to: \\ 
+\( (E^2 +2E + 1)(E - \frac{1}{2}) = (E + 1)^2(E - \frac{1}{2})  \) \\
+Postać ogólna: \( (-1)^n(an + b) + c\left(\frac{1}{2}\right)^n \) \\
+Rozwiązujemy układ równań za pomocą trzech pierwszych wyrazów:
+\[
+	\left\{ 
+	\begin{array}{lll}
+		1 = b + c &  \rightarrow & c = 1 - b\\
+		1 = -a - b + \frac{1}{2}c \\
+		-\frac{5}{2} = 2a + b + \frac{1}{4}c
+	\end{array} 
+	\right.
+\]
+\[
+	\left\{ 
+	\begin{array}{lll}
+		1 = -a - b + \frac{1}{2}(1 - b) & /\cdot2 \\
+		-\frac{5}{2} = 2a + b + \frac{1}{4}(1 - b) & /\cdot4
+	\end{array} 
+	\right.
+\]
+\[
+	\left\{ 
+	\begin{array}{lll}
+		2 = -2a - 2b + 1 - b \\
+		-10 = 8a + 4b + 1 - b
+	\end{array} 
+	\right.
+\]
+\[
+	\left\{ 
+	\begin{array}{lll}
+		1 = -2a - 3b \\
+		-11 = 8a + 3b
+	\end{array} 
+	\right.
+\]
+Po dodaniu równań
+\[
+	-10 = 6a
+\]
+\[
+	a = -\frac{5}{3}
+\]
+\[
+	b = \frac{7}{9}
+\]
+\[
+	c = \frac{2}{9}
+\]
+Rozwiązanie: 
+\[
+	a_n = (-1)^n\left(-\frac{5}{3}n + \frac{7}{9}\right) + \frac{2}{9}\left(\frac{1}{2}\right)^n
+\]
+
+\vskip 0.4cm
+\noindent
+\textbf{Zadanie 10} Na ile sposobów można rozdać \(n\) różnych nagród wśród czterech osób A, B, C, D tak, aby:
+
+(a) A dostała przynajmniej jedną nagrodę. Niech \( \Omega \) będzie zbiorem wszystkich sposobów na rozdanie \( n \) różnych nagród wśród czterech osób, wtedy \( \left\lvert \Omega \right\rvert
+= 4^n \). Aby policzyć ile jest sposobów, w których A dostaje przynajmniej jedną, odejmiemy od liczby wszystkich, liczbę takich, w których A nie dostaje żadnej, a jest ich \( 3^n \). Mamy
+\[
+	4^n - 3^n
+\]
+
+(b) A lub B nie dostała nic. Niech \( P_X \) będzie zbiorem sposobów na rozdanie \(n\) nagród, tak, że osoba \(X\) nie dostaje nic. Wtedy rozwiązaniem będzie
+\[
+	\left\lvert P_A \cup P_B \right\rvert = \left\lvert P_A \right\rvert + \left\lvert P_B \right\rvert - \left\lvert P_A \cap P_B \right\rvert = 3^n + 3^n - 2^n
+\]
+
+(c) Zarówno A jak i B dostała przynajmniej jedną nagrodę. Będą to wszystkie rozwiązania minus te z poprzedniego podpunktu
+\[
+	\left\lvert \Omega \right\rvert - \left\lvert P_A \cup P_B \right\rvert 
+	= \left\lvert \Omega \right\rvert - \left\lvert P_A \right\rvert - \left\lvert P_B \right\rvert + \left\lvert P_A \cap P_B \right\rvert 
+	= 4^n - 3^n - 3^n + 2^n
+\]
+
+(d) Przynajmniej jedna spośród A, B, C nic nie dostała. Analogicznie do drugiego podpunktu.
+\[
+	\left\lvert P_A \cup P_B \cup P_C \right\rvert 
+	= \left\lvert P_A \right\rvert 
+	+ \left\lvert P_B \right\rvert
+	+ \left\lvert P_C \right\rvert  
+	- \left\lvert P_A \cap P_B \right\rvert
+	- \left\lvert P_B \cap P_C \right\rvert 
+	- \left\lvert P_A \cap P_C \right\rvert
+	- \left\lvert P_A \cap P_B \cap P_C \right\rvert =
+\]
+\[
+	= 3^n + 3^n + 3^n - 2^n - 2^n - 2^n + 1 = 3 \cdot 3^n - 3 \cdot 2^n + 1
+\]
+
+(e) Każda z 4 osób coś dostała. Analogicznie do trzeciego podpunktu, sumę zbiorów rozwijamy jak wcześniej z wzoru włączeń i wyłączeń.
+\[
+	\left\lvert \Omega \right\rvert - \left\lvert P_A \cup P_B \cup P_C \cup P_D \right\rvert 
+	= 4^n - 4 \cdot 3^n + \binom{4}{2}2^n - \binom{4}{3}
+\]
+\end{document}

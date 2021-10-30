@@ -1,0 +1,160 @@
+\documentclass[12pt,a4paper]{article}
+\usepackage{nopageno}
+\usepackage[polish]{babel}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath,amsfonts}
+\usepackage{titling}
+\usepackage{mathtools}
+\usepackage[margin=0.6in]{geometry} 
+\usepackage{graphicx}
+
+
+\title{MDL Lista 7}
+\author{Cezary Świtała}
+
+\begin{document}
+\maketitle
+
+\noindent
+\textbf{Zadanie 2} Określ liczbę drzew binarnych, zawierających \(n\) wierzchołków wewnętrznych. W drzewie binarnym każdy wierzchołek ma zero lub dwóch synów.
+\vskip 0.1cm
+	Zbudujemy bijekcję między zbiorem drzew binarnych o \( n \) wierzchołkach wewnętrznych, a zbiorem poprawnych rozstawień \(n\) par nawiasów, pokazując tym samym ich równoliczność. Z wykładu wiemy że liczba takich rozstawień nawiasów jest równa \(c_n\), gdzie ciąg \(c\) to \textit{liczby Catalana}.
+	
+	Niech \(f\) będzie funkcją ze zbioru drzew binarnych o \(n\) wierzchołkach wewnętrznych do zbioru poprawnych rozstawień \(n\) par nawiasów. \(f(t)\) nie będzie zwracać nic jeśli \(t\) jest liściem, w przeciwnym wypadku zwraca \( ( f(t.lewedziecko))f(t.prawedziecko) \), czyli wynik \(f\) dla lewego dziecka \(t\) opakowany w nawias z dopisanym wynikiem \(f\) dla prawego dziecka. 
+
+\includegraphics[scale=0.77]{trees}
+
+Jest to bijekcja gdyż istnieje funkcja odwrotna (wystarczy wziąć pierwszą parę nawiasów z brzegu, utworzyć dla niej węzeł, jej wnętrze przekształcić tą funkcją i podpiąć pod lewe dziecko, a wszystko po jej prawej, po nałożeniu funkcji podpiąć pod prawe dziecko). Więc wzór, korzystając z liczb Catalana, ma postać
+\[
+	c_n = 
+	\left\{
+		\begin{array}{lll}
+			1 & & n = 0 \\
+			\sum_{i=0}^n c_{i-1}c_{n-1} & & wpp.
+		\end{array}				
+	\right.
+\]
+\vskip 0.5cm
+\noindent
+\textbf{Zadanie 3} Ile nie krzyżujących się uścisków dłoni może wykonać jednocześnie \(n\) par osób siedzących za okrągłym stołem?
+	
+Dla danego \(n\) oznaczamy osoby \( o_1, o_2, ... , o_{2n} \). Bez utraty ogólności, możemy wziąć osobę \(o_1\) i rozpatrzeć dla niej przypadki. Zauważamy, że osoba ta może uścisnąć dłoń wyłącznie co drugiej osoby czyli w tym przypadku, osób o parzystym indeksie, gdyż po obu ''stronach'' uścisku musi pozostać parzysta ilość osób (dla nieparzystej, zawsze jakaś osoba nie miałaby z kim się przywitać). Zatem osoba \(o_1\) może wykonać \(n\) uścisków.
+
+Wykonując uścisk, osoba ''dzieli'' pary siedzące przy stole na te na lewo od uścisku i prawo. Wystarczy zatem policzyć na ile sposobów te dwie grupy mogą się przywitać nie krzyżując rąk, tak jakby siedziały przy okrągłym stole. Zobaczmy to na przykładzie.
+
+\vskip 0.5cm
+\includegraphics[scale=0.7]{handshakes}
+
+Witając się z osobą \(o_{2i}\), osoba \( o_1 \) dzieli zbiór par na \(i-1\) par po prawej i \(n-i\) par po lewej, a przywitać się może z osobami \((o_2, o_4,...,o_2n)\). Ogólnie wzór na wszystkie sposoby będzie wyglądał zatem tak:
+\[
+	c_n = \sum_{i=1}^n c_{i-1}c_{n-i}
+\]
+Warunkiem początkowym będzie \(c_0 = 1\), gdyż istnieje tylko jeden sposób na przywitanie się zera par. Czyli otrzymujemy liczby Catalana.
+
+\vskip 0.5cm
+\noindent
+\textbf{Zadanie 4} Z macierzy \( n \times n \) usuwamy część nad przekątną otrzymując macierz ''schodkową''. Na ile sposobów można ja podzielić na \(n\) prostokątów?
+
+Zauważamy, że w takiej macierzy, kwadraciki \( 1\times 1\) znajdujące się na przekątnej (w przykładzie poniżej oznaczone indeksowanymi literami \(a\)) muszą znaleźć się w różnych prostokątach, a skoro na przekątnej jest ich \(n\), to znaczy że każdy z \(n\) prostokątów, na które dzielimy te schodki musi zawierać jakiś kwadrat 
+\( 1 \times 1\) z przekątnej.
+
+Weźmy kwadrat \( 1 \times 1\) leżący w dolnym rogu, ale nie na przekątnej. Wiemy, że po podziale kwadrat ten znajdzie się w prostokącie razem z dokładnie jednym kwadratem z przekątnej. Rozpatrujemy wszystkie przypadki i zauważamy, że w każdym powstają mniejsze macierze schodkowe. Poniżej przykład.
+
+\includegraphics[scale=0.4]{stairs}
+Czyli sumę tych przypadków możemy zapisać w postaci
+\[
+	c_n = \sum_{i=1}^n c_{i-1}c_{n-i}
+\]
+Gdzie warunkiem początkowym jest \( c_0 = 1 \), gdyż istnieje jeden podział macierzy \( 0 \times 0 \). Czyli znów otrzymujemy liczby Catalana.
+
+\vskip 0.5cm
+\noindent
+\textbf{Zadanie 5} Podaj funkcję tworzącą dla ciągu (0, 0, 0, 1, 3, 7, 15, 31, . . .).
+
+Funkcja tworząca \(A(x)\) dla naszego ciągu \( a_n \) musi być równa sumie
+\[
+	\sum_{i=0}^\infty a_ix^i = 0 + 0x + 0x^2 + 1x^3 + 3x^4 + 7x^5 + 15x^6 + 31x^7 + ... =
+\]
+\[
+	 = 1x^3 + 3x^4 + 7x^5 + 15x^6 + 31x^7 + ... = \sum_{i=0}^\infty x^{i+3}(2^{i+1} - 1) =
+\]
+\[
+	 = x^3\sum_{i=0}^\infty x^i(2^{i+1} - 1) 
+	 = x^3\sum_{i=0}^\infty (2^{i+1}x^i - x^i)
+	 = x^3(\sum_{i=0}^\infty2^{i+1}x^i - \sum_{i=0}^\infty x^i) =
+\]
+\[
+	= x^3(2\sum_{i=0}^\infty2^i x^i - \sum_{i=0}^\infty x^i)
+	= x^3\left(\frac{2}{1-2x}  -  \frac{1}{1-x} \right) 
+	= x^3\left(\frac{2-2x}{(1-2x)(1-x)}  -  \frac{1-2x}{(1-x)(1-2x)} \right) =
+\]
+\[
+	= x^3\frac{2-2x-1+2x}{(1-2x)(1-x)} 
+	= x^3\frac{1}{(1-2x)(1-x)} 
+\]
+
+\vskip 0.5cm
+\noindent
+\textbf{Zadanie 6} Niech \( A(x) \) będzie funkcją tworzącą ciągu \(a_n\). Pokaż, że funkcja tworząca \(b_n\) postaci \((0,0,...,0,a_0,a_1,a_2,...)\), takiego, że \(b_{k+i} = a_i\) oraz \(b_0 = ... = b_{k-1} = 0\) jest funkcja \( x^k A(x)\).
+
+Niech \(B(x)\) będzie funkcją tworzącą ciągu \( b_n \), wtedy
+\[
+	B(x) = \sum_{i=0}^\infty b_i x^i = b_0 + b_1x + ... + b_{k-1}x^{k-1} + b_{k}x^{k} + ...
+\]
+Pierwsze \(k\) wyrazów nam się zeruje bo \(b_0 = ... = b_{k-1} = 0\).
+\[
+	B(x) = b_{k}x^{k} + b_{k+1}x^{k+1} + b_{k+2}x^{k+2} + ... 
+	= \sum_{i = 0}^\infty b_{k+i}x^{k+i} 
+	= x^k\sum_{i = 0}^\infty b_{k+i}x^i 
+\]
+Skoro \(b_{k+i} = a_i\).
+\[
+	x^k\sum_{i = 0}^\infty b_{k+i}x^i = x^k\sum_{i = 0}^\infty a_ix^i
+\]
+Z definicji funkcji tworzącej.
+\[
+	x^k\sum_{i = 0}^\infty a_ix^i = x^kA(x)
+\]
+Co kończy dowód pierwszej części. A jak otrzymać funkcję tworzącą ciągu \(c_n\) postaci \( (a_k, a_{k+1},...)\), czyli takiego, że \(c_i = a_{k+i} \)?
+
+Funkcja tworząca \( C(x) \) będzie musiała mieć postać
+\[
+	C(x) = \sum_{i = 0}^\infty c_ix^i = \sum_{i = 0}^\infty a_{k + i}x^i 
+	= \frac{x^k\sum_{i = 0}^\infty a_{k + i}x^i}{x^k} = 
+\]
+\[
+	= \frac{\sum_{i = 0}^\infty a_{k + i}x^{k + i}}{x^k} 
+	= \frac{\sum_{i = 0}^\infty a_{k + i}x^{k + i} + \sum_{i = 0}^{k -1} a_i x^i - \sum_{i = 0}^{k -1} a_i x^i  }{x^k} = 
+\]
+\[
+	= \frac{\sum_{i = 0}^\infty a_i x^i - \sum_{i = 0}^{k -1} a_i x^i  }{x^k} 
+	= \frac{A(x) - \sum_{i = 0}^{k -1} a_i x^i  }{x^k}
+\]
+
+\vskip 0.5cm
+\noindent
+\textbf{Zadanie 7} Podaj postać funkcji tworzącej dla liczby podziałów liczby naturalnej \( n\) (czyli rozkładów liczby \(n\) na sumę składników naturalnych, gdy rozkładów różniących się kolejnością nie uważamy za różne):
+
+(a) na dowolne składniki. Używając jedynki możemy rozłożyć wszystkie liczby dokładnie na jeden sposób, czyli dostajemy ciąg (1,1,1,1,1,....), którego możemy zaprezentować funkcją tworzącą \( \sum_{i=0}^\infty x^i \). Używając dwójki możemy zapisać tylko liczby podzielne przez dwa i to zawsze na jeden sposób, czyli mamy ciąg \( (1,0,1,0,1,...) \), którego tworząca to \( \sum_{i=0}^\infty x^{2i} \). Uogólniając dla dowolnego \(k\) będziemy mogli rozłożyć tylko liczby podzielne przez \(k\) na jeden sposób, czyli funkcja tworząca będzie miała dla niego postać \( \sum_{i=0}^\infty x^{ik} \). Aby podać funkcję tworzącą dla liczby podziałów za pomocą dowolnych liczb, musimy wymnożyć te przypadki.
+\[
+	\prod_{j=1}^\infty \left( \sum_{i=0}^\infty x^{ji} \right) =
+	\prod_{j=1}^\infty \left( \frac{1}{1-x^j} \right)
+\]
+
+(b) na różne składniki nieparzyste. Schemat będzie dokładnie taki sam. Dla dowolnej liczby nieparzystej \(k\) możemy rozłożyć za pomocą różnych składników tylko 0 i nią samą (bo nie możemy powtarzać), w obu przypadkach na jeden sposób, czyli funkcja tworząca będzie miała postać \( 1 + x^k \). Bierzemy tylko liczby nieparzyste, czyli takie w postaci \( 2n-1 \). Czyli iloczyn tworzących dla wszystkich nieparzystych ma postać.
+\[
+	\prod_{i=1}^\infty (1 + x^{2i-1})
+\]
+
+(c) na składniki mniejsze od \(m\). Tak samo jak w podpunkcie (a), ale możemy rozkładać tylko za pomocą liczb mniejszych od \(m\) zatem nasz iloczyn skończy się na \(m-1\).
+\[
+	\prod_{j=1}^{m-1} \left( \frac{1}{1-x^j} \right)
+\]
+(d) na różne potęgi liczby 2. Tak samo jak w podpunkcie (b), tylko bierzemy liczby w postaci \(2^n\).
+\[
+	\prod_{i=1}^\infty (1 + x^{2^i})
+\]
+
+
+\end{document}

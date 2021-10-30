@@ -1,0 +1,370 @@
+\documentclass[12pt,a4paper]{article}
+\usepackage{nopageno}
+\usepackage[polish]{babel}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath,amsfonts}
+\usepackage{titling}
+\usepackage{mathtools}
+\usepackage[margin=0.6in]{geometry} 
+\usepackage{graphicx}
+\usepackage{listings}
+\usepackage{xcolor}
+
+\title{MDL Lista 8}
+\author{Cezary Świtała}
+
+\definecolor{codegreen}{rgb}{0,0.6,0}
+\definecolor{codegray}{rgb}{0.5,0.5,0.5}
+\definecolor{codepurple}{rgb}{0.58,0,0.82}
+\definecolor{backcolour}{rgb}{0.95,0.95,0.92}
+
+\lstset{language=Python}
+\lstset{frame=lines}
+\lstset{basicstyle=\footnotesize}
+
+\lstdefinestyle{mystyle}{
+    backgroundcolor=\color{backcolour},   
+    commentstyle=\color{codegreen},
+    keywordstyle=\color{magenta},
+    numberstyle=\tiny\color{codegray},
+    stringstyle=\color{codepurple},
+    basicstyle=\ttfamily\footnotesize,
+    breakatwhitespace=false,         
+    breaklines=true,                 
+    captionpos=b,                    
+    keepspaces=true,                 
+    numbers=left,                    
+    numbersep=5pt,                  
+    showspaces=false,                
+    showstringspaces=false,
+    showtabs=false,                  
+    tabsize=2
+}
+\lstset{style=mystyle}
+
+
+\begin{document}
+\maketitle
+
+\noindent
+\textbf{Zadanie 1} Niech \( A(x) \) będzie funkcją tworzącą ciągu \( a_n \). Podaj postać funkcji tworzącej
+dla ciągu
+\[
+	s_n = a_0 + a_1 + a_2 + ... + a_n 
+\]
+\textit{Wskazówka:} Trzeba użyć funkcji tworzącej \( \frac{1}{1-x}\)
+\vskip 0.2cm
+
+Niech \( S(x) \) będzie funkcją tworzącą ciągu \( s_n \).
+\[
+	S(x) = \sum_{i=0}^\infty s_i x^i = \sum_{i=0}^\infty ( a_0 + a_1 + a_2 + ... + a_i )x^i = 
+\]
+\[
+	= a_0 x^0 + (a_0 + a_1)x + (a_0 + a_1 + a_2) x^2 + ...
+	= a_0 x^0 + a_0 x + a_1 x + a_0 x^2 + a_1 x^2 + a_2 x^2 + ... = 
+\]
+\[
+	= a_0( x^0 + x^1 + x^2 + ...) + a_1( x^1 + x^2 + x^3 + ...) + a_2( x^2 + x^3 + x^4 + ...) =
+\]
+\[
+	= a_0( x^0 + x^1 + x^2 + ...) + a_1x^1( x^0 + x^1 + x^2 + ...) + a_2x^2( x^0 + x^1 + x^2 + ...) =
+\]
+\[
+	= \sum_{i=0}^\infty a_i x^i ( x^0 + x^1 + x^2 + ...)
+\]
+Wiemy, że funkcja tworząca ciągu reprezentowanego przez sumę \( x^0 + x^1 + x^2 + ...\) to \( \frac{1}{1-x}\).
+\[
+	= \sum_{i=0}^\infty a_i x^i \frac{1}{1-x}
+	= \frac{1}{1-x} \sum_{i=0}^\infty a_i x^i 
+\]
+\( \sum_{i=0}^\infty a_i x^i  \) to po prostu funkcja tworząca ciągu \(a_n\).
+\[
+	S(x) = \frac{1}{1-x} A(x)
+\]
+\newpage
+\noindent
+\textbf{Zadanie 2} Wyznacz funkcje tworzące ciągów:
+
+\textit{Wskazówka:} Wszędzie przyda się funkcja tworząca \( \frac{1}{1-x} \). W ostatnim podpunkcie będzie to odpowiednia potęga tej funkcji.
+\vskip 0.5cm
+\noindent
+(a) \(a_n = n^2\)
+\[
+	A(x) = \sum_{n=0}^\infty a_nx^n = \sum_{n=0}^\infty n^2x^n = \sum_{n=0}^\infty x(nx^n)' 
+	= x\sum_{n=0}^\infty (nx^n)' =
+\]
+\[
+	= x \left( \sum_{n=0}^\infty nx^n \right)' 
+	= x \left( \sum_{n=0}^\infty x(x^n)' \right)'
+	= x \left( x \left(\sum_{n=0}^\infty x^n\right)' \right)'
+\]
+Wiemy, że \( \sum_{n=0}^\infty x^n = \frac{1}{1-x}\).
+\[
+	x \left( x \left(\sum_{n=0}^\infty x^n\right)' \right)'
+	= x \left( x \left( \frac{1}{1-x} \right)' \right)'
+	= x \left( \frac{x}{(1-x)^2} \right)' = 
+\]
+\[
+	= x \frac{(1-x)^2 + 2(1-x)x}{(1-x)^4} 
+	= x \frac{(1-x) + 2x}{(1-x)^3} 
+	= x \frac{1 + x}{(1-x)^3} 
+\]
+\vskip 0.5cm
+\noindent
+(b) \(a_n = n^3\)
+\[
+	A(x) 
+	= \sum_{n=0}^\infty a_nx^n 
+	= \sum_{n=0}^\infty n^3x^n 
+	= \sum_{n=0}^\infty x(n^2x^n)' =
+\]
+\[
+	= x\sum_{n=0}^\infty (n^2x^n)' = x \left(\sum_{n=0}^\infty n^2x^n\right)'
+\]
+Korzystamy z wzoru wyznaczonego w poprzednim podpunkcie
+\[
+	x \left(\sum_{n=0}^\infty n^2x^n\right)' 
+	= x \left(  \frac{x(1 + x)}{(1-x)^3} \right)'
+	= x  \frac{(x + 1 + x)(1-x)^3 + 3(1-x)^2(1+x)x}{(1-x)^6} =
+\]
+\[
+	= x  \frac{(2x + 1)(1-x) + 3(1+x)x}{(1-x)^4} 
+	= x  \frac{2x - 2x^2 + 1 - x + 3x + 3x^2}{(1-x)^4} =
+\]
+\[
+	= x  \frac{x^2 + 4x + 1 }{(1-x)^4}
+	= \frac{x^3 + 4x^2 + x }{(1-x)^4}
+\]
+\vskip 0.5cm
+\noindent
+(c) \(a_n = \binom{n+k}{k}\)
+\[
+	A(x) 
+	= \sum_{n=0}^\infty a_nx^n 
+	= \sum_{n=0}^\infty \binom{n+k}{k} x^n 
+	= \sum_{n=0}^\infty \frac{(n+k)!}{k!(n+k-k)!} x^n =
+\]
+\[
+	= \sum_{n=0}^\infty \frac{(n+k)!}{k!n!} x^n 
+	= \frac{1}{k!} \sum_{n=0}^\infty \frac{(n+k)!}{n!} x^n =
+\]
+\[
+	= \frac{1}{k!} \sum_{n=0}^\infty (n+1)(n+2)...(n+k) x^n 
+	= \frac{1}{k!} \sum_{n=0}^\infty (x^{n+k})^{(k)} =
+\]
+\[
+	= \frac{1}{k!} \left( \sum_{n=0}^\infty x^{n+k} \right)^{(k)} 
+	= \frac{1}{k!} \left( x^k \sum_{n=0}^\infty x^{n} \right)^{(k)}
+	= \frac{1}{k!} \left( \frac{x^k}{1-x} \right)^{(k)} =
+\]
+\[
+	= \frac{1}{k!} \left( \frac{x^k + 1 - 1}{1-x} \right)^{(k)}
+	= \frac{1}{k!} \left( \frac{x^k - 1}{1-x} + \frac{1}{1-x} \right)^{(k)} =
+\]
+\[
+	= \frac{1}{k!} \left( -\frac{1 - x^k}{1-x} + \frac{1}{1-x} \right)^{(k)} 
+\]
+Zauważamy, że \( \frac{1 - x^k}{1-x} \) to zwinięta suma ciągu geometrycznego dla \( k \) wyrazów
+\[
+	\frac{1}{k!} \left( -(1 + x + x^2 + x^3 + ... + x^{k-1}) + \frac{1}{1-x} \right)^{(k)} =
+\]
+\[
+	= \frac{1}{k!} \left( (-1 - x - x^2 - x^3 - ... - x^{k-1})^{(k)} 
+	+ \left( \frac{1}{1-x} \right)^{(k)} \right) 
+\]
+\(k\)-ta pochodna wyzeruje wielomian \( (k-1) \)-go stopnia. Mamy
+\[
+	\frac{1}{k!} \left( \frac{1}{1-x} \right)^{(k)}  = \frac{1}{k!} \left( (1-x)^{-1} \right)^{(k)}
+\]
+Licząc \(k\)-tą pochodną, potęgi będą spadały przed nawias, a minusy z nich będą usuwane przez pochodną nawiasu, która wynosi -1, otrzymamy więc silnię przed nawiasem. W wykładniku dostaniemy \(-(k+1)\), bo zerowa pochodna ma w wykładniku -1, a będzie zmniejszany przy każdej kolejnej. Otrzymujemy
+\[
+	\frac{1}{k!} \left( (1-x)^{-1} \right)^{(k)} = \frac{1}{k!} k!(1-x)^{-(k+1)} = (1-x)^{-(k+1)}
+\]
+Co jest naszą poszukiwaną funkcją tworzącą.
+\vskip 0.5cm
+\noindent
+\textbf{Zadanie 3} Oblicz funkcje tworzące ciągów:
+
+(a) \(a_n = n\) dla parzystych \(n\) i \(a_n = \frac{1}{n} \) dla nieparzystych \(n\)
+
+Mamy funkcję tworzącą w postaci
+\[
+	A(x) = 0 + \frac{1}{1}x + 2x^2 + \frac{1}{3}x^3 + 4x^4 + ...
+\]
+Możemy rozbić ją na sumę dwóch funkcji, które są łatwiejsze do policzenia
+\begin{gather*}
+	A(x) = B(x) + C(x) \\
+	B(x) = 0 + 2x^2 + 4x^4 + 6x^6 + ... \\
+	C(x) = \frac{1}{1}x + \frac{1}{3}x^3 + \frac{1}{5}x^5 + ...
+\end{gather*}
+Zauważamy, że funkcja \(B(x)\) składa się z parzystych wyrazów sumy \( \sum_{n=0}^\infty nx^n \), którą oznaczymy \( B'(x) \). W zadaniu 2, w podpunkcie a, wyliczyliśmy jej wartość na \(\frac{x}{(1-x)^2} \). Funkcję \( B(x)\) policzymy ze wzoru na funkcję tworzącą ciągów w postaci \( (a_0,0,a_2,0,a_4,...) \) podanego na wykładzie.
+\begin{gather*}
+	B(x) = \frac{B'(x) + B'(-x)}{2} = \frac{ \frac{x}{(1-x)^2} + \frac{-x}{(1+x)^2}}{2} = \\
+	= \frac{x(1+x)^2}{2(1-x)^2(1+x)^2} - \frac{x(1-x)^2}{2(1+x)^2(1-x)^2} = \\
+	= \frac{x(1+2x+x^2)}{2(1-x)^2(1+x)^2} - \frac{x(1-2x+x^2)}{2(1+x)^2(1-x)^2} = \\
+	= \frac{x+2x^2+x^3}{2(1-x)^2(1+x)^2} - \frac{x-2x^2+x^3}{2(1+x)^2(1-x)^2} = \\
+	= \frac{4x^2}{2(1+x)^2(1-x)^2} = \frac{2x^2}{(1+x)^2(1-x)^2}
+\end{gather*}
+Następnie zauważamy, że funkcja \(C(x)\) również składa się z wyrazów, tym razem nieparzystych, prostszej funkcji \(C'(x) = \sum_{n=0}^\infty \frac{1}{n+1}x^{n+1}\). Policzymy jej funkcję tworzącą.
+\[
+	C'(x) = \sum_{n=0}^\infty \frac{1}{n+1}x^{n+1} 
+	= \sum_{n=0}^\infty \int_0^x x^n \,dx 
+	= \int_0^x \sum_{n=0}^\infty x^n \,dx =
+\]
+\[
+	= \int_0^x \frac{1}{1-x} \,dx 
+	= -ln(1-x) - ln(1) 
+	= ln((1-x)^{-1}) 
+	= ln\left( \frac{1}{1-x} \right) 
+\]
+Chcemy tylko nieparzyste wyrazy, więc zastosujemy wzór analogiczny do tego z wykładu, tylko w liczniku będziemy teraz odejmować, żeby usunąć parzyste wyrazy, a podwoić nieparzyste.
+\[
+	C(x) = \frac{C'(x) - C'(-x)}{2}	 = \frac{ln\left( \frac{1}{1-x} \right) 
+	- ln\left( \frac{1}{1+x} \right) }{2}
+	= \frac{ ln\left( \frac{1+x}{1-x} \right) }{2}
+\]
+Zatem
+\[
+	A(x) = B(x) + C(x) = \frac{2x^2}{(1+x)^2(1-x)^2} + \frac{ ln\left( \frac{1+x}{1-x} \right) }{2}
+\]
+
+(b) \( H_n = 1 + \frac{1}{2} + ... + \frac{1}{n} (H_0 = 0)\)
+\begin{gather*}
+	H(x) = \sum_{n=0}^\infty H_nx^n = 0x^0 + 1x^1 + (1+\frac{1}{2})x^2 + ... = \\
+	= 0x^0 + 1x^1 + 1x^2 + \frac{1}{2} x^2 + ... = \\
+	= 0(x^0 + x^1 + x^2 + ...) + 1(x^1 + x^2 + x^3 + ...) + \frac{1}{2} (x^2 + x^3 + x^4 + ...)+ ...=\\  = 0(x^0 + x^1 + x^2 + ...) + 1x(x^0 + x^1 + x^2 + ...) + \frac{1}{2} x^2(x^0 + x^1 + x^2 + ...)+ ... =\\ = (x^0 + x^1 + x^2 + ...)(0 + x + \frac{1}{2}x^2 + \frac{1}{3}x^3 + ...) = \\
+	= \sum_{n=1}^\infty (x^0 + x^1 + x^2 + ...)\frac{1}{n+1}x^{n+1} = \\
+	= (x^0 + x^1 + x^2 + ...)\sum_{n=0}^\infty \frac{1}{n+1}x^{n+1} = \\
+	= \sum_{n=0}^\infty x^n \sum_{n=0}^\infty \frac{1}{n+1}x^{n+1} = \\
+	= \frac{1}{1-x} \sum_{n=0}^\infty \frac{1}{n+1}x^{n+1}
+\end{gather*}
+Suma \( \sum_{n=1}^\infty \frac{1}{n+1}x^{n+1} \) to \( C'(x) \) z poprzedniego podpunktu, więc znamy już jej wartość.
+\[
+	H(x)= \frac{1}{1-x} \sum_{n=0}^\infty \frac{1}{n+1}x^{n+1} 
+	= \frac{1}{1-x} ln\left( \frac{1}{1-x} \right)
+\]
+\vskip 0.5cm
+\noindent
+\textbf{Zadanie 4} Niech \( A(x) \) będzie funkcją tworzącą ciągu \(a_n\). Znajdź funkcję tworzącą ciągu \(b_n\) w postaci \( (a_0, 0, 0, a_3, 0, 0, a_6,...) \), czyli takiego, że dla każdego naturalnego \( k \), \(b_{3k} = a_{3k}\) oraz \( b_{3k+1} = b_{3k+2} = 0\).
+\textit{Wskazówka:} Użyj zespolonych pierwiastków stopnia 3 z 1.
+
+Zespolone pierwiastki stopnia 3 z 1:
+\[
+	\begin{array}{ll}
+		r_0 = \frac{-1 + i\sqrt{3}}{2}	&  r_1 = \frac{-1 - i\sqrt{3}}{2}
+	\end{array}
+\]
+Zauważamy przydatne własności tych pierwiastków:
+\begin{itemize}
+	\item \( r_0 + r_1 = \frac{-1 + i\sqrt{3}}{2} + \frac{-1 - i\sqrt{3}}{2} = \frac{-2}{2} = -1\)
+	\item \( r_0^2 + r_1^2 = \frac{1 - 2i\sqrt{3} - 3}{4} + \frac{1 + 2i\sqrt{3} - 3}{4} = \frac{-4}{4} = -1\)
+\end{itemize}
+Podstawiamy zatem \(r_0x\) i \(r_1x\) pod funkcję tworzącą \(A(x)\).
+\[
+	A(r_0x) = a_0 + a_1r_0x + a_2r_0^2x^2 + a_3r_0^3x^3 + a_4r_0^4x^4 + a_5r_0^5x^5 + ...
+\]
+\[
+	A(r_1x) = a_0 + a_1r_1x + a_2r_1^2x^2 + a_3r_1^3x^3 + a_4r_1^4x^4 + a_5r_0^5x^5 + ...
+\]
+Zauważamy kolejne przydatne własności pierwiastków trzeciego stopnia z 1. Dla dowolnego \(k\in \mathbb{N} \)
+\begin{itemize}
+	\item \( r_0^{3k} = (r_0^3)^k = 1^k = 1 \), \(r_1\) analogicznie.
+	\item \( r_0^{3k+1} = r_0^{3k}r_0 = 1r_0 = r_0  \), \(r_1\) analogicznie.
+	\item \( r_0^{3k+2} = r_0^{3k}r_0^2 = 1r_0^2 = r_0^2  \), \(r_1\) analogicznie.
+\end{itemize}
+Korzystając z tego możemy zapisać nowe wersje powyższych funkcji tworzących
+\[
+	A(r_0x) = a_0 + a_1r_0x + a_2r_0^2x^2 + a_3x^3 + a_4r_0x^4 + a_5r_0^2x^5 + ...
+\]
+\[
+	A(r_1x) = a_0 + a_1r_1x + a_2r_1^2x^2 + a_3x^3 + a_4r_1x^4 + a_5r_0^2x^5 + ...
+\]
+Sumujemy te dwie funkcje aby skorzystać z poprzednich obserwacji.
+\[
+	A(r_0x) + A(r_1x) = 2a_0 + (r_0+r_1)a_1x + (r_0^2+r_1^2)a_2x^2 + 2a_3x^3 + (r_0+r_1)a_4x^4 + ... =
+\]
+\[
+	= 2a_0 - a_1x - a_2x^2 + 2a_3x^3 - a_4x^4 - a_5x^5 + ... 
+\]
+Zauważamy że otrzymana funkcja tworząca jest w stanie usunąć niechciane wyrazy z funkcji \(A(x)\).
+\[
+	A(r_0x) + A(r_1x) + A(x) = 3a_0 + 0x + 0x^2 + 3a_3x^3 + 0x^4 + 0x^5 + ...
+\]
+Aby osiągnąć pożądany ciąg musimy jeszcze podzielić przez 3.
+\[
+	B(x) = \frac{A(r_0x) + A(r_1x) + A(x)}{3}
+\]
+
+\vskip 0.5cm
+\noindent
+\textbf{Zadanie 6} Niech \( Q_k \) oznacza graf \( k \)-wymiarowej kostki, tzn. zbór wierzchołków tego 
+grafu tworzą wszystkie \(k\)-elementowe ciągi zer i jedynek i dwa wierzchołki są sąsiednie wtedy i tylko wtedy , gdy odpowiadające im ciągi różnią się dokładnie jedną współrzędną. Oblicz, ile wierzchołków i krawędzi ma graf \(Q_k\).
+\vskip 0.5cm
+Skoro wierzchołki tworzą wszystkie \(k\)-elementowe ciągi zer i jedynek, wystarczy że policzymy ile jest takich ciągów, a poznamy liczbę wierzchołków.
+
+Na każdy z \(k\) elementów tego ciągu mamy dwie możliwości, może to być albo jedynka, albo zero, zatem będzie ich dokładnie \(2^k\). Czyli
+\[
+	|V(Q_k)| = 2^k
+\]
+gdzie \(V(G)\) to zbiór wierzchołków grafu \(G\).
+
+Wiemy, że dla każdego wierzchołka \(v\), jego sąsiadami są wierzchołki, które w reprezentacji za pomocą ciągów, różnią się dokładnie na jednym miejscu. Skoro w zbiorze wierzchołków znajdują się wszystkie takie ciągi, to liczba jego sąsiadów będzie równa liczbie wszystkich ciągów zer i jedynek różniących się jedną współrzędną. Wierzchołek może się różnić na każdej z \(k\) współrzędnych, więc będzie ich dokładnie \(k\). Skoro do każdego sąsiada będzie prowadzić krawędź, możemy zapisać
+\[
+	\forall_{v \in V(Q_k)} deg(v) = k
+\]
+gdyż stopień jest równy liczbie incydentnych krawędzi.
+
+Z wykładu wiemy, że dla każdego grafu \( G \)
+\[
+	\sum_{v\in V(G)} deg(v) = 2|E|
+\]
+gdzie \(E\) jest zbiorem krawędzi tego grafu. Znamy liczbę wierzchołków i ich stopień dla grafu \( Q_k\), zatem
+\[
+	\sum_{v\in V(Q_k)} deg(v) = 2^k\cdot k 
+\]
+Czyli
+\[
+	\begin{array}{ll}
+		2|E| = 2^k \cdot k & /:2
+	\end{array}
+\]
+\[
+	|E| = 2^{k-1} \cdot k
+\]
+Więc liczba krawędzi będzie równa \( 2^{k-1} \cdot k \).
+
+\vskip 0.5cm
+\noindent
+\textbf{Zadanie 7} Problem izomorfizmu dwóch grafów jest trudny. Załóżmy natomiast, że w komputerze są dane dwa grafy \( G \) i \( H \), określone na tym samym zbiorze wierzchołków \( V(G) = V(H) = {1,2,3,...,n}\). Niech \(m\) oznacza liczbę krawędzi grafu \(G\). Podaj algorytm sprawdzający w czasie \( O(m+n) \), czy te grafy są identyczne.
+
+Załóżmy, że grafy reprezentowane są na komputerze w postaci listy sąsiadów dla każdego wierzchołka. Wiemy, że oba grafy opisane są na tym samym zestawie wierzchołków, musimy sprawdzić czy każdy wierzchołek ma taki sam zestaw sąsiadów. Poniżej propozycja algorytmu rozwiązującego ten problem w pseudokodzie (Pythonie). W kodzie zakładamy że zmienna reprezentująca liczbę wierzchołków \(n\) jest obecna w środowisku. 
+
+
+\begin{lstlisting}
+
+def are_graphs_equal(g,h):
+    for j in range(1,n+1):
+        i = 0
+        neighbours_check = (n+1) * [0] #(n+1)-elementowa tablica zer (pomocnicza)
+
+        g_vertex_neighbours = g[j-1]
+        h_vertex_neighbours = h[j-1]
+
+        for n in g_vertex_neighbours:
+            neighbours_check[n]++
+            i++
+
+        for n in h_vertex_neighbours:
+            if neighbours_check[n] == 0: return false #sasiada nie bylo w grafie G
+            i--
+        if i != 0: return false #inna liczba sasiadow na listach wierzcholkow
+    return true                       
+\end{lstlisting}
+
+W algorytmie przechodzimy po każdym elemencie zbioru wierzchołków, dla każdego wierzchołka tworzymy tablicę pomocniczą wypełnioną zerami o wielkości pozwalającej zakodować które wierzchołki znalazły się na liście sąsiedztwa grafu, stawiając pod odpowiednim indeksem jedynkę jeśli się pojawił.
+
+Dla każdego wierzchołka najpierw kodujemy w tablicy pomocniczej jego sąsiadów w grafie \( G\) oraz zliczamy w zmiennej \(i\) ich liczbę, następnie dla grafu \(H\) sprawdzamy zgodność list, sprawdzając czy pod indeksami odpowiadającymi elementom listy sąsiadów jest jedynka, jeśli jej nie ma, oznacza to, że danego elementu nie był w liście dla wcześniejszego grafu, czyli grafy są różne i zwracamy fałsz. Zmniejszamy też licznik, żeby na końcu sprawdzić czy liczba sąsiadów jest równa, czyli w praktyce czy na liście sąsiadów w pierwszym sprawdzanym grafie nie było elementów, których nie było w drugim.
+
+Złożoność algorytmu wynika z tego, że wewnętrzne pętle obrócą się maksymalnie  \\\( 2(\sum_{v\in V(G)} deg(v)) + 1\) razy, gdyż pierwsza przechodzi po każdej krawędzi grafu \(G\), a druga zatrzyma się jeśli zrobi choćby jedno okrążenie więcej, co daje nam \( 4|E| + 1 = 4m + 1 \). Do czego doliczyć musimy maksymalnie \(n\) wierzchołków które nie posiadają sąsiadów. Mamy maksymalnie \(4m + 1 + n\) obrotów, czyli złożoność to \( O(m+n) \).
+\end{document}

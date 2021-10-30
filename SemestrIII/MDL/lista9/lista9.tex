@@ -1,0 +1,170 @@
+\documentclass[12pt,a4paper]{article}
+\usepackage{nopageno}
+\usepackage[polish]{babel}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath,amsfonts}
+\usepackage{titling}
+\usepackage{mathtools}
+\usepackage[margin=0.6in]{geometry} 
+\usepackage{graphicx}
+\usepackage{listings}
+\usepackage{xcolor}
+
+\definecolor{codegreen}{rgb}{0,0.6,0}
+\definecolor{codegray}{rgb}{0.5,0.5,0.5}
+\definecolor{codepurple}{rgb}{0.58,0,0.82}
+\definecolor{backcolour}{rgb}{0.95,0.95,0.92}
+
+\lstset{language=Python}
+\lstset{frame=lines}
+\lstset{basicstyle=\footnotesize}
+
+\lstdefinestyle{mystyle}{
+    backgroundcolor=\color{backcolour},   
+    commentstyle=\color{codegreen},
+    keywordstyle=\color{magenta},
+    numberstyle=\tiny\color{codegray},
+    stringstyle=\color{codepurple},
+    basicstyle=\ttfamily\footnotesize,
+    breakatwhitespace=false,         
+    breaklines=true,                 
+    captionpos=b,                    
+    keepspaces=true,                 
+    numbers=left,                    
+    numbersep=5pt,                  
+    showspaces=false,                
+    showstringspaces=false,
+    showtabs=false,                  
+    tabsize=2
+}
+\lstset{style=mystyle}
+
+\title{MDL Lista 9}
+\author{Cezary Świtała}
+
+\begin{document}
+\maketitle
+
+\noindent
+\textbf{Zadanie 1} Przedstaw algorytm, służący do sprawdzania, czy dany graf jest dwudzielny, korzystający z przeglądania grafu metodą w głąb. Złożoność Twojego algorytmu powinna być \( O(m+n) \).
+\vskip 0.5cm
+
+Załóżmy, że graf jest reprezentowany za pomocą listy sąsiedztwa. Używając DFS'a przemierzymy wszystkie krawędzie grafu, będąc w wierzchołku oznaczamy w tablicy pomocniczej (na początku wypełnionej minus jedynkami), czy wierzchołek należy do grupy 1, czy 0, w zależności jaką grupę miał wierzchołek z którego została wywołana eksploracja (przy pierwszym może być to 0 lub 1). Następnie przeglądamy listę sąsiadów, jeśli natrafimy na wierzchołek, którego jeszcze nie oznaczyliśmy w tablicy pomocniczej (nie eksplorowaliśmy, więc jest tam -1), uruchamiamy na nim rekurencyjnie procedurę DFS i jeśli zwróci ona fałsz, zwracamy fałsz. W przeciwnym wypadku sprawdzamy jakim kolorem został oznaczony sąsiad, jeśli jest taki sam jak wierzchołka obecnie eksplorowanego, zwracamy fałsz, jeśli nie, kontynuujemy. Jeśli przejrzymy wszystkich sąsiadów bez zwracania fałszu, zwracamy prawdę. Poniżej przykład w pseudokodzie (Pythonie). Zakładamy, że w środowisku istnieje zmienna \(n\) i oznacza liczbę wierzchołków.
+
+\begin{lstlisting}
+def is_graph_bipartite(g):
+    partition = n * [-1]
+    def dfs(v,group):
+        partition[v] = 1 - group
+        for neigbour in g[v]:
+            if partition[neigbour] == -1 and not dfs(neigbour, 1 - group):
+                return False
+            elif partition[neigbour] == 1 - group:
+                return False
+        return True
+    return dfs(0,1)                    
+\end{lstlisting}
+
+Nasz algorytm bazuje na fakcie, że będąc w danym wierzchołku, wiemy że jego wierzchołki sąsiednie muszą być w innym zbiorze (niezależnie czy jest to 1, czy 0), zatem jeśli próbując  podzielić nasz graf w taki sposób znajdziemy wierzchołek, który musiałby znaleźć się w obu zbiorach jednocześnie, to otrzymujemy sprzeczność, gdyż zbiory te muszą być rozłączne.
+
+Asymptotyczna złożoność tego algorytmu jest równa asymptotycznej złożoności DFS'a, gdyż jest to po prostu jednokrotne wywołanie tego przeszukiwania z dodaną stałą ilością operacji w każdej iteracji. Złożoność DFS'a to \( O(m+n) \), gdyż przemierzamy każdy wierzchołek plus dwukrotnie każdą krawędź.
+\newpage
+\noindent
+\textbf{Zadanie 3} Pokaż, że graf \(G\) jest drzewem wtedy i tylko wtedy, gdy dla dowolnej pary wierzchołków \( u,v \in G \) w \(G\) istnieje dokładnie jedna ścieżka je łącząca.
+\vskip 0.5cm
+\( \Rightarrow ) \)
+
+Skoro graf jest drzewem, to jest grafem spójnym, więc na pewno istnieje ścieżka łącząca \( u\) i \(v\). Załóżmy nie wprost, że istnieją dwie różne ścieżki łączące \( u \) i \( v \): \(P\) i \(Q\).
+\begin{gather*}
+	P = ( u = v_0, v_1, v_2, ... , v_{n-1}, v = v_n ) \\
+	Q = ( u = w_0, w_1, w_2, ... , w_{m-1}, v = w_{m}) \\ 
+	\exists_i v_i \neq w_i
+\end{gather*}
+
+Niech
+\begin{gather*}
+	i = min\{ p: v_{p+1} \neq w_{p+1} \} \\
+	j = min\{ p: p>i \wedge u_p = w_p\}
+\end{gather*}
+
+Wtedy ciąg \( (v_i, v_{i+1}, ..., v_j = w_j, w_{j-1}, ... , w_i = v_i) \), tworzy cykl (lepiej widoczne na rysunku poniżej). 
+
+\includegraphics[scale=0.5]{cycle}
+Skoro mamy cykl, a \(G\) jest drzewem, czyli grafem acyklicznym, to mamy sprzeczność, więc musi istnieć dokładnie jedna ścieżka.
+
+\( \Leftarrow ) \)
+
+Musimy pokazać, że jeśli dla dowolnej pary wierzchołków istnieje jedna ścieżka to graf jest drzewem, czyli jest grafem spójnym i acyklicznym. Skoro dla każdej pary istnieje ścieżka, to z definicji musi być spójny. Żeby pokazać acykliczność załóżmy nie wprost, że istnieje cykl o początku i końcu w \(v\), wtedy do każdego punktu pośredniego w cyklu możemy z punktu \(v\) dotrzeć na dwa sposoby (''idąc do przodu'' i  ''cofając się''), czyli dla tych par istniałyby dwie ścieżki. więc otrzymujemy sprzeczność, bo z założeni istnieje dokładnie jedna dla każdej pary, więc graf musi być acykliczny. Co kończy dowód.
+\newpage
+\noindent
+\textbf{Zadanie 5} Niech \( d = (d_1, d_2, ..., d_n) \) będzie ciągiem liczb naturalnych większych od zera. Wykaż, że \( d \) jest ciągiem stopni wierzchołków pewnego drzewa o \( n \) wierzchołkach wtedy i tylko wtedy, gdy \( \sum_{i=1}^n d_i = 2(n-1) \). \textit{Uwaga:} w zadaniu tym trzeba pokazać implikację w obie strony.
+
+\( \Rightarrow ) \)
+
+Z wykładu wiemy, że drzewo ma \( n-1 \) krawędzi. Skoro \(d\) jest ciągiem stopni wierzchołków drzewa to możemy zapisać, korzystając z własności sumy stopni:
+\[
+	\sum_{ v \in V} deg(v) = 2|E| = 2(n-1)
+\]
+Gdzie \(E\) to zbiór krawędzi, a \(V\) to zbiór wierzchołków.
+
+\( \Leftarrow )   \)
+
+Implikację w drugą stronę pokażemy indukcyjnie po \(n\). Teza to, że dla dowolnego ciągu n-wyrazowego \(d\), takiego że \( \sum_{i=1}^n d_i = 2(n-1) \), istnieje drzewo o n-wierzchołkach, którego stopnie wierzchołków on opisuje.
+
+\textbf{Podstawa.} Dla \( n = 2 \). Mamy ciąg \( d = ( d_1, d_2 ) \) i wiemy, że 
+\[
+	d_1 + d_2 = 2( 2 - 1) = 2
+\]
+Skoro \( d_1, d_2 > 0 \), to \( d_1 = d_2 = 1 \). Mamy jeden taki graf, czyli dwa wierzchołki połączone krawędzie i jest to drzewo, bo jest spójny i acykliczny.
+
+\textbf{Krok.} Weźmy dowolne \( n \) załóżmy, że zachodzi dla niego teza. Pokażemy że indukuje to jej prawdziwość dla \( n + 1 \).
+
+Mamy dowolny nieujemny ciąg \( n + 1 \) wyrazowy, który sumuje się do \( 2( n + 1 - 1) \), czyli do \(2n\). Możemy wywnioskować z tego, że musi istnieć wyraz równy 1, bo inaczej suma byłaby większa od \(2n\), oraz musi istnieć co najmniej jeden wyraz większy od 1, bo inaczej suma by była równa \(n+1\).
+
+Bez utraty ogólności możemy powiedzieć, że \( d_1 \geq 2 \), a \( d_{n+1} = 1 \), bo kolejność nie ma znaczenia. Korzystając z tego ciągu, tworzymy nowy w postaci
+\[
+	(d_1 - 1, d_2, ... , d_{n-1}, d_n)
+\]
+Czyli odejmujemy 1 od pierwszego wyrazu, który dalej jest nieujemny i pozbywamy się ostatniego, czyli otrzymujemy nieujemny n-elementowy ciąg, który sumuje się do \( 2n - 2 = 2(n - 1) \), czyli możemy skorzystać z założenia i powiedzieć że istnieje drzewo, którego stopnie wierzchołków ten ciąg opisuje.
+
+Weźmy zatem to drzewo i doklejmy liścia do wierzchołka o stopniu \( d_1 - 1 \). Z wykładu wiemy, że dalej jest to drzewo, a stopień wierzchołka przy \( d_1 -1 \) zwiększa się o 1, mamy \( d_1 \), i dochodzi liść o stopniu 1, czyli nasze \(d_{n+1}\). Jest to przykładowe drzewo którego stopnie opisuje ciąg \( (d_1, ... d_{n+1}) \), co dowodzi istnienie i kończy dowód.
+\newpage
+\noindent
+\textbf{Zadanie 6} Niech \( Q_k \) oznacza graf \(k\)-wymiarowej kostki, tzn. zbiór wierzchołków tego grafu tworzą wszystkie \(k\)-elementowe ciągi zer i jedynek i dwa wierzchołki są sąsiednie wtedy i tylko wtedy, gdy odpowiadające im ciągi różnią się dokładnie jedną współrzędną. Wykaż, że jest to graf dwudzielny.
+\vskip 0.5cm
+Chcemy pokazać, że istnieje taki podział zbioru wierzchołków \(V\) na zbiory \(A\) i \(B\) taki, że \( \forall_{e\in E} \) jeden koniec \( e\) należy do \(A\), a drugi do \(B\), gdzie \(E\) to zbiór krawędzi.
+
+Niech podział przyporządkowuje wierzchołek grafu, którego reprezentacja w ciągu zer i jedynek ma parzystą liczbę jedynek do zbioru \(A\), a w przeciwnym wypadku do zbioru \(B\).
+
+Weźmy dowolną krawędź grafu, jeśli jeden koniec ma parzystą liczbę jedynek, to został przyporządkowany do zbioru \(A\). Drugi różni się od niego tylko na jednym miejscu, więc albo 0 przeszło na 1, albo 1 przeszło na 0, w każdym przypadku zmieniła się parzystość liczby jedynek, czyli drugi koniec został przyporządkowany do zbioru \(B\). Jeśli pierwszy miał nieparzystą to symetrycznie.
+
+Zatem jest co najmniej jeden taki podział, bo podaliśmy przykład, co dowodzi jego istnienia i kończy dowód.
+
+\vskip 0.5cm
+\noindent
+\textbf{Zadanie 8} Udowodnij, że w grafie spójnym każde dwie najdłuższe ścieżki mają wspólny wierzchołek.
+\vskip 0.5cm
+
+Weźmy dowolne dwie najdłuższe ścieżki \( P = (p_0, p_1, ..., p_n) \) i \(Q = (q_0, q_1,...,q_n) \) długości \(n\) w grafie. Załóżmy nie wprost, że nie mają one wspólnego wierzchołka. Możemy wtedy wybrać po wierzchołku z obu ścieżek: \( p_i \) i \( q_j \), możemy przejść z jednego do drugiego, bo graf jest spójny. Jeśli na tej ścieżce powtórzy się jakiś wierzchołek \(p_k\) to zamieniamy \(p_i\) na \(p_k\) i startujemy od niego, tak samo jak powtórzy się jakiś wierzchołek \(q_k\) to zamieniamy \(q_j\) na \(q_k\). Powtarzamy aż nie będzie powtarzających się wierzchołków.
+
+Skoro ścieżki są rozłączne to ścieżka między \( p_i \) i \( q_j \) będzie miała długość co najmniej 1. Punkty \( p_i \) i \( q_j \), podzieliły ścieżki \(P\) i \(Q\), na dwie części, z czego ta dłuższa ma długość co najmniej \( \lceil \frac{n}{2} \rceil \).
+
+\includegraphics[scale=0.5]{paths}
+Dłuższe części ścieżek \(P\) i \(Q\) razem z ścieżką z \( p_i \) do \( q_j \) tworzą nową ścieżkę o długości co najmniej \( n + 1 \), więc \(P\) i \(Q\) to nie najdłuższe ścieżki, otrzymujemy sprzeczność, zatem nie mogły być rozłączne, więc mają wspólny wierzchołek.
+
+\newpage
+\vskip 0.5cm
+\noindent
+\textbf{Zadanie 9} Wykaż, że przynajmniej jeden z grafów \( G = (V,E) \) i \( \bar{G} \) (\(\bar{G}\) jest dopełnieniem grafu \(G\)) jest spójny. Dopełnienie \(\bar{G} = (V,E') \) grafu \( G \) zdefiniowane jest jako graf \( (V, E') \) taki, że \( \{ u,v \} \in E' \Leftrightarrow \{u,v\} \notin E \).
+\vskip 0.5cm
+
+Bez utraty ogólności możemy założyć, że graf \(G\) nie jest spójny. Wtedy składają się na niego jakieś spójne składowe \(S_1, S_2, ..., S_n \). Wiemy, że grafie \( G \) nie ma żadnych krawędzi pomiędzy punktami z dwóch różnych spójnych, zatem w jego dopełnieniu znajdą się wszystkie takie krawędzie.
+
+Korzystając z tego pokażemy, że graf \( \bar{G} \) jest spójny. Weźmy dowolne dwa wierzchołki \( \bar{v}, \bar{u} \in \bar{G} \ \).
+\begin{enumerate}
+	\item \( \bar{v} \) i \(\bar{u} \) należą do różnych składowych \( G\). Wtedy krawędź \( (\bar{v},\bar{u})\notin G \), czyli krawędź \( (\bar{v},\bar{u}) \in \bar{G} \), więc istnieje ścieżka składająca się tylko z tych wierzchołków.
+	\item \( \bar{v} \) i \(\bar{u} \) należą do tej samej składowej \( G \). Skoro należały do tej samej składowej, to musiał istnieć różny od tych dwóch punkt \( w \) znajdujący się w innej składowej \( G\) (inaczej byłaby tylko jedna i graf byłby spójny). Weźmy ten punkt, wiemy, że \( (\bar{v},w)\notin G \) i \( (w,\bar{u})\notin G \), czyli \( (\bar{v},w)\in \bar{G} \) i \( (w,\bar{u})\in \bar{G} \), więc w \(\bar{G}\) istnieje ścieżka z \( \bar{v} \) do \(\bar{u} \), konkretnie \( (\bar{v}, w, \bar{u}) \).
+\end{enumerate}
+Zatem dla tych dowolnych punktów zawsze istnieje ścieżka w grafie \( \bar{G} \), więc jest on spójny.
+\end{document}

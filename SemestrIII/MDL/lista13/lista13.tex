@@ -1,0 +1,149 @@
+\documentclass[12pt,a4paper]{article}
+\usepackage{nopageno}
+\usepackage[polish]{babel}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath,amsfonts}
+\usepackage{titling}
+\usepackage{mathtools}
+\usepackage[margin=0.6in]{geometry} 
+\usepackage{graphicx}
+\usepackage[]{algorithm2e}
+
+\title{MDL Lista 13}
+\author{Cezary Świtała}
+
+\begin{document}
+
+\maketitle
+
+\noindent
+\textbf{Zadanie 1} Pokaż, że dla każdego grafu istnieje pewna kolejność wierzchołków, przy której algorytm zachłanny (sekwencyjny) działa w sposób optymalny.
+\vskip 0.2cm
+
+Weźmy dowolny graf \(G\), załóżmy że jest on pokolorowany w dowolny optymalny sposób. Podzielimy zbiór jego wierzchołków na zbiory \(A_1, A_2,...,A_{\chi(G)}\), takie że jeśli dwa różne wierzchołki należą do jednego zbioru, to są tego samego, \(i\)-tego koloru. 
+
+Jeśli podamy algorytmowi sekwencyjnemu najpierw wierzchołki ze zbioru \(A_1\), później \(A_2, A_3\) i tak dalej do \(A_{\chi(G)}\). To pokoloruje on wierzchołki grafu \(G\) w optymalny sposób.
+
+\textbf{Dowód.} Pokażemy indukcyjnie, że podając te zbiory w takiej kolejności, wierzchołki ze zbioru \(A_k\) dla dowolnego \(k\) nie zostaną pokolorowane innymi niż \(k\) pierwszymi kolorami. Wtedy w szczególności po pokolorowaniu ostatniego zbioru wierzchołków \(A_{\chi(G)}\), wierzchołki tego zbioru i jednocześnie całego grafu nie zostaną pokolorowane innymi niż \(\chi(G)\) pierwszymi kolorami, a skoro \(\chi(G)\) to minimalna liczba kolorów, to zostanie pokolorowany dokładnie \( \chi(G) \) kolorami, czyli będzie pokolorowany w sposób optymalny.
+
+\textbf{Podstawa.} \(k=1\). Podajemy do algorytmu po kolei wszystkie wierzchołki zbioru \(A_1\). Wiemy, że nie ma pomiędzy nimi krawędzi, gdyż w grafie \(G\), przy optymalnym kolorowaniu, były tego samego koloru. Dodatkowo wiemy, że wierzchołki z innych zbiorów nie są jeszcze pokolorowane, bo to pierwszy zbiór który kolorujemy, więc każdy z nich otrzyma najmniejszy wolny kolor, czyli \(1\)-szy. Teza została spełniona.
+
+\textbf{Krok.} Weźmy dowolne \(k\). Załóżmy że teza spełniona jest dla każdego \(i\), t.ż. \(1 \leq i \leq k\). Pokażemy, że indukuje to prawdziwość tezy dla \(k+1\).
+
+Algorytmowi sekwencyjnemu podajemy wierzchołki ze zbioru \(A_{k+1}\). Rozpatrzmy krok algorytmu dla dowolnego takiego wierzchołka \(v \in A_{k+1}\). Jedyne pokolorowane wierzchołki, do których \(v\) może mieć krawędź, znajdują się w zbiorach \(A_1, A_2, ... , A_k\), nie mogą istnieć takie w zbiorze \(A_{k+1}\), gdyż w grafie \(G\) przy naszym wybranym optymalnym kolorowaniu były takiego samego koloru, czyli między wierzchołkami w \(A_{k+1}\) zwyczajnie nie ma krawędzi. Skoro tak, to z założenia indukcyjnego wierzchołki, do których \(v\) ma krawędź nie mogą być pokolorowane na inne niż \(k\) pierwszych kolorów, więc w najgorszym przypadku, gdy każdy z kolorów znajdzie się na jakimś sąsiedzie, wierzchołkowi \(v\) zostanie przyporządkowany \(k+1\) kolor, w przeciwnym wypadku jakiś o mniejszym numerze. Czyli teza została spełniona dla \(k+1\). Co kończy dowód.
+
+
+\vskip 1cm
+\noindent
+\textbf{Zadanie 6} Dla każdego \( n > 1 \) skonstruuj graf dwudzielny na \(2n\) wierzchołkach i uporządkowanie tych wierzchołków, dla których algorytm sekwencyjny używa \(n\) kolorów.
+\vskip 0.2cm
+
+Dla dowolnego \(n\) dzielimy \(2n\) wierzchołków na dwa zbiory \(A = \{a_1,a_2,...,a_n\} \) i \(B = \{ b_1, b_2, ..., b_n \} \). Następnie konstruujemy graf dwudzielny \(G = (A,B,E)\) dodając krawędzie między wierzchołkami \(a_i\) i \(b_j\) dla każdego \(i \neq j\), gdzie \( i,j \in \mathbb{N} \wedge 1 \leq i,j \leq n \). Następnie ustalamy kolejność wierzchołków \( (a_1,b_1,a_2,b_2,...,a_n,b_n) \). Tak skonstruowany graf jest dwudzielny, gdyż posiada krawędzie wyłącznie pomiędzy elementami dwóch zbiorów rozłącznych \(A\) i \(B\), zatem można go podzielić na dokładnie te dwa zbiory, tak żeby każda krawędzi miała końce w dwóch różnych zbiorach. Zostanie on pokolorowany \(n\) kolorami przez algorytm sekwencyjny dla \( n > 1 \), co udowodnimy później, najpierw zobaczmy przykład dla \(n=3\).
+\begin{center}
+	\includegraphics[scale=0.5]{bipartite}
+\end{center}
+
+\textbf{Dowód poprawności:} Niech \(K = \{1,2,3,...\}\) będzie zbiorem różnych kolorów, czyli każdej dodatniej liczbie naturalnej odpowiada inny kolor. Pokażemy przez indukcję, że dla dowolnego \( k \) w kroku \(2k\)-tym algorytmu sekwencyjnego każda para wierzchołków \( (a_i, b_i) \), \( 1 \leq i \leq k\), dwudzielnego grafu \(G\) skonstruowanego za pomocą wyżej wymienionych zasad, jest pokolorowana \(i\)-tym kolorem. Co w efekcie oznaczać będzie, że dla \(k=n\) będzie \(n\) takich par, czyli użyte zostanie \(n\) kolorów.
+
+\textbf{Podstawa.} Dla \(k=1\) rozpatrujemy \(2k\)-ty, czyli drugi krok algorytmu sekwencyjnego i chcemy pokazać, że po jego wykonaniu para wierzchołków \( (a_1, b_1) \) będzie pokolorowana 1-szym kolorem.
+
+W pierwszym kroku bierzemy, zgodnie z ustaloną w konstrukcji grafu kolejnością, wierzchołek \(a_1\). Żaden wierzchołek nie jest jeszcze pokolorowany, zatem \(a_1\) otrzyma najmniejszy możliwy kolor, czyli 1-szy.
+
+W drugim kroku weźmiemy wierzchołek \(b_1\). Z konstrukcji grafu \(G\), wiemy że nie istnieje krawędź łącząca go z jedynym do tej pory pokolorowanym wierzchołkiem \(a_1\), zatem on również otrzyma najmniejszy możliwy kolor -- 1-szy.
+
+Czyli po dwóch krokach para \( (a_1,b_1) \) jest pokolorowana tym samym, 1-szym kolorem. Zatem teza jest spełniona dla podstawy.
+
+\textbf{Krok.} Weźmy dowolne \(k\), załóżmy prawdziwość tezy dla każdego \( 1 \leq l \leq k\), pokażemy że indukuje to jej prawdziwość dla \(k+1\). Czyli, że po \(2k+2\)-gim kroku algorytmu sekwencyjnego każda para wierzchołków \( (a_i, b_i) \), \( 1 \leq i \leq k+1\), jest pokolorowana \(i\)-tym kolorem.
+
+W \(2k+1\)-szym kroku algorytmu sekwencyjnego bierzemy wierzchołek \(a_{k+1}\), przeglądamy jego sąsiadów. Z konstrukcji grafu \(G\), wiemy że istnieje z niego krawędź do każdego \(b_j\), gdzie \(j \neq k+1\), więc w szczególności, do takich \(b_j\), że \(j < k+1\), a z założenia wiemy, że są one pokolorowane kolorami od 1 do \(k\) (są w parach pokolorowanych takimi kolorami). Zatem pierwszym wolnym kolorem dla wierzchołka \(a_{k+1}\) będzie ten o numerze \(k+1\).
+
+W \(2k+2\)-gim kroku algorytmu sekwencyjnego bierzemy wierzchołek \(b_{k+1}\), przeglądamy jego sąsiadów. Z konstrukcji grafu \(G\), wiemy że istnieje z niego krawędź do każdego \(a_l\), gdzie \(j \neq k+1\), więc w szczególności, do takich \(a_j\), że \(j < k+1\), a z założenia wiemy, że są one pokolorowane kolorami od 1 do \(k\) (są w parach pokolorowanych takimi kolorami). Zatem pierwszym wolnym kolorem dla wierzchołka \(b_{k+1}\) będzie ten o numerze \(k+1\).
+
+Czyli para \( (a_{k+1},b_{k+1}) \) pokolorowana jest \(k+1\)-szym kolorem po \(2k+2\)-gim kroku algorytmu sekwencyjnego, co kończy dowód.
+
+\vskip 1cm
+\noindent
+\textbf{Zadanie 7} Na płaszczyźnie narysowano skończoną liczbę przecinających się prostych (nieskończonych). Wykaż, że utworzone obszary mogą być pomalowane dwoma kolorami tak, że żadne dwa obszary mające wspólny odcinek (,,dłuższy'' od punktu) nie są pomalowane tym samym kolorem.
+\vskip 0.2cm
+
+Wyobraźmy sobie, że rysujemy po jednej prostej w wybranej kolejności. Niech biały i łososiowy będą kolorami, którymi będziemy kolorować płaszczyznę. Zaczynamy od płaszczyzny całej pokolorowanej jednym kolorem, na przykład białym. Za każdym razem gdy rysujemy prostą, kolory wszystkich obszarów znajdujące się po jednej z jej stron zmieniamy na ,,przeciwny'', tj. biały na łososiowy, łososiowy na biały. W ten sposób po narysowaniu każdej prostej będziemy mieli płaszczyznę pokolorowaną dwoma kolorami tak, że żadne dwa sąsiednie obszary nie będą pokolorowane tym samym kolorem. 
+
+\textbf{Dowód:} Dowód będzie przez indukcję względem liczby prostych. Teza: po narysowaniu \(k\)-tej prostej i odwrócenia kolorów obszarów po jednej z jej stron, płaszczyzna będzie pokolorowana dwoma kolorami, tak że żaden sąsiadujący nie ma tego samego koloru.
+
+\textbf{Podstawa.} Dla \(k=1\). Rysujemy pierwszą prostą, czyli dzielimy białą płaszczyznę na dwa obszary. Obszarowi po jednej ze stron prostej jest zmieniany kolor na łososiowy. Mamy zatem tylko jedną parę sąsiadujących obszarów i nie są one w tym samym kolorze. Dodatkowo użyte są dwa kolory, zatem teza zachodzi.
+
+\begin{center}
+	\includegraphics[scale=0.5]{1}
+\end{center}
+
+\textbf{Krok.} Weźmy dowolne \(k\) załóżmy dla niego prawdziwość tezy, pokażemy że indukuje to jej prawdziwość dla \(k+1\).
+
+Mamy płaszczyznę z \(k\) prostymi i z założenia wiemy, że jest ona pokolorowana dwoma kolorami tak, że dwa sąsiednie obszary nie są tego samego koloru.
+
+Rysujemy na tej płaszczyźnie \(k+1\)-szą prostą i odwracamy kolory obszarów po jednej z jej stron.
+
+\begin{center}
+	\includegraphics[scale=0.5]{k}
+\end{center}
+
+Weźmy teraz dowolne dwa sąsiadujące obszary z ich wspólną krawędzią. Mamy dwa przypadki.
+
+\begin{enumerate}
+	\item Ich wspólna krawędź to dokładnie prosta \(k+1\) dorysowana przed chwilą. Wtedy powstały z podzielenia obszaru, który zanim została ona narysowana, był pokolorowany na jakiś kolor \(x\). Po podziale nastąpiła zmiana kolorów na przeciwne po jednej stronie prostej, zatem któryś z tych dwóch otrzymał kolor przeciwny do \(x\)'a. Zatem na pewno nie mają one tego samego koloru.
+	\item Ich wspólna krawędź jest różna od prostej \(k+1\), czyli oba obszary sąsiadowały już ze sobą przed narysowaniem prostej \(k+1\) i z założenia indukcyjnego, oba te obszary przed narysowaniem prostej \(k+1\) były już różnego koloru. Znajdują się po tej samej stronie prostej \(k+1\), więc albo wciąż mają te same różne kolory jakie miały wcześniej, lub oba mają przeciwne, w obu przypadkach nie mają tego samego.
+\end{enumerate}
+
+W obu przypadkach sąsiadujące obszary mają różne kolory, dodatkowo liczba używanych kolorów nie zmieniła się i dalej jest równa dwa, zatem teza zachodzi dla \(k+1\).
+\vskip 1cm
+\noindent
+\textbf{Zadanie 8} Mamy \(2n\) uczniów, z których każdy ma przynajmniej \(n\) przyjaciół. Pokaż, że można ich usadzić w \(n\) ławkach tak, by każdy z nich siedział z przyjacielem. Pokaż też, że jeśli \(n > 1\), to może być to zrobione na co najmniej dwa sposoby.
+\vskip 0.2cm
+
+Sytuację z zadania możemy przedstawić za pomocą grafu \(G = (V,E)\) o \(2n\) wierzchołkach reprezentujących uczniów, gdzie krawędź je łącząca oznacza że uczniowie są przyjaciółmi.
+
+Rozpatrzmy dwa przypadki:
+
+\begin{enumerate}
+	\item \( \textbf{n = 1} \). Wtedy mamy dwóch uczniów, którzy muszą być przyjaciółmi, bo jest ich dwóch i każdy ma przyjaciela. Mamy też jedną ławkę, w której możemy ich usadzić. Zatem jest to możliwe.
+	\item \( \textbf{n > 1} \). Wtedy nasz graf ma przynajmniej 4 wierzchołki, a minimalny stopień wierzchołka jest większy lub równy \(|V|/2\) (bo każdy ma przynajmniej \(|V|/2\) znajomych), zatem z twierdzenia Diraca, wiemy że graf ten zawiera cykl Hamiltona. Oznaczmy go \(C\).
+	\[
+		C = (v_1,v_2,...,v_{2n},v_1)
+	\]
+	Zauważamy, że pomiędzy każdymi dwoma sąsiadującymi na cyklu wierzchołkami jest krawędź, zatem są przyjaciółmi. Jest ich też parzyście wiele, zatem możemy dobrać \(n\) par \( (v_i, v_{i+1}) \), gdzie \(i\) to \textbf{nieparzysta} liczba naturalna \(1 \leq i \leq 2n-1\) począwszy od \(v_1\). Takie \(n\) par przyjaciół możemy rozsadzić w \(n\) ławkach.  Zauważamy również, że możemy zacząć od wierzchołka \(v_2\) i tworzyć pary \( (v_i, v_{i+1}) \), gdzie \(i\) to \textbf{parzysta} liczba naturalna \(2 \leq i \leq 2n-2\), a wierzchołek \(v_{2n}\) połączyć w parę z \(v_1\). W ten sposób dostaniemy drugi sposób rozsadzenia \(n\) par przyjaciół (inny, bo na przykład we wcześniejszym \(v_2\) było w parze z \(v_1\), a teraz jest z \(v_3\)). Co kończy dowód.
+\end{enumerate}
+
+\vskip 1cm
+\noindent
+\textbf{Zadanie 10} Podaj przykład grafu pokazujący, że założenie \( deg(v) \geq n/2 \) w twierdzeniu Diraca nie może być zastąpione słabszym założeniem \( deg(v) \geq (n-1)/2 \).
+\vskip 0.2cm
+
+Gdyby zastąpić warunek w twierdzeniu Diraca, powyższym słabszym warunkiem, brzmiałoby ono następująco:
+
+Jeśli \(G=(V,E)\) jest grafem prostym, o co najmniej trzech wierzchołkach i minimalnym stopniu wierzchołka \(\delta(G) \geq (|V|-1)/2\), to \(G\) zawiera cykl Hamiltona.
+
+Pokażemy, że wtedy nie jest ono prawdziwe poprzez podanie kontrprzykładu.
+\begin{center}
+	\includegraphics[scale=0.8]{hamilton}
+\end{center}
+Zauważamy, że powyższy graf jest grafem prostym, o co najmniej trzech wierzchołkach, posiadającym minimalny stopień wierzchołka \(\delta(G) \geq (|V|-1)/2\), czyli powinien według powyższego twierdzenia zawierać cykl Hamiltona, jednak to nieprawda, bo warunkiem koniecznym (korzystając z wykładu) na istnienie cyklu Hamiltona jest, między innymi, że dla dowolnego zbioru \(S \subseteq V\), graf \(G - S\) zawiera co najwyżej \( |S| \) spójnych składowych. Jednak w tym grafie wystarczy wziąć \(S = \{v_2, v_3\}\) i  wtedy \(G - S\) zawiera 3 spójne składowe, a \(3 > |S|\). Zatem jest to kontrprzykład i twierdzenie z podanym słabszym warunkiem jest fałszywe.
+
+\vskip 1cm
+\noindent
+\textbf{Zadanie 12} Pokaż, że dla dowolnego grafu \( G=(V,E) \) zachodzi \( \chi(G) \chi(\overline{G}) \geq n = |V| \), gdzie \( \chi(G) \) oznacza liczbę chromatyczną \(G\), czyli minimalną liczbę kolorów, jaką można pokolorować \(G\), a \( \overline{G} \) oznacza dopełnienie grafu \(G\).
+\vskip 0.2cm
+
+Niech \(A_1, A_2,...,A_{\chi(G)}\) będą zbiorami wierzchołków, takimi że jeśli dwa różne wierzchołki należą do jednego zbioru, to są tego samego koloru. 
+
+Zauważamy, że pomiędzy wierzchołkami należącymi do tego samego zbioru, nie mogą istnieć krawędzie, bo inaczej nie mogłyby być tego samego koloru. Stąd wiemy, że zbiory \(A_1, A_2,...,A_{\chi(G)}\) w dopełnieniu grafu utworzą kliki.
+
+Z wykładu wiemy, że \( \chi(\overline{G}) \geq \omega(\overline{G}) \), gdzie \( \omega(\overline{G}) \) to rozmiar największej kliki zawartej w \( \overline{G} \). Czyli możemy oszacować \( \chi(\overline{G}) \) za pomocą mocy największego zbioru spośród \(A_1, A_2,...,A_{\chi(G)}\). Największy z nich musi mieć co najmniej \( \left\lceil \frac{n}{\chi(G)} \right\rceil \) wierzchołków ( \(\chi(G)\) to liczba kolorów, więc jednocześnie liczba zbiorów \(A_i\)), bo jest najmniejszy kiedy między wszystkimi zbiorami \(A_i\) wierzchołki rozłożone są jak najbardziej po równo, a w przeciwnym wypadku może być tylko większy (jeśli w którymś zbiorze jest mniej, to w innym będzie więcej, bo liczba wierzchołków się nie zmienia). Zatem
+\[
+	\chi(G) \chi(\overline{G}) \geq \chi(G)\frac{n}{\chi(G)} = n
+\]
+
+Co kończy dowód.
+
+
+
+\end{document}

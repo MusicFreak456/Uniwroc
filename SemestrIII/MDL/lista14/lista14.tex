@@ -1,0 +1,226 @@
+\documentclass[12pt,a4paper]{article}
+\usepackage{nopageno}
+\usepackage[polish]{babel}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath,amsfonts}
+\usepackage{titling}
+\usepackage{mathtools}
+\usepackage[margin=0.6in]{geometry} 
+\usepackage{enumerate}
+\usepackage{graphicx}
+
+\title{MDL Lista 13}
+\author{Cezary Świtała}
+
+\begin{document}
+
+\maketitle
+
+\noindent
+\textbf{Zadanie 1} Udowodnij uogólnienie wzoru Eulera dla grafu planarnego z \(k\) składowymi spójności.
+\vskip 0.2cm
+\textbf{Uogólnienie wzoru Eulera:} Niech \(G\) będzie grafem planarnym o \(n\) wierzchołkach, \(m\) krawędziach, \(f\) ścianach i \(k\) spójnych składowych. Wówczas \(n - m + f = k+1\).
+
+Wiemy ze wzoru Eulera, że dla każdej spójnej składowej \(G_k\) zachodzi \(n_k - m_k + f_k = 2\), gdzie \(n_k\), \(m_k\) i \(f_k\) to liczba wierzchołków, krawędzi i ścian danej składowej. Zauważamy, że każda składowa ma wspólną ,,zewnętrzną'' ścianę z innymi. Zatem przy sumowaniu będziemy musieli odjąć \(k-1\) powtórzeń tej ściany.
+
+\[
+	n - m + f = \sum_{i=1}^k (n_i - m_i + f_i) - (k-1) = 2k - k + 1 = k+1
+\]
+Co kończy dowód.
+
+\vskip 1cm
+\noindent
+\textbf{Zadanie 3} Dla jakich wartości \(k\), kostka \(Q_k\) jest grafem planarnym? Odpowiedź uzasadnij.
+\vskip 0.2cm
+
+Sprawdźmy czy kostka \(Q_k\) jest grafem planarnym dla kilku pierwszych \(k\). 
+\begin{center}
+	\includegraphics[scale=0.5]{cubes}
+\end{center}
+Problem pojawia się przy \(Q_4\), gdyż zawiera on podgraf homeomorficzny z \(K_{3,3}\), a z wykładu wiemy, że dowolny graf jest planarny wtedy i tylko wtedy, gdy nie zawiera podgrafu homeomorficznego  z \( K_{3,3} \) lub \(K_5\).
+
+Obecność takiego podgrafu pokażemy przez poniższy przykład (na następnej stronie).
+
+\begin{center}
+	\includegraphics[scale=0.6]{cube2}
+	
+\end{center}
+\begin{center}
+	\includegraphics[scale=0.6]{cubes3}
+\end{center}
+Zatem \(Q_4\) nie jest grafem planarnym bo zawiera graf homeomorficzny z \(K_{3,3}\), a co za tym idzie żadne \(Q_k\) dla \( k \geq 4\) nie będzie grafem planarnym, bo będzie zawierać w sobie \(Q_4\) -- z konstrukcji.
+
+\newpage
+\noindent
+\textbf{Zadanie 5} Niech \(G\) będzie spójnym grafem planarnym o \(n\) wierzchołkach \( (n \geq 3) \) i niech \(t_i\) oznacza liczbę wierzchołków stopnia \(i\) w grafie \(G\), dla \( i \geq 0 \).
+\vskip 0.2cm
+(a) Wykaż nierówność: \( \sum_{i \in \mathbb{N}} (6- i)t_i \geq 12 \).
+
+(b) Wywnioskuj stąd, że graf \(G\) ma co najmniej trzy wierzchołki o stopniach 5 lub mniej.
+
+\textit{Dodatkowo zakładam, że graf jest prosty, w innym przypadku powyższe nie działają, bo można np. dorysowywać bardzo dużo pętel na każdym wierzchołku grafu \(K_3\).}
+\vskip 1cm
+
+(a) 
+\[
+	\sum_{i \in \mathbb{N}} (6- i)t_i = \sum_{i \in \mathbb{N}} 6t_i- it_i 
+	= 6\sum_{i \in \mathbb{N}}t_i - \sum_{i \in \mathbb{N}} it_i
+\]
+
+\( \sum_{i \in \mathbb{N}}t_i = n \), ponieważ jest to suma po liczbie wierzchołków każdego stopnia. \( \sum_{i \in \mathbb{N}} it_i \) można zapisać inaczej \( \sum_{v \in V} deg(v) \), gdyż zauważamy że dla każdego stopnia jest on mnożony przez liczbę wierzchołków o takim stopniu, co da nam sumę stopni wszystkich wierzchołków, a z wykładu wiemy, że jest ona równa \( 2|E| \).
+
+\[
+	6\sum_{i \in \mathbb{N}}t_i - \sum_{i \in \mathbb{N}} it_i = 6n - 2|E|
+\]
+Wracamy do nierówności.
+\[
+	6n - 2|E| \geq 12
+\]
+\[
+	6n - 12 \geq 2|E|
+\]
+\[
+	3n - 6 \geq |E|
+\]
+Z wykładu wiemy, że w prostym grafie planarnym o \(n \geq 3\) wierzchołkach liczba krawędzi nie przekracza \(3n - 6\), zatem nierówność jest prawdziwa.
+\vskip 0.2cm
+(b) Załóżmy nie wprost, że graf ma mniej niż 3 wierzchołki o stopniu 5 lub mniej i co za tym idzie,  ma co najmniej \(n-2\) wierzchołków o stopniu co najmniej 6. Z punktu (a), wiemy że \( \sum_{i \in \mathbb{N}} (6- i)t_i \geq 12 \). Oraz z faktu, że graf jest spójny, że \(\forall_{v \in V} deg(v) \geq 1\).
+
+\[
+	\sum_{i \in \mathbb{N}} (6- i)t_i = \sum_{i = 1}^5 (6- i)t_i + \sum_{i = 6}^\infty (6- i)t_i
+\]
+
+\( \sum_{i = 1}^5 (6- i)t_i \leq 10 \), gdyż suma ta jest największa, równa 10, gdy mamy dwa wierzchołki o stopniu \(1\) (nie ma wierzchołków o stopniu 0, bo graf jest spójny). \( \sum_{i = 6}^\infty (6- i)t_i \leq 0 \), gdyż \(t_i\) jest nieujemne, a \( (6 - i) \) niedodatnie dla \( i \geq 6 \), więc sumujemy tylko niedodatnie liczby. Stąd
+\[
+	\sum_{i = 1}^5 (6- i)t_i + \sum_{i = 6}^\infty (6- i)t_i \leq 10
+\]
+Mamy sprzeczność z punktem (a), czyli graf musiał mieć przynajmniej 3 wierzchołki o stopniu 5 lub mniej.
+\vskip 1cm
+\noindent
+\textbf{Zadanie 8} Czy w dowodzie wzoru Eulera można by ściągnąć do jednego wierzchołka końce jakiejś krawędzi \(e\), ale \(e\) nie usuwać?
+\vskip 0.2cm
+
+Zaczniemy od przypomnienia dowodu z wykładu. Dowód będzie przez indukcję po liczbie wierzchołków. Teza: dla grafu spójnego planarnego spełniony jest wzór Eulera.
+
+\textbf{Podstawa.} Dla \(n = 1\). Mamy jeden wierzchołek, niech \(m\) będzie liczbą krawędzi (pętelek). Każda pętelka tworzy nową ścianę więc mamy \(f = m+1\) ścian. Zatem
+\[
+	n - m + f = 1 - m + m + 1 = 1 + 1 = 2
+\]
+Czyli wzór Eulera zachodzi.
+
+\textbf{Krok.} Weźmy dowolne \(n\) załóżmy że dla spójnego planarnego grafu \(G_n\) o \(n\) wierzchołkach teza zachodzi, pokażemy że implikuje to jej prawdziwość dla \(n+1\). Weźmy dowolny graf spójny planarny \(G_{n+1} \) o \(n+1\) wierzchołkach niech \(m\) będzie równe liczbie jego krawędzi, a \(f\) -- ścian.
+
+Wybierzmy dowolną krawędź \(e\) o w końcach w wierzchołkach \(v\) u \(u\). Wykonujemy na niej operację "ściągania" (tak jak została zdefiniowana na wykładzie). Zauważamy, że wtedy zmniejsza się  liczba krawędzi i wierzchołków o 1. Niezaburzona zostaje również planarność i spójność grafu.
+
+\begin{center}
+	\includegraphics[scale=0.5]{euler1}
+\end{center}
+
+Otrzymujemy zatem spójny, planarny, \(n\)-wierzchołkowy graf, czyli z założenia zachodzi dla niego wzór Eulera. Czyli spełniona jest równość
+\[
+	n - ( m - 1 ) + f = 2
+\]
+\[
+	n - m + 1 + f = 2
+\]
+\[
+	(n + 1) - m + f = 2
+\]
+Po kilku prostych przekształceniach otrzymujemy wzór Eulera dla grafu \(G_{n+1}\), czyli teza jest spełniona dla \(n+1\). Co kończy dowód.
+
+\textbf{Alternatywnie:} W tereści zadania mamy pytanie o to czy mogliśmy pozostawić krawędź \(e\) przy jej ściąganiu. Załóżmy, że ściągamy do wierzchołka \(v\), jeśli pozostawimy krawędź \(e\) to utworzy ona na nim pętelkę, a co za tym idzie, nową ścianę. Liczba krawędzi pozostanie oczywiście taka sama.
+\begin{center}
+	\includegraphics[scale=0.5]{euler2}
+\end{center}
+Znów otrzymujemy spójny planarny graf \(n\) wierzchołkowy o \(f + 1\) ścianach i \(m\) krawędziach. Czyli taki, dla którego działa teza, zatem moglibyśmy dla niego zapisać równość wynikającą ze wzoru Eulera. 
+\[	
+	n - m + f + 1 = 2
+\]
+\[
+	(n + 1) - m + f = 2
+\]
+I znów otrzymujemy równanie Eulera dla większego grafu, zatem zostawienie krawędzi \(e\) nie przeszkadza w dowodzie.
+
+\vskip 1cm
+\noindent
+\textbf{Zadanie 2} Wykaż, że graf i jego graf dopełniający nie mogą być jednocześnie grafami planarnymi, jeśli graf \(G\) ma co najmniej 11 wierzchołków.
+
+\textit{Tutaj zakładam, że grafy są proste, z definicji dopełnienia.}
+\vskip 0.2cm
+
+Z wykładu wiemy, że w prostym grafie planarnym o \( n \geq 3 \) wierzchołkach, liczba krawędzi \(m\) tego grafu nie przekracza \(3n - 6\).
+
+Niech \(m\) będzie liczbą krawędzi w grafie \(G\). W dopełnieniu będzie zatem \( {n\choose2} - m \) krawędzi (czyli wszystkie pozostałe). Bez utraty ogólności załóżmy, że graf \(G\) jest tym, który zawiera co najmniej połowę wszystkich możliwych krawędzi.
+\[
+	|E(G)| \geq  \frac{{n\choose2}}{2}
+\]
+Jeśli \(G\) byłby planarny, to musiałoby zachodzić
+\[
+	|E(G)| \leq  3n-6
+\]
+Zatem spełniona musiałaby być również nierówność
+\[
+	\frac{{n\choose2}}{2} \leq 3n-6
+\]
+\[
+	\frac{n!}{(n-2)!\cdot2! \cdot 2} \leq 3n-6
+\]
+\[
+	\frac{n!}{(n-2)!} \leq 12n-24
+\]
+\[
+	n(n-1) \leq 12n-24
+\]
+\[
+	n^2 - 13n + 24 \leq 0
+\]
+Po rozwiązaniu nierówności otrzymujemy, że \(n\) musi należeć do przedziału od \( \frac{13-\sqrt{73}}{2} \) do  \( \frac{13+\sqrt{73}}{2} \), czyli dla naturalnych \(n\) od 2 do 10, mamy sprzeczność, bo graf ma co najmniej 11 wierzchołków.
+
+\vskip 1cm
+
+\noindent
+\textbf{Zadanie 12} Pokaż, że dla każdego nieparzystego naturalnego \(n\) istnieje turniej \(n\) - wierzchołkowy, w którym każdy wierzchołek jest \textit{królem}. Wierzchołek jest królem, jeśli można z niego dojść do każdego innego wierzchołka w grafie po ścieżce skierowanej o długości co najwyżej 2.
+\vskip 0.2cm
+
+Rozpatrzmy taki turniej \(n\)-wierzchołkowy dla nieparzystego \(n\), że każdy wierzchołek \(v\) ma\\ \(outdeg(v) = indeg(v) = (n-1)/2 \). Wiemy, że istnieje taki turniej, gdyż możemy wprost powiedzieć jak go skonstruować: dla dowolnego nieparzystego \(n\), tworzymy \(n\) wierzchołków, numerujemy je od 1 od \(n\).
+
+Z każdego wierzchołka będziemy prowadzić krawędzie wychodzące do co drugiego, zgodnie z numeracją, wierzchołka, aż nie wykonamy pełnego okrążenia (poruszamy się po cyklu stworzonym z numerów tych wierzchołków, czyli po przekroczeniu \(n\) poruszamy się dalej aż nie przekroczymy numeru danego wierzchołka). Przykład na kolejnej stronie.
+
+\begin{center}
+	\includegraphics[scale=0.5]{competition}
+\end{center}
+Aby pokazać, że stopień każdego wierzchołka to dokładnie \( (n-1)/2 \), weźmy dowolny wierzchołek \(v\), bez straty ogólności załóżmy że został on oznaczony numerem jeden. Zgodnie z podaną konstrukcją, poprowadzimy z niego krawędzie wychodzące do co drugiego wierzchołka, czyli w tym przypadku, do wierzchołków o nieparzystym numerze innym niż 1, kończąc gdy przekroczymy jedynkę. Liczb nieparzystych różnych od 1 zaczynając od \(1\) do \( n\) jest \( (n-1)/2 \). Zatem \( outdeg(v) =  (n-1)/2 \).
+
+Zauważamy, że rysując wychodzące krawędzie dla innych wierzchołków trafimy na jedynkę tylko z wierzchołków o parzystym numerze, bo wszystkich wierzchołków jest nieparzyście wiele. Parzystych jest \( (n-1)/2 \), czyli \(indeg(v) =  (n-1)/2 \).
+\begin{center}
+	\includegraphics[scale=0.5]{comp1}
+\end{center}
+\textit{Dalsza część zadania przebiegać będzie analogicznie do zadania 3 z listy 11.}
+
+Skoro wiemy, że istnieje taki turniej, w którym każdy wierzchołek ma taki sam stopień wychodzący, to weźmy dowolny wierzchołek \(v\) tego turnieju. Jeśli jest to jedyny wierzchołek, to oczywiście da się dojść z niego do każdego wierzchołka po ścieżce długości dwa, bo nie ma żadnych innych. Jeśli istnieją inne wierzchołki to weźmy jeden i nazwijmy go \(w\). Pokażemy, że można przejść do niego ścieżką o długości co najwyżej 2 z wierzchołka \(v\). Rozważmy przypadki.
+
+\begin{enumerate}
+	\item W tym turnieju krawędź między \(v\) i \(w\), jest skierowana od \(v\) do \(w\), czyli
+	istnieje ścieżka długości 1, zatem w tym przypadku jest to prawda, że można dotrzeć ścieżką o
+	długości co najwyżej 2 z \(v\) do \(w\).
+	
+	\item W przeciwnym wypadku, skoro jest to turniej to musi istnieć krawędź między wierzchołkami
+	\(v\) i \(w\), ale widocznie jest ona skierowana z \(w\) do \(v\). Zatem musi istnieć co
+	najmniej jeden inny wierzchołek do którego da się dojść z \(v\), gdyż inaczej \(v\) nie 
+	miałoby tego samego stopnia wychodzącego co \(w\). Zbiór takich wierzchołków, do których 
+	możemy dotrzeć z \(v\) nazwiemy \(A\). 
+	
+	Załóżmy nie wprost, że nie możemy dotrzeć z wierzchołka \(v\) do wierzchołka \(w\) przez
+	żaden z wierzchołków ze zbioru \(A\). Oznaczałoby to, że wierzchołek \(w\) miałby krawędź
+	wychodzącą do każdego z wierzchołków w zbiorze \(A\) (musi mieć jakąś, a skoro nie możemy
+	do niego dotrzeć, to nie może mieć wchodzącej). Wierzchołek \(w\) ma też krawędź wychodzącą
+	do wierzchołka \(v\), zatem miałby ich o jeden więcej niż wierzchołek \(v\), co powoduje
+	sprzeczność, bo każdy wierzchołek ma ich tyle samo w tym turnieju. 
+	
+	Zatem musi dać się dotrzeć 
+	z wierzchołka \(v\) do wierzchołka \(w\) za pomocą co najmniej jednego wierzchołka ze zbioru 
+	\(A\), a to daje nam ścieżkę długości dwa, więc warunek jest spełniony.
+\end{enumerate}
+
+\end{document}

@@ -1,0 +1,223 @@
+\documentclass[12pt,a4paper]{article}
+\usepackage{nopageno}
+\usepackage[polish]{babel}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath,amsfonts}
+\usepackage{titling}
+\usepackage{mathtools}
+\usepackage[margin=0.6in]{geometry} 
+\usepackage{graphicx}
+\usepackage{listings}
+\usepackage{xcolor}
+
+\definecolor{codegreen}{rgb}{0,0.6,0}
+\definecolor{codegray}{rgb}{0.5,0.5,0.5}
+\definecolor{codepurple}{rgb}{0.58,0,0.82}
+\definecolor{backcolour}{rgb}{0.95,0.95,0.92}
+
+\lstset{language=Python}
+\lstset{frame=lines}
+\lstset{basicstyle=\footnotesize}
+
+\lstdefinestyle{mystyle}{
+    backgroundcolor=\color{backcolour},   
+    commentstyle=\color{codegreen},
+    keywordstyle=\color{magenta},
+    numberstyle=\tiny\color{codegray},
+    stringstyle=\color{codepurple},
+    basicstyle=\ttfamily\footnotesize,
+    breakatwhitespace=false,         
+    breaklines=true,                 
+    captionpos=b,                    
+    keepspaces=true,                 
+    numbers=left,                    
+    numbersep=5pt,                  
+    showspaces=false,                
+    showstringspaces=false,
+    showtabs=false,                  
+    tabsize=2
+}
+\lstset{style=mystyle}
+
+\title{MDL Lista 11}
+\author{Cezary Świtała}
+
+\begin{document}
+\maketitle
+
+\noindent
+\textbf{Zadanie 1} Digraf \(D\) jest dany w postaci macierzy sąsiedztwa. Wykaż, że sprawdzenie, czy
+\(D\) zawiera źródło, czyli wierzchołek, z którego wychodzą łuki do wszystkich pozostałych
+wierzchołków, ale nie wchodzi do niego żaden łuk, może być wykonane w czasie liniowym względem
+liczby wierzchołków w \(D\). Zapisz swój algorytm w języku programowania i określ dokładnie jego
+złożoność obliczeniową, jako funkcję zmiennej liczby wierzchołków w digrafie.
+\vskip 0.2cm
+
+Niech \(M[i,j] = 1\) oznacza, że w grafie \(D\) istnieje krawędź z \(i\) do \(j\). \(i\) będzie oznaczać indeks wiersza, \(j\) -- kolumny. Wykażemy, że możliwe jest sprawdzenie czy istnieje źródło w liniowym czasie względem liczby wierzchołków, proponując algorytm, który to robi.
+
+Zauważamy, że jeśli ewentualne źródło w jest \(k\)-tym wierzchołku, to w \(k\)-tej kolumnie byłyby same zera (nie może mieć wierzchołków wychodzących), a w \(k\)-tym wierszy byłyby same jedynki, z wyjątkiem pola \(M[k,k]\).
+
+Poszukiwanie kandydata na źródło zaczynamy od pola \(M[0,0]\). Poruszamy się wgłąb wiersza. Jeśli znajdziemy 1 na przekątnej macierzy to wierzchołek nie może być kandydatem na źródło bo ma łuk wychodzący, więc możemy kontynuować sprawdzanie od kolejnego wiersza, w kolumnie bezpośrednio pod znalezioną jedynką. Z kolei jeśli znajdziemy zero na polu innym niż to na przekątnej, to również skreślamy wierzchołek tego wiersza z możliwych kandydatów, gdyż źródło musi mieć łuk do wszystkich innych wierzchołków. Zauważamy również, że jeśli wystąpiły jakieś jedynki w kolumnach pomiędzy "polem wejścia" w dany wiersz (oznaczmy jego kolumnę \(l\), a kolumną znalezionego zera \(m\)) to eliminują one z listy kandydatów wierzchołki o indeksach od \(l\) do \(m-1\), a musiały one wystąpić na pozycjach innych niż przekątna, żeby nasz algorytm dotarł do \(m\)-tej kolumny. Wierzchołki o indeksie mniejszym od \(l\) wyeliminowaliśmy wcześniej, zatem możemy od razu przejść do sprawdzania \(m\)-tego wiersza od \(m\)-tej kolumny.
+
+Ważną obserwacją jest również to, że pierwszy kandydat jakiego znajdziemy, musi być jedynym kandydatem, gdyż, albo to jest ostatni wiersz, a wszystkie poprzednie wyeliminowaliśmy, lub nie jest to ostatni wiersz, ale musieliśmy na niego ,,wejść'' najpóźniej w miejscu gdzie przecina go przekątna, gdyż tam znajduje się kolumna z samych zer, która eliminowałaby jako kandydata każdy z wierzchołków do których należą wiersze powyżej, a skoro stwierdziliśmy że jest kandydatem, to musiał mieć w wierszu po miejscu przecięcia z przekątną same jedynki, które eliminują jako kandydatów każdy kolejny wierzchołek, którego opisują kolejne wiersze, gdyż potwierdziliśmy, że nie mają one kolumny zer w odpowiednim dla nich miejscu. Jeśli nie znajdziemy żadnego kandydata, oznacza to że nie ma źródła.
+
+Po znalezieniu kandydata, wystarczy sprawdzić, czy w jego wierszu oprócz pola na przekątnej, są same jedynki, a w kolumnie zera. 
+
+Poniżej przykład działania na zupełnie nietendencyjnym rysunku.
+\begin{center}
+	\includegraphics[scale=0.52]{source}
+\end{center}
+
+\begin{enumerate}
+	\item Zaczynamy w \(M[0,0]\), mamy 1 na przekątnej, więc przechodzimy do kolejnego wiersza.
+	\item Sprawdzamy wgłąb wiersza, aż napotykamy 0 na \(M[1,3]\), co eliminuje drugi wierzchołek
+	z grona kandydatów, widzimy również, że wierzchołki 0-2 możemy pominąć (zgodnie z rozumowaniem
+	wyżej). Przechodzimy do \(M[3,3]\).
+	\item W 4 wierszu dochodzimy do końca wiersza, bez sprzeczności, zatem jest to nasz kandydat 
+	(nie musimy sprawdzać piątego, zgodnie z rozumowaniem wyżej (bo w \(M[3,4]\) jest jedynka)).
+	\item Sprawdzamy czwarty wiersz i kolumnę, spełniają on warunki, zatem czwarty wierzchołek o 
+	indeksie 3 to źródło.
+\end{enumerate}
+
+Poniżej przykładowy zapis tego algorytmu w pythonie.
+
+\begin{lstlisting}
+def is_source_present(matrix):
+    i = 0 # iterator po wierszach, jednoczesnie ewentualny kandydat
+    j = 0
+    matrix_size = len(matrix)
+
+    while(i < matrix_size and j < matrix_size):
+        last_col = j == matrix_size - 1
+        if(i==j and matrix[i][j] == 1):
+            if(last_col): return False;
+            i += 1
+        elif(i!=j and matrix[i][j] == 0):
+            i=j
+        else:
+            j += 1
+    
+    candidate = i
+
+    for row in range(matrix_size):
+        if(matrix[row][candidate] != 0): return False
+    for column in range(matrix_size):
+        if(candidate != column and matrix[candidate][column] != 1): return False 
+    return True;   
+\end{lstlisting}
+
+Zauważamy, że w najbardziej pesymistycznym przypadku, przy wyznaczaniu kandydata odwiedzimy 2n-1 pól, gdzie n to liczba wierzchołków, gdyż poruszamy się po macierzy tylko w prawo, lub w dół, następnie sprawdzenie czy kandydat jest źródłem to koszt kolejnych 2n, razem 4n-1, czyli mamy złożoność asymptotycznie \(O(n)\), czyli liniową.
+
+\newpage
+
+\noindent
+\textbf{Zadanie 3} Digraf, w którym każda para różnych wierzchołków jest połączona dokładnie jedną
+krawędzią skierowaną, nazywamy turniejem. Pokaż, że w każdym turnieju istnieje wierzchołek, z którego można dojść do każdego innego wierzchołka po drodze o długości co najwyżej 2.
+\vskip 0.2cm
+
+Weźmy dowolny niepusty turniej \(T\), znajdźmy w nim wierzchołek \(v\), który jest jednym z tych o największej liczbie krawędzi wychodzących. Pokażemy, że jest on wierzchołkiem, z którego da się dojść do dowolnego innego drogą o długości najwyżej 2. Jeśli jest to jedyny wierzchołek w grafie, to trywialnie możemy dojść do wszystkich innych wierzchołków drogą o długości co najwyżej dwa, bo nie ma innych wierzchołków.
+
+W przeciwnym wypadku, weźmy dowolny inny wierzchołek, oznaczmy go \(w\). Rozpatrzmy przypadki:
+\begin{enumerate}
+	\item Istnieje bezpośrednia krawędź skierowana z \(v\) do \(w\), wtedy tworzy ona drogę o
+	długości 1, co spełnia nasz warunek.
+	\item W przeciwnym wypadku, skoro jest to turniej to musi istnieć krawędź między wierzchołkami
+	\(v\) i \(w\), ale widocznie jest ona skierowana z \(w\) do \(v\). Zatem musi istnieć co
+	najmniej jeden inny wierzchołek do którego da się dojść z \(v\), gdyż inaczej \(v\) nie 
+	byłoby wierzchołkiem o największej ilości krawędzi wychodzących. Zbiór takich wierzchołków,
+	do których możemy dotrzeć z \(v\) nazwiemy \(A\). 
+	
+	Załóżmy nie wprost, że nie możemy dotrzeć z wierzchołka \(v\) do wierzchołka \(w\) przez
+	żaden z wierzchołków ze zbioru \(A\). Oznaczałoby to, że wierzchołek \(w\) miałby krawędź
+	wychodzącą do każdego z wierzchołków w zbiorze \(A\) (musi mieć jakąś, a skoro nie możemy
+	do niego dotrzeć, to nie może mieć wchodzącej). Wierzchołek \(w\) ma też krawędź wychodzącą
+	do wierzchołka \(v\), zatem miałby ich o jeden więcej niż wierzchołek \(v\), co powoduje
+	sprzeczność, bo \(v\) ma ich najwięcej. Zatem musi dać się dotrzeć z wierzchołka \(v\) do
+	wierzchołka \(w\) za pomocą co najmniej jednego wierzchołka ze zbioru \(A\), a to
+	daje nam drogę długości dwa, więc warunek jest spełniony.
+\end{enumerate}
+
+W obu przypadkach pokazaliśmy, że istnieje droga długości co najwyżej dwa do dowolnego wierzchołka z wierzchołka o największej ilości krawędzi wychodzących, a co najmniej jeden taki zawsze istnieje,  co kończy dowód.
+
+\newpage
+
+\noindent
+\textbf{Zadanie 4} Podaj warunek konieczny na to, by graf dwudzielny był grafem hamiltonowskim.
+\vskip 0.2cm
+\textit{W rozwiązaniu zakładam, że graf hamiltonowski, to taki który zawiera \textbf{cykl} hamiltona.} 
+
+\vskip 0.2cm
+
+Weźmy dowolny graf dwudzielny zawierający cykl hamiltona \(G\). Niech zbiory \(A\) i \(B\) będą zbiorami wierzchołków grafu \(G\), takimi że każda krawędź ma jeden koniec w \(A\), a drugi w \(B\). Weźmy dowolny wierzchołek \(v\) grafu \(G\), bez straty ogólności możemy założyć, że należy do zbioru \(A\). Skoro w grafie istnieje cykl hamiltona, to znaczy że istnieje droga przechodząca przez wszystkie wierzchołki zaczynająca się w \(v\), czyli w wierzchołku ze zbioru \(A\) i na nim kończąca. Wierzchołki w tej drodze muszą być na przemian z \(A\) i \(B\), a skoro ostatni jest w \(A\), to ostatni różny (ten przed nim) musiał być w \(B\), żeby to zaszło, liczba wierzchołków musi być parzysta, co jest warunkiem koniecznym, kiedy graf jest dwudzielny i hamiltonowski.
+
+\vskip 0.2cm
+
+Zaczynając od dowolnego pola, czy można obejść ruchem skoczka (konika) szachowego wszystkie pola szachownicy \( 5 \times 5 \),  każde dokładnie raz, i wrócić do punktu początkowego? Odpowiedź uzasadnij.
+
+\vskip 0.2cm
+
+Możliwe ruchy skoczka szachowego możemy przedstawić za pomocą grafu, gdzie wierzchołkami są pola, a krawędzie oznaczają możliwość przejścia z jednego pola na drugie. Zauważamy, że graf ten jest dwudzielny, gdyż skoczek będąc na białym lub, czarnym polu może przejść jedynie na pola przeciwnego koloru, zatem wystarczy podzielić wierzchołki na dwa zbiory według koloru ich pola. Pytanie o możliwość obejścia całej szachownicy i wrócenia na początek, można zatem zinterpretować jako pytanie o istnienie cyklu hamiltona w grafie dwudzielnym. W tym przypadku nie może on jednak istnieć, gdyż graf ma nieparzystą ilość wierzchołków -- 25, więc nie spełniony jest warunek konieczny podany wyżej.
+
+\newpage
+
+\noindent
+\textbf{Zadanie 5} Dana jest kostka sera \( 3 \times 3 \times 3 \). Mysz rozpoczyna jedzenie kostki
+od dowolnego rogu. Po zjedzeniu jednego pola przenosi się do kolejnego mającego wspólną ścianę
+ostatnim zjedzonym. Czy możliwe, aby mysz jako ostatnie zjadła środkowe pole?
+
+\vskip 0.5cm
+
+Bez straty ogólności możemy założyć, że mysz zaczyna zjadać pola od lewego górnego rogu na ścianie
+zwróconej w naszą stronę (na rysunku róg zaznaczony na czerwono). Możliwe ,,przeniesienia się''
+myszy możemy przedstawić w postaci, takiego jak poniżej, trójwymiarowego grafu, w którym wierzchołki są sześcianami \( 1 \times 1 \times 1\), a krawędzie możliwymi przejściami pomiędzy nimi. Definiujemy w nim także kierunki północ, południe, wschód, zachód, góra, dół; tak jak na rysunku.
+
+\includegraphics[scale=0.5]{mouse}
+
+Zauważamy, że aby znaleźć się w środkowym polu (również zaznaczonym na czerwono), będziemy musieli w 
+sumie przemieścić się jedną jednostkę w kierunku północnym, jedną w wschodnim i jedną w dół. Możemy
+oczywiście robić nadmiarowe ruchy, ale jeśli na przykład zrobimy dodatkowy ruch w kierunku północnym,
+to gdzieś będziemy musieli przejść w południowym i analogicznie dla pozostałych kierunków. Możemy
+wywnioskować z tego, że do tych bazowych 3 przeniesień, możemy dokładać jedynie parzystą liczbę krawędzi, czyli by dotrzeć do środka potrzebujemy ścieżki z nieparzystą liczbą krawędzi.
+
+Chcąc rozwiązać problem z treści zadania, musielibyśmy znaleźć ścieżkę przechodzącą przez każdy wierzchołek tylko raz z końcem w środkowym polu, jednak taka ścieżka miałaby 26 krawędzi (bo jest 27 wierzchołków), a jest to liczba parzysta, więc na podstawie wcześniejszych wniosków, nie jest to możliwe.
+
+\newpage
+
+
+
+\vskip 0.5cm
+\noindent
+\textbf{Zadanie 6} Pokaż, że każdy turniej zawiera (skierowaną) ścieżkę Hamiltona tzn. przechodzącą
+przez wszystkie wierzchołki. 
+\vskip 0.2cm
+Dowód będzie przez silną indukcję po ilości wierzchołków w turnieju. Teza: W turnieju istnieje ścieżka Hamiltona.
+
+\textbf{Podstawa} dla \(n=0\). W pustym grafie trywialnie istnieje ścieżka Hamiltona, jest nią pusta ścieżka.
+
+\textbf{Krok.} Weźmy dowolne \(n\), załóżmy prawdziwość tezy dla turniejów o liczbie wierzchołków mniejszej lub równej \(n\), pokażemy że indukuje to prawdziwość dla dowolnego turnieju o \(n+1\) wierzchołkach.
+
+Weźmy turniej \(T\) o \(n+1\) wierzchołkach i wybierzmy dowolny wierzchołek \(v\) do niego należący. Możemy podzielić teraz jego wierzchołki na dwa rozłączne zbiory: \(V_1\) -- zbiór wierzchołków z których można przejść bezpośrednio do \(v\) oraz \(V_2\) -- zbiór wierzchołków do których można przejść bezpośrednio z \(v\). \(V_1\) oraz \(V_2\) razem z krawędziami pomiędzy wierzchołkami w nich, które istniały w \(T\), tworzą nowe turnieje \(T_1\) i \(T_2\), gdzie oba mają liczbę wierzchołków mniejszą lub równą \(n\), czyli z założenia indukcyjnego mają ścieżki Hamiltona. 
+
+Wystarczy teraz, że weźmiemy ścieżkę istniejącą w \(T_1\) i do jej końca dołączymy wierzchołek \(v\). Wiemy że istnieje potrzeba krawędź z definicji zbioru \(V_1\), a następnie do \(v\) przyłączymy ścieżkę istniejącą w \(T_2\) przechodząc do jej początku. Wiemy, że możemy to zrobić z definicji zbioru \(V_2\). Łącząc w ten sposób ścieżki otrzymamy ścieżkę Hamiltona dla grafu \(T\), gdyż zbiór \(V_1 \cup \{v\} \cup V_2\), to zbiór wszystkich wierzchołków \(T\) (każdy wierzchołek w \(T\), z wyjątkiem \(v\), ma albo krawędź wychodzącą z, albo wchodzącą do \(v\), bo jest to turniej). Co kończy dowód jej istnienia.
+
+\vskip 0.5cm
+\noindent
+\textbf{Zadanie 7} Czy n-wymiarowa kostka zawiera ścieżkę Hamiltona? 
+\vskip 0.2cm
+
+Tak, dowód przeprowadzimy przez indukcję po wymiarze kostki. Teza: \(n\)-wymiarowa kostka posiada ścieżkę Hamiltona.
+
+\textbf{Podstawa} dla \(n=0\). Kostka \(0\)-wymiarowa to po prostu punkt, czyli jeden wierzchołek i trywialnie posiada on ścieżkę Hamiltona składającą się z tego jednego wierzchołka.
+
+\textbf{Krok.} Załóżmy, że kostka \(n\)-wymiarowa posiada ścieżkę Hamiltona, pokażemy, że wynika z tego, że kostka \(n+1\) wymiarowa ma ścieżkę Hamiltona.
+
+Weźmy dwie kostki \(n\) wymiarowe \(K_1\) i \(K_2\). Wierzchołki pierwszej nazwiemy \(a_1, a_2, ..., a_{2^n}\), a drugiej \(b_1, b_2, ..., b_{2^n}\), tak by wierzchołek \(a_i\) w kostce \(K_1\) odpowiadał wierzchołkowi \(b_i\) w kostce \(K_2\). Kostkę \(n+1\)-wymiarową \(K\) możemy skonstruować używając tych dwóch kostek \(n\) wymiarowych łącząc wierzchołki \(a_i\) i \(b_i\) krawędzią, tak jak na przykładzie poniżej, gdzie pokazana jest konstrukcja kostki trójwymiarowej z dwóch dwuwymiarowych.
+
+\begin{center}
+	\includegraphics[scale=0.7]{cube} 
+\end{center}
+
+Z założenia indukcyjnego wiemy, że w kostkach \(K_1\) i \(K_2\) istnieją ścieżki Hamiltona, nie dodaliśmy żadnych wierzchołków, więc wystarczy połączyć ich końce krawędzią, gdyż przechodzą one już przez wszystkie wierzchołki kostki. Weźmy zatem koniec dowolnej ścieżki Hamiltona w kostce \(K_1\), nazwiemy go \(a_k\), wiemy że w kostce \(K_2\) istnieje ścieżka kończąca się w \(b_k\), gdyż są one identyczne. Wystarczy zatem dodać do ścieżki Hamiltona w \(K_1\) wierzchołek \(b_k\), do którego wiemy, że istnieje krawędź z końca \(a_k\) w kostce \(K\), ze sposobu konstrukcji tej kostki. Następnie dołączyć ścieżkę z kostki \(K_2\) i otrzymujemy ścieżkę Hamiltona dla kostki \(K\). Co kończy dowód.
+
+\end{document}

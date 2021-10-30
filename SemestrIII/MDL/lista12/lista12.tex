@@ -1,0 +1,195 @@
+\documentclass[12pt,a4paper]{article}
+\usepackage{nopageno}
+\usepackage[polish]{babel}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath,amsfonts}
+\usepackage{titling}
+\usepackage{mathtools}
+\usepackage[margin=0.6in]{geometry} 
+\usepackage{graphicx}
+\usepackage[]{algorithm2e}
+
+\title{MDL Lista 12}
+\author{Cezary Świtała}
+
+\begin{document}
+\maketitle
+
+\textbf{Zadanie 2} \textit{Minimalnym cięciem} w grafie jest podzbiór jego krawędzi, których usunięcie rozspaja graf, a usunięcie żadnego podzbioru krawędzi w nim zawartego nie rozspaja grafu. Wykaż, że graf spójny zawiera cykl Eulera wtedy i tylko wtedy, gdy każde minimalne cięcie zawiera parzystą liczbę krawędzi.\\
+\textit{Uwaga:} To zadanie nie jest tak proste, jak się wydaje.
+\vskip 0.2cm
+
+Pokażemy implikację w obie strony.
+
+\( \Rightarrow \)) Jeśli dany graf zawiera cykl Eulera, to każde jego cięcie minimalne zawiera parzystą liczbę krawędzi.
+
+\textbf{Dowód:} Weźmy dowolne cięcie minimalne. Dzieli ono graf na dwie mniejsze spójne \(G_1\) i \(G_2\). Weźmy teraz dowolny wierzchołek \(v\) leżący na cyklu Eulera. Bez straty ogólności załóżmy, że należy on do \(G_1\). Zauważamy, że skoro cykl Eulera przechodzi po wszystkich krawędziach grafu, to w szczególności tych które należą do cięcia, a za każdym razem kiedy jesteśmy w grafie \(G_1\) i przechodzimy po krawędzi należącej do cięcia, to przemieszczamy się do grafu \(G_2\) i na odwrót jeśli jesteśmy w grafie \(G_2\), to znajdziemy się w grafie \(G_1\). Zatem jeśli zaczniemy poruszać się po cyklu z wierzchołka \(v\) należącego do grafu \(G_1\), to będziemy potrzebować parzystej liczby krawędzi w cięciu, aby cykl mógł powrócić do wierzchołka \(v\) (inaczej ,,utknęlibyśmy'' w grafie \(G_2\)), co dowodzi implikacji w prawą stronę.
+
+\( \Leftarrow \)) Jeśli w danym grafie wszystkie cięcia minimalne zawierają parzystą liczbę krawędzi, to graf ten zawiera cykl Eulera.
+
+\textbf{Dowód:} Z wykładu wiemy, że graf zawiera cykl Eulera, wtedy i tylko wtedy kiedy wszystkie jego wierzchołki mają parzysty stopień, zatem wystarczy pokazać, że jeśli w danym grafie wszystkie cięcia minimalne zawierają parzystą liczbę krawędzi, to wszystkie wierzchołki tego grafu mają parzysty stopień.
+Załóżmy nie wprost, że wszystkie cięcia minimalne zawierają parzystą liczbę krawędzi i istnieje wierzchołek o nieparzystym stopniu, oznaczmy go \(v\).
+
+\textbf{Lemat 1} Zauważamy, że każda krawędź wychodząca z \(v\) należy do jakiegoś cięcia minimalnego, wynika to z tego, że wystarczy pogrupować sąsiadów \(v\), tak że w każdej grupie dowolne dwa wierzchołki posiadają ścieżkę ją łączącą, nieprzechodzącą przez \(v\), wtedy usunięcie krawędzi do takiej grupy jest cięciem minimalnym, gdyż po ich usunięciu wierzchołki z grupy tracą połączenie z innymi sąsiadami \(v\), a pominięcie jakiejś sprawia że graf się uspójnia. Każdy wierzchołek będzie należał do jakiejś grupy (choćby jednoelementowej), zatem każda krawędź będzie należała do jakiegoś cięcia minimalnego.
+
+\textbf{Lemat 2} Kolejna obserwacja, to że dowolne dwa różne cięcia minimalne składające się z wierzchołków wychodzących z \(v\) nie posiadają wspólnych krawędzi. Gdyby było inaczej istniałaby krawędź należąca do obu cięć, z wierzchołkiem \(v'\) na drugim końcu, przez który można by podróżować pomiędzy wierzchołkami w grafach odcinanych od grafu z wierzchołkiem \(v\), zatem żadne z cięć z osobna nie rozspójniłoby grafu, więc nie byłoby cięciem.
+
+Weźmy zbiór krawędzi wychodzących z \(v\), wiemy że ma on nieparzystą moc, bo stopień \(v\) jest nieparzysty. Korzystając z lematu 2, możemy powiedzieć, że jak z tego zbioru usuniemy te krawędzie, które należą do jakiegoś cięcia minimalnego o parzystej liczbie krawędzi, to otrzymamy zbiór o nieparzystej mocy (warto odnotować, że zatem posiada co najmniej jedną krawędź), bo odejmujemy tylko parzyste liczby krawędzi i żadnej nie odejmujemy dwa razy (bo nie ma wspólnych). Z lematu 1 wiemy, że każda krawędź należy do jakiegoś cięcia minimalnego, więc krawędzie które nam zostały należą do cięć minimalnych o nieparzystej liczbie krawędzi, co prowadzi do sprzeczności z założeniem, że wszystkie cięcia minimalne mają parzystą liczbę krawędzi, i jednocześnie kończy dowód implikacji w lewą stronę. 
+
+\vskip 0.5cm
+\noindent
+\textbf{Zadanie 3} (Problem haremu). Niech \(A\) i \(B\) będą dwoma rozłącznymi zbiorami osób. Przypuśćmy, że każda osoba \(a\) należąca do zbioru \(A\) chce poślubić (naraz) co najmniej \(n_a \leq 1\) osób ze zbioru \(B\). Jaki jest warunek konieczny i wystarczający, aby ten problem miał rozwiązanie? Wskazówka: Zastosuj klonowanie i tw. Halla.
+\vskip 0.2cm
+
+Zadanie można z interpretować na dwa sposoby, albo elementy \(B\) są nierozróżnialne. W tej wersji tego problemu wystarczy, że \(|B| \geq \sum_{a \in A} n_a \), wtedy każdemu elementowi \(a \in A\) jesteśmy w stanie przyporządkować \(n_a\) nieprzyporządkowanych żadnemu elementowi z \(A\),
+elementów z \(B\), albo są rozróżnialne, wtedy dodatkowo żadne dwa elementy \(A\) nie mogą chcieć poślubić tego samego elementu \(B\).
+
+Można też przyjąć, że tak na prawdę każdy element \(a \in A\) chce poślubić naraz \(n_a \geq 1\) elementów ze zbioru \(B_a\), gdzie \(B_a \subseteq B\), \( |B_a| \geq n_a \), tak jak było w oryginalnej wersji tego zadania, wtedy zadanie jest ciekawsze i ma sens w kontekście wskazówki.
+
+Tworzymy graf dwudzielny \(G\), na który będą składać się zbiory \(A'\) i \(B\), gdzie \(A'\) to zbiór klonów elementów zbioru \(A\), w którym występują one \(n_a\) razy, a \(B\) to zbiór z treści zadania. Krawędź między elementem \(a_{nk}\) zbioru \(A'\), a elementem \(b\) zbioru \(B\), będzie oznaczać że \(b \in B_{a_n}\), czyli że oryginalny element, którego klonem jest \(a_{nl}\) chce poślubić \(b\).
+
+\begin{center}
+	\includegraphics[scale=0.4]{hall}
+\end{center}
+
+Rozwiązanie tego problemu sprowadza się teraz do znalezienia pełnego skojarzenia \(A'\) z \(B\) w grafie \(G\). Z warunku Halla, wiemy że takie istnieje wtedy i tylko wtedy kiedy \( |N(A'')| \geq |A''| \) dla każdego \(A''\) będącego podzbiorem \(A'\). Co jest warunkiem koniecznym i wystarczającym do rozwiązania tego problemu.
+
+\newpage
+\vskip 0.5cm
+\noindent
+\textbf{Zadanie 5} Zmodyfikuj algorytm Dijkstry tak, by działał dla grafów skierowanych.
+\vskip 0.2cm
+Przypomnijmy algorytm Dijkstry z wykładu. Dla spójnego grafu \(G = (V,E) \) i funkcji \(c: E \rightarrow R \geq 0\) zwracającej wagę krawędzi i wierzchołka startowego \(s\). Algorytm znajdujący wagę najkrótszej ścieżki dla każdego wierzchołka \(v \in V\) ma postać
+
+\begin{algorithm}[H]
+	\( S\gets \{s\} \)\;
+	\( d(s) \gets 0 \)\;
+	dla każdego sąsiada \(v\) wierzchołka \(s\): \( t(v) \gets c(s,v) \)\;
+	dla pozostałych wierzchołków: \( t(v) \gets \infty \)\;
+	\While{\(S \neq V\)}{
+		\( u \gets argmin\{ t(u) : u \notin S \} \)\;
+		dodaj \(u\) do \(S\)\;
+		\(d(u) \gets t(u) \)\;
+		\ForEach{sąsiad \( v \notin S\) wierzchołka \(v\)}{
+			\(t(v) \gets min\{ t(v), d(u) + c(u,v) \} \)
+		}
+	}
+\end{algorithm}
+
+Gdzie w każdej iteracji \(d(v)\) to waga najkrótszej ścieżki z \(s\) do \(v\), dla wierzchołków \( v \in S\), a \(t(v)\) to waga najkrótszej prawie S-owej ścieżki z \(s\) do \(v\). 
+
+Na wykładzie został przedstawiony indukcyjny dowód poprawności tego algorytmu, który nie używał faktu że graf nie jest skierowany, wystarczy zatem zmodyfikować algorytm tak aby jako sąsiadów dowolnego wierzchołka \(v\) brał pod uwagę tylko takie wierzchołki \(w\), że istnieje krawędź \( (v,w) \).
+
+\begin{algorithm}[H]
+	\( S\gets \{s\} \)\;
+	\( d(s) \gets 0 \)\;
+	dla każdego sąsiada \(v\) wierzchołka \(s\), takiego że istnieje krawędź \( (s,v) \): \( t(v) \gets c(s,v) \)\;
+	dla pozostałych wierzchołków: \( t(v) \gets \infty \)\;
+	\While{\(S \neq V\)}{
+		\( u \gets argmin\{ t(u) : u \notin S \} \)\;
+		dodaj \(u\) do \(S\)\;
+		\(d(u) \gets t(u) \)\;
+		\ForEach{sąsiad \( v \notin S\) wierzchołka \(u\), taki że istnieje \( (u,v) \in E\)}{
+			\(t(v) \gets min\{ t(v), d(u) + c(u,v) \} \)
+		}
+	}
+\end{algorithm}
+
+Dowód poprawności jest taki sam jak ten przedstawiony na wykładzie dla poprzedniej wersji.
+
+\newpage
+\noindent
+\textbf{Zadanie 8} Pokaż, że graf \(G=(V,E)\), w którym każdy wierzchołek ma stopień 3 zawiera cykl parzystej długości.
+\vskip 0.2cm
+
+Weźmy najdłuższą ścieżkę w grafie \(G\), oznaczmy ją \(S\), oraz oznaczmy jeden z wierzchołków będących jej końcami \(v\). \(deg(v) = 3\), zatem ma on trzech sąsiadów -- \(s_1,s_2,s_3\). Każdy z nich musi leżeć na najdłuższej ścieżce, bo inaczej do \(S\) można by dołączyć takiego sąsiada, co wydłużyłoby ją i spowodowało sprzeczność z faktem, że jest najdłuższa.
+
+Załóżmy, że sąsiedzi \(v\) indeksowani są według kolejności w jakiej występują na ścieżce \(S\), wtedy \(s_3\) to taki wierzchołek, że każdy inny sąsiad leży od niego wcześniej na ścieżce \(S\). Zauważamy, że możemy teraz stworzyć cykl biorąc początek ścieżki \(S\) od \(v\) do \(s_3\) (\(s_3\) nie mogło być bezpośrednio po \(v\), bo wcześniej leżeli wszyscy inni sąsiedzi \(v\)) i przechodząc znowu do \(v\). Cykl ten nazwiemy \(C\).
+
+\begin{center}
+	\includegraphics[scale=0.7]{cycle}
+\end{center}
+
+Ścieżki z \(s_1\) do \(s_2\) i z \(s_2\) do \(s_3\) oznaczamy odpowiednio \(S'\) i \(S''\). Zauważamy, że za ich pomocą również możemy stworzyć cykle, odpowiednio -- \(C'\) i \(C''\),  przechodząc do nich z wierzchołka \(v\) do jednego końca, i wracając do \(v\) drugim końcem (końce to sąsiedzi \(v\)).
+
+Wystarczy teraz pokazać, że w każdym przypadku jeden z cykli \(C\), \(C'\), \(C''\) ma parzystą długość. Rozpatrzmy zatem parzystości długości \(l(S')\) i \(l(S'')\), gdzie \(l(K)\) oznacza długość ścieżki \(K\).
+
+\begin{enumerate}
+	\item \(l(S')\) i \(l(S'')\) mają taką samą parzystość. Wtedy cykl \(C\) ma parzystą długość, 
+	bo suma \(l(S') + l(S'')\) jest parzysta, a \(l(C) = l(S') + l(S'') + 2\) (dodajemy dwie
+	krawędzie \( (v,s_1) \) i \( (v,s_3) \)).
+	\item tylko jedna liczba z \(l(S')\) i \(l(S'')\) jest parzysta. Jeśli jest to \( l(S') \), 
+	wtedy \( C' \) ma parzystą długość, bo \(l(C') = l(S') + 2\) (dodajemy krawędzie \( (v,s_1) \)
+	i \( (v,s_2) \)), a jeśli jest to \( l(S'') \), wtedy \( C'' \) ma parzystą długość, bo 
+	\(l(C'') = l(S'') + 2\) (dodajemy krawędzie \( (v,s_2) \) i \( (v,s_3) \)).
+\end{enumerate}
+W obu przypadkach istnieje cykl o parzystej długości, co kończy dowód.
+
+\newpage
+\noindent
+\textbf{Zadanie 9} \(nk\) studentów, przy czym \(k \geq 2\), jest podzielonych na \(n\) towarzystw po \(k\) osób i na \(n \geq 2\) kół naukowych po \(k\) osób każde. Wykaż, że da się wysłać delegację \(2n\) osób tak, by każde towarzystwo i każde koło naukowe było reprezentowane. (Każdy student należy do jednego towarzystwa i jednego koła.) Jeden student może reprezentować tylko jedną grupę (typu koło lub towarzystwo).
+\vskip 0.2cm
+
+Niech \(T\) będzie zbiorem towarzystw, \(K\) zbiorem kół, \(S\) zbiorem studentów, zbiór \(R\) sumą zbiorów \(T\) i \(K\), a \(G=(S, R, E) \) grafem dwudzielnym, gdzie krawędź między studentem a organizacją, oznacza że do niej należy. 
+
+Problem znalezienia delegacji można teraz przedstawić jako szukanie pełnego skojarzenia \(R\) z \(S\) w grafie \(G\). Z twierdzenia Halla wiemy, że takie istnieje wtedy i tylko wtedy kiedy dla dowolnego podzbioru \(R' \subseteq R\) zachodzi \( |R'| \leq |N(R')| \).
+
+Załóżmy nie wprost, że nie ma takiego skojarzenia, czyli \(\exists_{R' \subseteq R} |R'| > |N(R')| \). Weźmy zatem takie \(R'\) i spróbujemy oszacować od dołu \( |N(R')| \). Z każdego wierzchołka w \(R'\) wychodzą dokładnie \(k\) krawędzie, bo do każdej organizacji należy \(k\) studentów. Mogą się one jednak pokrywać jeśli w \(R'\) znajdują się zarówno koła jak i towarzystwa. Najmniej sąsiadów \(R'\) uzyskamy zatem, jeśli znajdą się w nim koła i towarzystwa do których zapisani są Ci sami studenci, czyli jeśli \\ \( N(\{t | t\in R' \wedge t \in T\}) = N(\{k | k\in R' \wedge k \in K\}) \), z dokładnością do \(k\) studentów, jeśli moc \(R'\) jest nieparzysta, bo wtedy jednych musi być o \(k\) więcej. Widzimy teraz, że minimalna moc \(N(R')\) to \( k\left\lceil \frac{|R'|}{2} \right\rceil \). Otrzymujemy nierówność
+\[
+	|R'| > |N(R')| \geq k\left\lceil \frac{|R'|}{2} \right\rceil
+\]
+czyli
+\[
+	|R'| > k\left\lceil \frac{|R'|}{2} \right\rceil
+\]
+Skoro \( k\left\lceil \frac{|R'|}{2} \right\rceil > k \frac{|R'|}{2} \)
+\[
+	|R'| > k \frac{|R'|}{2}
+\]
+I ostatecznie skoro \( k \geq 2 \)
+\[
+	|R'| > k \frac{|R'|}{2} \geq |R'|
+\]
+
+Czyli \( |R'| > |R'| \), mamy sprzeczność, więc warunek Halla musiał być spełniony, więc istnieje takie skojarzenie, czyli istnieje rozwiązanie tego problemu.
+
+\newpage
+\noindent
+\textbf{Zadanie 10} \textit{Kwadratem łacińskim} nazywamy kwadrat \(n \times n\), w którym na każdym polu stoi liczba ze zbioru \( \{ 1,2,...,n \} \) tak, że w każdej kolumnie oraz w każdym wierszu jest po jednej z liczb \( \{ 1,2,...,n \} \). \textit{Prostokątem łacińskim} nazywamy prostokąt o \(n\) kolumnach i \(m\) wierszach , \( 1 \leq m \leq n \), w którym na każdym polu stoi liczba ze zbioru \( \{ 1,2,...,n \} \) tak, że w każdym wierszu każda z liczb \( \{ 1,2,...,n \} \) występuje dokładnie raz oraz w każdej kolumnie co najwyżej raz.
+
+\noindent
+Czy każdy prostokąt łaciński o \(m < n\) wierszach można rozszerzyć o jeden wiersz?
+
+\noindent
+\textit{Wskazówka:} Przydatne mogą okazać się skojarzenia.
+\vskip 0.2cm
+
+Zbudujmy graf dwudzielny \(G\), na którego składać się będą dwa zbiory wierzchołków -- \(K\) oznaczający zbiór kolumn i zbiór liczb \( N = \{ 1,2,...,n \} \). Krawędź z liczby do kolumny oznaczać będzie, że liczba nie pojawia się jeszcze w tej kolumnie. Przykład:
+
+\begin{center}
+	\includegraphics[scale=0.5]{latin}
+\end{center}
+
+Problem sprowadza się teraz do znalezienia dowolnego doskonałego skojarzenia w tym grafie, gdyż da nam ono takie przyporządkowanie każdej liczby do kolumny, że każda z liczb nie występowała wcześniej w danej kolumnie, czyli definicja prostokąta łacińskiego zostanie spełniona i będziemy mogli go użyć jako nowego wiersza.
+
+\begin{center}
+	\includegraphics[scale=0.5]{row}
+\end{center}
+
+Wystarczy teraz pokazać, że zawsze jesteśmy w stanie znaleźć jakieś doskonałe skojarzenie. Z warunku Halla wiemy, że takie skojarzenie istnieje wtedy i tylko wtedy, kiedy \( |N(K')| \geq |K'| \) dla każdego \(K'\) będącego podzbiorem \(K\) i \( |N(N')| \geq |N'| \) dla każdego \(N'\) będącego podzbiorem \(N\).
+
+Weźmy zatem dowolny taki graf dwudzielny \(G = (K,N,E)\) opisujący prostokąt łaciński \(n \times m\), gdzie \(m < n\). Weźmy dowolny podzbiór \(K\), nazwijmy go \(K'\). Zauważamy, że w każdej kolumnie nie występuje dokładnie \(n-m\) liczb. Zatem \(\forall_{k \in K'} deg(k)=n-m \), czyli zbiór krawędzi wychodzących z \(K'\), oznaczony \(E_{K'}\), będzie miał moc \( |K'|(n-m) \). Podobnie jest dla \(N(K')\), każda liczba również nie występuje dokładnie w \(n-m\) kolumnach, zatem \(\forall_{n \in N(K')} deg(n)=n-m \) i zbiór krawędzi wychodzących z \(N(K')\) -- \(E_{N(K')}\), ma moc \( |N(K')|(n-m) \), zauważamy też że \(E_{N(K')}\) zawiera na pewno wszystkie krawędzie z \(E_{K'}\), z czego wnioskujemy nierówność
+\[
+	|N(K')|(n-m) \geq |K'|(n-m)
+\]
+Następnie dzielimy przez \(n-m\)
+\[
+	|N(K')| \geq |K'|
+\]
+Co chcieliśmy otrzymać.
+
+Dowód dla dowolnego podzbioru \(N\) byłby zupełnie symetryczny i otrzymamy z niego \(
+	|N(N')| \geq |N'|
+\) dla dowolnego \(N' \subseteq N\). Czyli warunek Halla jest spełniony, więc doskonałe skojarzenie istnieje, co gwarantuje możliwość dodania nowego wiersza, zgodnie z rozumowaniem wyżej.
+\end{document}
