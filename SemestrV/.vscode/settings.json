@@ -1,5 +1,7 @@
 {
     "files.associations": {
-        "csapp.h": "c"
+        "csapp.h": "c",
+        "cstdlib": "cpp",
+        "typeinfo": "cpp"
     }
 }
