@@ -21,7 +21,7 @@
 #define A5_FREQ 880
 
 #define TONE(step, duration) \
-  for (uint16_t i = 0; i < (uint32_t)1000 * (duration * 0.9) / (step); i++) { \
+  for (uint16_t i = 0; i < (uint32_t)1000 * (uint32_t)(duration * 0.9) / (step); i++) { \
     BUZZ_PORT |= _BV(BUZZ); \
     _delay_us(step / 2); \
     BUZZ_PORT &= ~_BV(BUZZ); \
