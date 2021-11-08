@@ -39,9 +39,8 @@ FILE uart_file;
 
 /**************************************************************/
 
-#define VIN 5.0
-#define V_REF 1.1
-#define MAX_READING 1023
+#define VIN 1.1
+#define MAX_READING 1024
 
 #define LED PD6
 #define LED_DDR DDRD
@@ -54,13 +53,8 @@ void adc_init()
   ADCSRA |= _BV(ADEN);
 }
 
-float voltage_from_reading(uint16_t v) {
-    return VIN / MAX_READING * v;
-}
-
-float calc_vin_from_read_voltage(float v) {
-    float diff = V_REF - v;
-    return VIN - diff;
+float voltage_from_adc(uint16_t adc) {
+  return VIN / adc * MAX_READING;
 }
 
 int main()
@@ -76,9 +70,8 @@ int main()
     ADCSRA |= _BV(ADSC);
     while (!(ADCSRA & _BV(ADIF)));
     ADCSRA |= _BV(ADIF);    
-    uint16_t v = ADC;
-    float read_voltage = voltage_from_reading(v);
-    float vin_voltage = calc_vin_from_read_voltage(read_voltage);
+    uint16_t adc = ADC;
+    float vin_voltage = voltage_from_adc(adc);
     printf("Odczytano: %.2fV\r\n", vin_voltage);
 
     LED_PORT = _BV(LED);
