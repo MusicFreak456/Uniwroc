@@ -56,24 +56,24 @@ static void print_gid(gid_t gid) {
 static void file_info(int dirfd, const char *name) {
   struct stat sb[1];
 
-  /* TODO: Read file metadata. */
+  // /* TODO: Read file metadata. */
 
-  print_mode(sb->st_mode);
-  printf("%4ld", sb->st_nlink);
-  print_uid(sb->st_uid);
-  print_gid(sb->st_gid);
+  // print_mode(sb->st_mode);
+  // printf("%4ld", sb->st_nlink);
+  // print_uid(sb->st_uid);
+  // print_gid(sb->st_gid);
 
-  /* TODO: For devices: print major/minor pair; for other files: size. */
+  // /* TODO: For devices: print major/minor pair; for other files: size. */
 
-  char *now = ctime(&sb->st_mtime);
-  now[strlen(now) - 1] = '\0';
-  printf("%26s", now);
+  // char *now = ctime(&sb->st_mtime);
+  // now[strlen(now) - 1] = '\0';
+  // printf("%26s", now);
 
   printf("  %s", name);
 
-  if (S_ISLNK(sb->st_mode)) {
-  /* TODO: Read where symlink points to and print '-> destination' string. */
-  }
+  // if (S_ISLNK(sb->st_mode)) {
+  // /* TODO: Read where symlink points to and print '-> destination' string. */
+  // }
 
   putchar('\n');
 }

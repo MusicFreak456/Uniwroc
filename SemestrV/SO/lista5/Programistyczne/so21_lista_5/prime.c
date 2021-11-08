@@ -44,7 +44,23 @@ static void filter(pipe_t in, pipe_t out, long prime) {
 static noreturn void filter_chain(pipe_t in) {
   long prime;
 
-  /* TODO: Something is missing here! */
+  if(!(ReadNum(in, &prime))) exit(EXIT_SUCCESS);
+  printf("%ld\n", prime);
+
+  pipe_t pass_pipe = MakePipe();
+
+  if(Fork()){
+    CloseReadEnd(pass_pipe);
+    filter(in, pass_pipe, prime);
+    CloseWriteEnd(pass_pipe);
+  } else {
+    CloseWriteEnd(pass_pipe);
+    CloseReadEnd(in);
+    filter_chain(pass_pipe);
+  }
+
+  CloseReadEnd(in);
+  Wait(NULL);
 
   exit(EXIT_SUCCESS);
 }
