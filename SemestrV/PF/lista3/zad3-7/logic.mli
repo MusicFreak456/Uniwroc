@@ -14,12 +14,14 @@ type formula =
 val pp_print_formula : Format.formatter -> formula -> unit
 
 (** reprezentacja twierdzeń *)
-type judgement
+(* type judgement
 type theorem = private
 | Ax       of judgement
 | Impl_Int of judgement * theorem
 | Impl_Elm of judgement * theorem * theorem
-| Bott_Elm of judgement * theorem
+| Bott_Elm of judgement * theorem *)
+
+type theorem
 
 (** założenia twierdzenia *)
 val assumptions : theorem -> formula list

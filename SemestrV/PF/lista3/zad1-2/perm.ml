@@ -25,8 +25,7 @@ module Make(Key : OrderedType) = struct
 
   module M = Map.Make(Key) 
   type key = Key.t
-  type mapping = Key.t M.t
-  type t = mapping * mapping
+  type t = Key.t M.t * Key.t M.t
 
   let id = (M.empty, M.empty)
 

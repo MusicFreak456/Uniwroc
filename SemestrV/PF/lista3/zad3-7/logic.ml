@@ -37,19 +37,23 @@ module F = struct
 end
 
 module S = Set.Make(F)
-type judgement = S.t * formula 
+(* type judgement = S.t * formula 
 type theorem = 
 | Ax       of judgement
 | Impl_Int of judgement * theorem
 | Impl_Elm of judgement * theorem * theorem
-| Bott_Elm of judgement * theorem
+| Bott_Elm of judgement * theorem *)
 
-let judgement thm =
+type theorem = S.t * formula
+
+(* let judgement thm =
   match thm with
   | Ax(j)           -> j
   | Impl_Int(j,_)   -> j
   | Impl_Elm(j,_,_) -> j
-  | Bott_Elm(j,_)   -> j
+  | Bott_Elm(j,_)   -> j *)
+
+let judgement thm = thm
 
 let assumptions thm =
   let (s,_) = judgement thm 
@@ -80,14 +84,16 @@ let pp_print_theorem fmtr thm =
   pp_close_box fmtr ()
 
 let by_assumption f =
-  let assum = S.add f S.empty 
-  in Ax((assum,f))
+  let assum = S.add f S.empty
+  (* in Ax((assum,f)) *)
+  in (assum, f)
 
 let imp_i f thm =
   let (a,c) = judgement thm in
   let assum = S.remove f a 
   and concl  = Implies(f,c)
-  in Impl_Int((assum, concl), thm)
+  (* in Impl_Int((assum, concl), thm) *)
+  in (assum, concl)
 
 let imp_e th1 th2 =
   let (a1, c1) = judgement th1
@@ -95,11 +101,13 @@ let imp_e th1 th2 =
   in match c1 with
   | Implies(l, r) when (compare_formulas l c2) = 0 -> 
       let assum = S.union a1 a2
-      in Impl_Elm( (assum, r), th1, th2 ) 
+      (* in Impl_Elm( (assum, r), th1, th2 )  *)
+      in (assum, r)
   | Bottom | Variable(_) | Implies(_,_) -> failwith("Bad impl_e usage")
 
 let bot_e f thm =
   let(a, c) = judgement thm
   in match c with
-  | Bottom -> Bott_Elm((a,f),thm)
+  (* | Bottom -> Bott_Elm((a,f),thm) *)
+  | Bottom -> (a,f)
   | Variable(_) | Implies(_,_) -> failwith("Bad bot_e usage")
