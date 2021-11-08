@@ -33,6 +33,9 @@ static void print_mode(mode_t m) {
   char ox = (m & S_IXOTH) ? 'x' : '-';
 
   /* TODO: Fix code to report set-uid/set-gid/sticky bit as 'ls' does. */
+  ux = (m & S_ISGID) ? ( (ux == 'x' ? 's' : 'S') ) : ux;
+  gx = (m & S_ISUID) ? ( (gx == 'x' ? 's' : 'S') ) : gx;
+  ox = (m & S_ISVTX) ? ( (ox == 'x' ? 't' : 'T') ) : ox;
 
   printf("%c%c%c%c%c%c%c%c%c%c", t, ur, uw, ux, gr, gw, gx, or, ow, ox);
 }
@@ -56,24 +59,36 @@ static void print_gid(gid_t gid) {
 static void file_info(int dirfd, const char *name) {
   struct stat sb[1];
 
-  // /* TODO: Read file metadata. */
+  /* TODO: Read file metadata. */
+  Fstatat(dirfd, name, sb, AT_SYMLINK_NOFOLLOW);
 
-  // print_mode(sb->st_mode);
-  // printf("%4ld", sb->st_nlink);
-  // print_uid(sb->st_uid);
-  // print_gid(sb->st_gid);
+  print_mode(sb->st_mode);
+  printf("%4ld", sb->st_nlink);
+  print_uid(sb->st_uid);
+  print_gid(sb->st_gid);
 
-  // /* TODO: For devices: print major/minor pair; for other files: size. */
+  /* TODO: For devices: print major/minor pair; for other files: size. */
+  if(S_ISBLK(sb->st_mode) || S_ISCHR(sb->st_mode)){
+    printf(" %5u,%5u", major(sb->st_rdev), minor(sb->st_rdev));
+  }
+  else {
+    off_t f_size = sb->st_size;
+    printf(" %11ld", f_size);
+  }
 
-  // char *now = ctime(&sb->st_mtime);
-  // now[strlen(now) - 1] = '\0';
-  // printf("%26s", now);
+  char *now = ctime(&sb->st_mtime);
+  now[strlen(now) - 1] = '\0';
+  printf("%26s", now);
 
   printf("  %s", name);
 
-  // if (S_ISLNK(sb->st_mode)) {
-  // /* TODO: Read where symlink points to and print '-> destination' string. */
-  // }
+  if (S_ISLNK(sb->st_mode)) {
+  /* TODO: Read where symlink points to and print '-> destination' string. */
+    char symlink_value[PATH_MAX];
+    size_t b_read = Readlinkat(dirfd, name, symlink_value, PATH_MAX);
+    symlink_value[b_read] = '\0';
+    printf(" -> %s", symlink_value);
+  }
 
   putchar('\n');
 }
@@ -89,6 +104,15 @@ int main(int argc, char *argv[]) {
   while ((n = Getdents(dirfd, (void *)buf, DIRBUFSZ))) {
     struct linux_dirent *d;
     /* TODO: Iterate over directory entries and call file_info on them. */
+
+    for (int offset = 0; offset < n;)
+    {
+      d = (struct linux_dirent *)(buf + offset);
+      char *name = d->d_name;
+      file_info(dirfd, name);
+      offset += d->d_reclen;
+    }
+    
   }
 
   Close(dirfd);
