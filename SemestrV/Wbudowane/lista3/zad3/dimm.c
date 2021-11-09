@@ -47,7 +47,7 @@ FILE uart_file;
 #define LED_DDR DDRD
 #define LED_PORT PORTD
 
-const int16_t EXP_VALUES[256] = {
+const int16_t VALUES[256] = {
   0,  0,  0,  0,  0,  0,  0,  0,  0,  1,  1,  1,  2,  2,  3,  3,  3,  
   4,  4,  5,  6,  6,  7,  8,  8,  9,  10,  11,  12,  12,  13,  14,  
   15,  16,  17,  18,  19,  21,  22,  23,  24,  25,  27,  28,  29,  
@@ -93,20 +93,20 @@ int main()
     ADCSRA |= _BV(ADIF); // wyczyść bit ADIF (pisząc 1!)
     uint16_t v = ADC; // weź zmierzoną wartość (0..1023)
     uint8_t index = (uint8_t)(v >> 2);
-    int us_spent_on = EXP_VALUES[index];
+    int us_spent_on = VALUES[index];
 
     for (int i = 0; i < 10; i++)
     {
       LED_PORT = _BV(LED);
       for (int i = 0; i < us_spent_on; i++)
       {
-        _delay_us(10);
+        _delay_us(1);
       }
       
       LED_PORT = 0;
       for (int i = 0; i < 1000 - us_spent_on; i++)
       {
-        _delay_us(10);
+        _delay_us(1);
       }
     }
     
