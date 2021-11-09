@@ -74,8 +74,7 @@ int main()
     float vin_voltage = voltage_from_adc(adc);
     printf("Odczytano: %.2fV\r\n", vin_voltage);
 
-    LED_PORT = _BV(LED);
+    LED_PORT ^= _BV(LED);
     _delay_ms(1000);
-    LED_PORT = 0;
   }
 }
