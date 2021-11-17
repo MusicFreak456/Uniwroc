@@ -1,0 +1,14 @@
+{
+    "configurations": [
+        {
+            "name": "Linux",
+            "includePath": [
+                "${default}",
+                "${workspaceFolder}/lista6/Programistyczne/so21_lista_6/include"
+            ],
+            "defines": [],
+            "cppStandard": "c++14"
+        }
+    ],
+    "version": 4
+}
