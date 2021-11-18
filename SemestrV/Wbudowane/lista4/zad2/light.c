@@ -1,11 +1,6 @@
 #include <avr/io.h>
-#include <stdio.h>
 #include <inttypes.h>
 #include <util/delay.h>
-
-#define LED PB1
-#define LED_DDR DDRB
-#define LED_PORT PORTB
 
 const int16_t VALUES[256] = {
   1011,  995,  968,  942,  917,  892,  868,  845,  822,  800,  779,  758,  737,  
@@ -52,7 +47,6 @@ void timer1_init()
 
 int main()
 {
-  LED_DDR = _BV(LED);
   adc_init();
   timer1_init();
   while(1) {
