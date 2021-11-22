@@ -3,18 +3,18 @@ open Logic
 type goal = (string * formula) list * formula 
 
 type incomplete_proof =
-| Goal       of goal
-| P_Complete of theorem
-| ImplI      of formula * incomplete_proof
-| ImplE      of incomplete_proof * incomplete_proof
-| BottE      of formula * incomplete_proof 
+| Goal         of goal
+| CompletePart of theorem
+| ImplI        of formula * incomplete_proof
+| ImplE        of incomplete_proof * incomplete_proof
+| BottE        of formula * incomplete_proof 
 
 type context =
 | Root
-| ImplI_Ctx   of formula * context
-| ImplE_L_Ctx of context * incomplete_proof
-| ImplE_R_Ctx of incomplete_proof * context
-| BottE_Ctx   of formula * context
+| ImplICtx      of formula * context
+| ImplECtxLeft  of context * incomplete_proof
+| ImplECtxRight of incomplete_proof * context
+| BottECtx      of formula * context
 
 type proof =
 | Complete   of theorem
@@ -36,36 +36,36 @@ let goal pf =
 let rec search_up ctx ip =
   match ip with
   | Goal(g)           -> Some( Incomplete(g, ctx) )
-  | P_Complete(_)     -> None
-  | ImplI(f,ip)       -> search_up (ImplI_Ctx(f,ctx)) ip
-  | BottE(f,ip)       -> search_up (BottE_Ctx(f,ctx)) ip
+  | CompletePart(_)   -> None
+  | ImplI(f,ip)       -> search_up (ImplICtx(f,ctx)) ip
+  | BottE(f,ip)       -> search_up (BottECtx(f,ctx)) ip
   | ImplE(ip_l, ip_r) ->
-    match search_up (ImplE_L_Ctx(ctx, ip_r)) ip_l with
-    | None -> search_up (ImplE_R_Ctx(ip_l, ctx)) ip_r
+    match search_up (ImplECtxLeft(ctx, ip_r)) ip_l with
+    | None -> search_up (ImplECtxRight(ip_l, ctx)) ip_r
     | some -> some
 
 let rec search_down ctx ip = 
   match ctx with
-  | Root           -> None
-  | ImplI_Ctx(f, ctx) -> search_down ctx (ImplI(f,ip))
-  | BottE_Ctx(f, ctx) -> search_down ctx (BottE(f,ip))
-  | ImplE_L_Ctx(ctx, ip_r) ->
-    begin match search_up (ImplE_R_Ctx(ip, ctx)) ip_r with
+  | Root                    -> None
+  | ImplICtx(f, ctx)        -> search_down ctx (ImplI(f,ip))
+  | BottECtx(f, ctx)        -> search_down ctx (BottE(f,ip))
+  | ImplECtxLeft(ctx, ip_r) ->
+    begin match search_up (ImplECtxRight(ip, ctx)) ip_r with
     | None -> search_down ctx (ImplE(ip, ip_r))
     | some -> some
     end
-  | ImplE_R_Ctx(ip_l, ctx) -> 
+  | ImplECtxRight(ip_l, ctx) -> 
     begin match search_down ctx (ImplE(ip_l, ip)) with
-    | None -> search_up (ImplE_L_Ctx(ctx, ip)) ip_l
+    | None -> search_up (ImplECtxLeft(ctx, ip)) ip_l
     | some -> some 
     end
   
 let next pf =
   match pf with
-  | Complete(_) -> pf
+  | Complete(_)        -> pf
   | Incomplete(g, ctx) ->
     begin match search_down ctx (Goal g) with
-    | None -> pf
+    | None    -> pf
     | Some(g) -> g
     end
 
@@ -76,7 +76,7 @@ let intro name pf =
     match f with
     | Bottom | Variable(_) -> failwith "Targeted goal is not implication"
     | Implies(p,q) -> 
-      Incomplete( (List.cons (name, p) assm, q), (ImplI_Ctx(p,ctx)) )
+      Incomplete( (List.cons (name, p) assm, q), (ImplICtx(p,ctx)) )
 
 let fill_imple_bott f pf =
   match pf with
@@ -97,23 +97,23 @@ let fill_imple_bott f pf =
 
 let rec search_down_with_invariant ip ctx =
   match ip with
-  | P_Complete(thm) -> 
+  | CompletePart(thm) -> 
     begin match ctx with
     | Root -> Some(Complete(thm))
-    | ImplI_Ctx(f, ctx) -> 
-      search_down_with_invariant (P_Complete(imp_i f thm)) ctx
-    | BottE_Ctx(f, ctx) ->
-      search_down_with_invariant (P_Complete(bot_e f thm)) ctx
-    | ImplE_L_Ctx(ctx_i, ip_i) ->
+    | ImplICtx(f, ctx) -> 
+      search_down_with_invariant (CompletePart(imp_i f thm)) ctx
+    | BottECtx(f, ctx) ->
+      search_down_with_invariant (CompletePart(bot_e f thm)) ctx
+    | ImplECtxLeft(ctx_i, ip_i) ->
       begin match ip_i with
-      | P_Complete(thm_r) ->
-        search_down_with_invariant (P_Complete(imp_e thm thm_r)) ctx_i
+      | CompletePart(thm_r) ->
+        search_down_with_invariant (CompletePart(imp_e thm thm_r)) ctx_i
       | _ -> search_down ctx ip
       end
-    | ImplE_R_Ctx(ip_i, ctx_i) -> 
+    | ImplECtxRight(ip_i, ctx_i) -> 
       begin match ip_i with
-      | P_Complete(thm_l) ->
-        search_down_with_invariant (P_Complete(imp_e thm_l thm)) ctx_i
+      | CompletePart(thm_l) ->
+        search_down_with_invariant (CompletePart(imp_e thm_l thm)) ctx_i
       | _ -> search_down ctx ip
       end
     end
@@ -130,7 +130,7 @@ let fill_thm thm pf =
   | Complete(_) -> assert false
   | Incomplete( (assm, g), ctx) ->
     if check_assm thm assm then
-    search_down_with_invariant (P_Complete(thm)) ctx
+    search_down_with_invariant (CompletePart(thm)) ctx
     else failwith "Theorem requires additional assumptions"
   
 let apply f pf = fill_imple_bott f pf
