@@ -2,15 +2,13 @@ type 'a nlist =
 | Nil
 | Zero of ('a * 'a) nlist
 | One  of 'a * ('a * 'a) nlist
-| Two  of 'a * 'a * ('a * 'a) nlist
 
 let rec cons : 'a. 'a -> 'a nlist -> 'a nlist =
   fun x xs ->
   match xs with
   | Nil           -> One(x, Nil)
   | Zero xs       -> One(x, xs)
-  | One(y, xs)    -> Two(x, y, xs)
-  | Two(y, z, xs) -> One(x, cons (y,z) xs)
+  | One(y, xs)    -> Zero(cons (x, y) xs)
 
 let rec view : 'a. 'a nlist -> ('a * 'a nlist) option =
   function
@@ -21,7 +19,6 @@ let rec view : 'a. 'a nlist -> ('a * 'a nlist) option =
     | Some((x, y), xs) -> Some(x, One(y, xs))
     end
   | One(x, xs)    -> Some(x, Zero xs)
-  | Two(x, y, xs) -> Some(x, One(y, xs))
 
 let rec nth : 'a. 'a nlist -> int -> 'a =
   fun xs n ->
@@ -34,9 +31,6 @@ let rec nth : 'a. 'a nlist -> int -> 'a =
   | One(x, xs) ->
     if n = 0 then x
     else nth (Zero xs) (n-1)
-  | Two(x, y, xs) ->
-    if n = 0 then x
-    else nth (One(y, xs)) (n-1)
 
 let head nlist = 
   match view nlist with
@@ -60,30 +54,12 @@ let rec list_of_nlist nlist =
 let empty_nlist = nlist_of_list [] 
 let test_nlist  = nlist_of_list [1;2;3;4] 
 
-let rec print_repr : 'a. 'a nlist -> string =
-  function
-  | Nil         -> ""
-  | Zero(xs)    -> (print_repr xs) ^ "0"
-  | One(_,xs)   -> (print_repr xs) ^ "1"
-  | Two(_,_,xs) -> (print_repr xs) ^ "2"
-
-
 let _ = assert( empty_nlist |> list_of_nlist = [] )
 let _ = assert( test_nlist  |> list_of_nlist = [1;2;3;4] )
 let _ = assert( test_nlist  |> head          = 1 )
 let _ = assert( test_nlist  |> tail |> head  = 2 )
 let _ = assert( nth test_nlist 0 = 1 )
 let _ = assert( nth test_nlist 3 = 4 )
-let _ = assert( nlist_of_list []      |> print_repr = ""   )
-let _ = assert( nlist_of_list [1]     |> print_repr = "1"  )
-let _ = assert( nlist_of_list [1;2]   |> print_repr = "2"  )
-let _ = assert( nlist_of_list [1;2;3] |> print_repr = "11" )
-let _ = assert( 
-  nlist_of_list [1;2;3;4;5]
-  |> tail
-  |> print_repr
-  = "20"
-)
 
 let time f x= 
   let t = Sys.time() in
@@ -105,17 +81,15 @@ let _ =
   Random.init 42;
   time benchmark 100000000 *)
 
-(* cezary@cezary-MSI$ ocamlc zad1.ml                                                                                                                          ~/Uniwroc/SemestrV/PF/lista4/zad1
+(* cezary@cezary-MSI$ ocamlc zad1old.ml                                                                                                                       ~/Uniwroc/SemestrV/PF/lista4/zad1
 cezary@cezary-MSI$ ./a.out                                                                                                                                 ~/Uniwroc/SemestrV/PF/lista4/zad1
-Execution time: 15.384719s
+Execution time: 15.649800s
 cezary@cezary-MSI$ ./a.out                                                                                                                                 ~/Uniwroc/SemestrV/PF/lista4/zad1
-Execution time: 14.066901s
+Execution time: 15.910877s
 cezary@cezary-MSI$ ./a.out                                                                                                                                 ~/Uniwroc/SemestrV/PF/lista4/zad1
-Execution time: 14.931928s
+Execution time: 16.595481s
 cezary@cezary-MSI$ ./a.out                                                                                                                                 ~/Uniwroc/SemestrV/PF/lista4/zad1
-Execution time: 14.073978s
-cezary@cezary-MSI$ *)
-
+Execution time: 16.399116s *)
 
 let benchmark n = 
   let rec add n nlist =
