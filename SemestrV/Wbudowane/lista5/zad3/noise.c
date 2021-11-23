@@ -49,9 +49,7 @@ FILE uart_file;
 void adc_init()
 {
   ADMUX   = _BV(REFS0) | 0b1110; // referencja AVcc, wejście 1.1V
-  DIDR0   = _BV(ADC0D); // wyłącz wejście cyfrowe na ADC0
   ADCSRA  = _BV(ADPS0) | _BV(ADPS2); // preskaler 16
-  // ADCSRA  = _BV(ADPS0); // preskaler 2
   ADCSRA |= _BV(ADIE);  // włącz przerwania ADC
   ADCSRA |= _BV(ADEN);  // włącz ADC 
 }
@@ -101,11 +99,13 @@ int main()
   while(1) {
     sei();
     for (int i = 0; i < NUMBER_OF_SAMPLES; i++) {
+      _delay_ms(1);
       sleep_mode();
     }
     cli();
 
     for (int i = 0; i < NUMBER_OF_SAMPLES; i++) {
+      _delay_ms(1);
       ADCSRA |= _BV(ADSC);
       while (!(ADCSRA & _BV(ADIF)));
       ADCSRA |= _BV(ADIF);    

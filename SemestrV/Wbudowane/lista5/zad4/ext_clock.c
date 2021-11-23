@@ -98,7 +98,7 @@ int main()
     sleep_mode();
 
     cli();
-    printf("%"PRIu16" Hz\r\n", frequency); // 1280
+    printf("%"PRIu16" Hz\r\n", frequency);
     sei();
   }
 }
