@@ -250,7 +250,7 @@ void get_date() {
   decompose_print(date.day);
   printf("-");
   decompose_print(date.month);
-  printf("-");
+  printf("-20");
   decompose_print(date.year);
   printf("\r\n");
 }

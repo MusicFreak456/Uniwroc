@@ -1,5 +1,4 @@
 #include <avr/io.h>
-#include <avr/sleep.h>
 #include <avr/interrupt.h>
 #include <stdio.h>
 #include <util/delay.h>
@@ -50,8 +49,10 @@ void spi_init() {
 
 #define CLK_OUT _BV(PC0)
 #define MOSI    _BV(PC1)
+#define MISO    _BV(PC2)
 #define MASTER_DDR  DDRC
 #define MASTER_PORT PORTC
+#define MASTER_PIN  PINC
 
 volatile uint8_t sent;
 volatile uint8_t received;
@@ -63,28 +64,31 @@ ISR(SPI_STC_vect) {
 }
 
 void transmit_byte(int8_t byte) {
+  uint8_t received = 0;
   for(int i = 0; i < 8; i++) {
     if(byte & 1) MASTER_PORT |= MOSI;
     else MASTER_PORT &= ~MOSI;
     byte >>= 1;
-    _delay_ms(1);
 
-    MASTER_PORT = CLK_OUT;
     _delay_ms(1);
-    MASTER_PORT = ~CLK_OUT;
+    if(MASTER_PIN & MISO) received |= 1 << i;
+
+    MASTER_PORT |= CLK_OUT;
+    _delay_ms(1);
+    MASTER_PORT &= ~CLK_OUT;
   }
+  printf("Master received:   %d\r\n", received);
 }
 
 
 int main() {
   MASTER_DDR  = CLK_OUT | MOSI;
   MASTER_PORT &= ~CLK_OUT;
+  DDRB |= _BV(PB4);
 
   uart_init();
   fdev_setup_stream(&uart_file, uart_transmit, uart_receive, _FDEV_SETUP_RW);
   stdin = stdout = stderr = &uart_file;
-
-  set_sleep_mode(SLEEP_MODE_IDLE);
 
   spi_init();
   sei();
@@ -93,13 +97,14 @@ int main() {
   while (1) {
     if(!sent){
       transmit_byte(i);
-      printf("Transmited: %d\n\r",i);
+      printf("Master transmited: %d\n\r",i);
       i++;
       sent = 1;
     } else if (received) {
-      printf("Received: %d\n\r", value);
+      printf("Slave  received:   %d\n\r", value);
       sent = 0;
       received = 0;
     }
+    _delay_ms(1000);
   }
 }
