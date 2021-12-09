@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="/style.css" />
+  <title>Zadanie 4</title>
+</head>
+<body>
+  <form method="post">
+
+    <div class="txt-input"> 
+      <label for="name"><%= labels['name'] %> </label>
+      <input 
+        type="text" 
+        name="name" 
+        placeholder="Maksymilian" 
+        value="<%= decl.name %>"
+      />
+    </div>
+    <div class="txt-input">
+      <label for="surname"><%= labels['surname'] %></label>
+      <input 
+        type="text" 
+        name="surname" 
+        placeholder="Debeściak"
+        value="<%= decl.surname %>"
+      />
+    </div>
+    <div class="txt-input">
+      <label for="class"><%= labels['class'] %></label>
+      <input 
+        type="text" 
+        name="class" 
+        placeholder="WEPPO"
+        value="<%= decl.class %>"
+      >
+    </div>
+
+    <% if( locals.errMsg ) { %>
+      <span class="error"> <%= errMsg %>  </span>
+    <% } %>
+
+    <h4>Punkty za zadania</h4>
+    <% for(let i=1; i <= 10; i++) { %>
+      <div class="exc-input">
+        <label for="exc<%= i %>"><%= i %> </label>
+        <input 
+          type="number" 
+          name="exc<%= i %>" 
+          value="<%= decl["exc" + i] %>"
+        />
+      </div>
+    <% } %>
+
+    <button>Zapisz</button>
+  </form>
+</body>
+</html>

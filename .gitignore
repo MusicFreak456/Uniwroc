@@ -10,3 +10,5 @@
 .ipynb_checkpoints
 
 _build
+
+node_modules

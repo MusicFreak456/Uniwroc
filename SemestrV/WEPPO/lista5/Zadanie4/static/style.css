@@ -1,0 +1,62 @@
+.exc-input input {
+  width: 33px;
+}
+
+label {
+  display: inline-block;
+}
+
+.exc-input label {
+  min-width: 20px;
+}
+
+.txt-input label {
+  min-width: 100px;
+}
+
+button {
+  margin: 10px;
+}
+
+.error {
+  color: red
+}
+
+.decl-wrapper {
+  border: 1px solid black;
+  width: fit-content;
+  display: flex;
+  flex-direction: column;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.decl-wrapper .line {
+  display: flex;
+  flex-direction: row;
+  border-bottom: 1px solid black;
+}
+
+.decl-wrapper .line:last-of-type {
+  border-bottom: none;
+}
+
+.decl-wrapper .blk {
+  padding: 10px;
+  border-right: 1px solid black;
+}
+
+.decl-wrapper .blk.exc{
+  width: 20px;
+  display: flex;
+  justify-content: center;
+}
+
+.decl-wrapper .blk:last-of-type:not(.exc)  {
+  border-right: none;
+}
+
+.decl-wrapper .label {
+  background-color: rgb(190, 190, 190);
+}
+

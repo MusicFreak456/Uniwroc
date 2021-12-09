@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Zadanie 4</title>
+  <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+  <div class="decl-wrapper">
+    <div class="line">
+
+      <div class="label blk"> <%= labels['class'] %>  </div>
+      <div class="blk"> <%= decl.class %> </div>
+  
+      <div class="label blk"> 
+        <%= labels['name'] %> i <%= labels['surname'] %>  
+      </div>
+      <div class="blk">  <%= decl.name %> <%= decl.surname %>  </div>
+      
+    </div>
+
+    <div class="line">
+      <% for(let i = 1; i <= 10; i++) { %>
+        <div class="blk exc">
+          <%= i %> 
+        </div>
+      <% } %>  
+    </div>
+
+    <div class="line">
+      <% for(let i = 1; i <= 10; i++) { %>
+        <div class="blk exc">
+          <%= decl['exc' + i] %> 
+        </div>
+      <% } %> 
+    </div>
+  </div>
+</body>
+</html>
