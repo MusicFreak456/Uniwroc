@@ -1,0 +1,21 @@
+• Pokaż jak przechwytywać ruch z przeglądarki do internetu - jak podglądać zawartości
+żądań i odpowiedzi i jak stawiać pułapki i za ich pomocą modyfikować żądania i/lub
+odpowiedzi.
+
+Najprościej jest użyć wbudowanej w burpa przeglądarki Chromium. Wchodzimy w zakładkę
+Proxy ⟶ Intercept, wyłączamy opcję "Intercept" i klikamy "Open Browser". 
+Teraz ruch do i z otwartej przeglądarki będzie odbywał się przez proxy burpa 
+(zrobienie tego dla normalnych przeglądarek wymagałoby dodania certyfikatu burpa do 
+zaufanych i konfiguracji ustawień proxy w systemie). Ruch http możemy podglądać w 
+zakładce "HTTP history".
+
+Pułapkę możemy zastawić klikając uruchamiając "Intercept". Wtedy każdy pakiet zostanie
+złapany, jego zawartość wyświetlona (z możliwością edycji) i to my będziemy decydować
+czy, kiedy, gdzie i w jakiej postaci przesłać go dalej (Forward/Drop/Action).
+
+• Pokazać jak za pomocą Burpa tworzyć własne, dowolne żądania typu GET i żądania typu
+POST do własnej strony.
+
+Wchodzimy w zakładkę Reapeter. W lewym górnym rogu możemy wyspecyfikować gniazdo, do
+którego wyślemy żądanie. W kolumnie Request można wpisac dowolne ciało żądania, 
+następnie wystarczy kliknąć "Send" i w kolumnie Response pojawi się odpowiedź.
