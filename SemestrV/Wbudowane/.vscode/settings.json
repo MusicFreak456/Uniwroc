@@ -5,7 +5,11 @@
     "AVR.device.type": "atmega328p",
     "AVR.device.frequency": 16000000,
     "files.associations": {
+        "*.ejs": "html",
         "delay.h": "c",
-        "io.h": "c"
+        "io.h": "c",
+        "task.h": "c",
+        "stdio.h": "c",
+        "semphr.h": "c"
     }
 }

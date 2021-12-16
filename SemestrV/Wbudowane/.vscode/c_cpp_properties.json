@@ -12,7 +12,11 @@
         },
         {
             "name": "AVR",
-            "includePath": [],
+            "includePath": [
+                "${workspaceFolder}/test/freertos_atmega328P/FreeRTOS/Source/include",
+                "${workspaceFolder}/test/freertos_atmega328P",
+                "${workspaceFolder}/test/freertos_atmega328P/FreeRTOS/Source/portable/GCC/ATMega328"
+            ],
             "compilerPath": "/usr/bin/avr-gcc",
             "cStandard": "gnu17",
             "cppStandard": "gnu++14",

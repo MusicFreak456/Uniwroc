@@ -1,11 +1,11 @@
 #include <avr/io.h>
 #include <util/delay.h>
 
-#define LED PD3
-#define LED_DDR DDRD
-#define LED_PORT PORTD
+#define LED PC0
+#define LED_DDR DDRC
+#define LED_PORT PORTC
 
-#define BTN PC0
+#define BTN PC2
 #define BTN_PIN PINC
 #define BTN_PORT PORTC
 
@@ -27,15 +27,21 @@ int8_t read() {
   return buffer[index];
 }
 
+#define led_on()  LED_PORT |=  _BV(LED)
+#define led_off() LED_PORT &= ~_BV(LED)
+
 int main() {
-  UCSR0B &= ~_BV(RXEN0) & ~_BV(TXEN0);
   BTN_PORT |= _BV(BTN);
-  LED_DDR |= _BV(LED) | _BV(PD0) | _BV(PD1);
-  LED_PORT = 0;
+  LED_DDR  |= _BV(LED);
+  led_off();
+
   while (1) {
-    LED_PORT = read();
+    if(read()) led_on();
+    else       led_off();
+
     if(BTN_PIN & _BV(BTN)) write(0);
     else write(_BV(LED));
+
     _delay_ms(10);
     next();
   }
