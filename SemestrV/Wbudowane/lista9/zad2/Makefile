@@ -1,6 +1,6 @@
 
-PRG            = blink
-OBJ            = ${PRG}.o
+PRG            = progress_bar
+OBJ            = ${PRG}.o hd44780.o
 PROGRAMMER     = arduino
 PORT           = /dev/ttyUSB0
 MCU_TARGET     = atmega328p 
@@ -9,7 +9,6 @@ OPTIMIZE       = -O3
 DEFS           =
 LIBS           =
 BAUDRATE       = 57600
-# New bootloader: 115200
 
 HZ          = 16000000
 
@@ -63,5 +62,5 @@ install:  $(PRG).hex
         -b $(BAUDRATE) -v -U flash:w:$(PRG).hex 
 
 screen:
-	screen $(PORT)
+	miniterm -e $(PORT)
 

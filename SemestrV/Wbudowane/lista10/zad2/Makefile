@@ -1,5 +1,5 @@
 
-PRG            = blink
+PRG            = measurment
 OBJ            = ${PRG}.o
 PROGRAMMER     = arduino
 PORT           = /dev/ttyUSB0
@@ -7,8 +7,8 @@ MCU_TARGET     = atmega328p
 AVRDUDE_TARGET = atmega328p
 OPTIMIZE       = -O3
 DEFS           =
-LIBS           =
-BAUDRATE       = 57600
+LIBS           = -u vfscanf -lscanf_flt -u vfprintf -lprintf_flt
+BAUDRATE       = 115200
 # New bootloader: 115200
 
 HZ          = 16000000
@@ -63,5 +63,5 @@ install:  $(PRG).hex
         -b $(BAUDRATE) -v -U flash:w:$(PRG).hex 
 
 screen:
-	screen $(PORT)
+	miniterm -e $(PORT)
 

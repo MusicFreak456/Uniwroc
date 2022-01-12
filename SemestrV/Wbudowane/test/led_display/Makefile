@@ -1,6 +1,6 @@
 
-PRG            = blink
-OBJ            = ${PRG}.o
+PRG            = disp16x2
+OBJ            = ${PRG}.o hd44780.o
 PROGRAMMER     = arduino
 PORT           = /dev/ttyUSB0
 MCU_TARGET     = atmega328p 
@@ -9,7 +9,6 @@ OPTIMIZE       = -O3
 DEFS           =
 LIBS           =
 BAUDRATE       = 57600
-# New bootloader: 115200
 
 HZ          = 16000000
 
