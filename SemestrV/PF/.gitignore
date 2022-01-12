@@ -3,3 +3,6 @@
 *.cmx
 *.hi
 _build
+
+*.svg
+examples

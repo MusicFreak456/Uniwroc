@@ -1,0 +1,17 @@
+
+digraph simple {
+    bgcolor="transparent";
+    rankdir=LR;
+
+    node [color="white" fontcolor="white"]
+    edge [color="white" fontcolor="white"]
+    node [shape = point ]; start; stop;
+
+    node [shape = circle] "parent(X,julia)";
+    node [shape = rect];
+    start  -> "[]" [ label = "str. wejściowy" ];
+    "[]" -> "parent(X,julia)";
+    "parent(X,julia)" -> "[X=tomasz]";
+    "[X=tomasz]" -> stop [label="str. wyjściowy"];
+    "Baza klauzul" -> "parent(X,julia)";
+}

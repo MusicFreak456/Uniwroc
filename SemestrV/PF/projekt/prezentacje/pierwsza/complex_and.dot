@@ -1,0 +1,19 @@
+
+digraph complex_and {
+    bgcolor="transparent";
+    rankdir=LR;
+
+    node [color="white" fontcolor="white"]
+    edge [color="white" fontcolor="white"]
+    node [shape = point pos="0,0!"] start;
+    node [shape = point ] stop;
+
+    node [shape = circle pos="1,1!"] "A";
+    node [shape = circle] "B";
+    node [shape = rect];
+    start  -> "A" [label="Str. wejściowy"];
+    "A" -> "B" [label="Str. wyjściowy A, \n wejściowy B"];
+    "B" -> stop [label="Str. wyjściowy"];
+    "Baza klauzul" -> "A";
+    "Baza klauzul" -> "B";
+}
