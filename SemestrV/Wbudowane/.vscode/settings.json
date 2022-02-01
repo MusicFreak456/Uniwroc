@@ -2,8 +2,8 @@
     "AVR.source.compiler": "/usr/bin/avr-gcc",
     "AVR.programmer.tool": "/usr/bin/avrdude",
     "AVR.source.libraries": [],
-    "AVR.device.type": "atmega328p",
-    "AVR.device.frequency": 16000000,
+    "AVR.device.type": "attiny84",
+    "AVR.device.frequency": 1000000,
     "files.associations": {
         "*.ejs": "html",
         "delay.h": "c",
