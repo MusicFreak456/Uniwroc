@@ -1,0 +1,14 @@
+#!/usr/bin/sed -nrf
+
+:loop
+  p
+  # if chameleons bacame monochromatic, then quit
+  /^(.)\1*$/ b exit
+  # suround first pair of different colored chameleons with `-` symbols
+  s/RG|GR|RB|BR|BG|GB/-&-/
+  # change color of those chameleons
+  s/-RG-|-GR-/BB/
+  s/-RB-|-BR-/GG/
+  s/-GB-|-BG-/RR/
+  b loop
+:exit
