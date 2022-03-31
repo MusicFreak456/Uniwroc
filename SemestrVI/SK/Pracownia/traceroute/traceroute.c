@@ -46,9 +46,6 @@ void print_responses(response_t *responses, int res_num, int ttl) {
   if(res_num == 0){
     printf("*\n");
     return;
-  } else if (res_num != BURST_LEN) {
-    printf("???\n");
-    return;
   }
 
   for (int i = 0; i < res_num; i++) {
@@ -63,7 +60,13 @@ void print_responses(response_t *responses, int res_num, int ttl) {
       printf("%s ", responses[i].ip_address_str);
   }
 
-  printf("%.2f ms\n", calculate_mean(responses, res_num));
+  if(res_num != BURST_LEN) {
+    printf("???");
+  } else {
+    printf("%.2f ms", calculate_mean(responses, res_num));
+  }
+
+  printf("\n");
 }
 
 void send_packets(int sockfd, address_t address, int ttl) {
