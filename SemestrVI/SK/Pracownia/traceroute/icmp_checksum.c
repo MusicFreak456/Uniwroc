@@ -1,4 +1,5 @@
-// Kod pożyczony ze strony wykładu
+/* Cezary Świtała 316746
+   Kod pożyczony ze strony wykładu */
 #include<assert.h>
 #include"traceroute.h"
 

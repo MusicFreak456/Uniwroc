@@ -1,3 +1,4 @@
+# Cezary Świtała 316746
 PROG=traceroute
 CC=gcc
 CFLAGS=-std=gnu17 -Wall -Wextra
