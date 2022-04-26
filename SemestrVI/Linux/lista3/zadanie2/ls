@@ -1,0 +1,6 @@
+#!/usr/bin/bash
+
+# ustawiamy PATH=.:$PATH
+# pakujemy ten program do archiwum: tar -cvf lolcats.tar ./*
+
+sl -a

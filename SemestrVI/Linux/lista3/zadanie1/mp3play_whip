@@ -1,0 +1,40 @@
+#!/usr/bin/bash
+
+if [ $# -gt 1 ]; then
+  printf "Usage: %s [path]" $0
+  exit
+fi
+
+S_PATH="."
+
+if [ $# = 1 ]; then
+  S_PATH=$1
+fi
+
+OLD_IFS=$IFS
+IFS=$'\n'
+
+declare -a ARGS=(
+  --notags 
+  --cancel-button 'quit'
+  --ok-button 'play'
+  --title "mp3play"
+  --menu "Choose song to play:" 16 100 9
+)
+
+for FILE in $(find $1 -regextype egrep -regex ".*.mp3$"); do
+  TRACK_INFO=$(mp3info -p "%l(%a): %t\n" $FILE)
+  ARGS+=("$FILE" "$TRACK_INFO")
+done
+
+IFS=$OLD_IFS
+
+while true; do
+  REPLY=$(whiptail "${ARGS[@]}" 3>&2 2>&1 1>&3) # swap stdout with stderr
+
+  if [ -z "$REPLY" ]; then
+    break
+  fi
+
+  mplayer "$REPLY"
+done

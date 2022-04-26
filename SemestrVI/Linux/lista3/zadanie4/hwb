@@ -1,0 +1,117 @@
+#!/usr/bin/bash
+
+function capitalize {
+  sed -E "s/^(.)/\U\1/"
+}
+
+function color {
+  while read line; do
+    printf "\u001b[36m$line\u001b[0m\n"
+  done
+}
+
+function greet {
+  while read line; do
+    printf "%s, $line!\n" $1
+  done
+}
+
+function print_help {
+  cat << EOF
+Sposób użycia: hwb [options] [names...]
+
+Opcje:
+  -c, -capitalize             wypisuje imiona wielką literą
+  -color=[never|auto|always]  kolorowanie imion w zależności od rozdzaju strumienia wyjściowego
+  -g text, -greeting=text     używa text zamiast domyślnego powitania
+  -h, -help                   wyświetla ten komunikat
+  -v, -version                wypisuje nazwę i wersję tego programu
+  -w, -world                  dodatkowo wypisuje wiersz z powitaniem 'world' 
+
+EOF
+  exit 1
+}
+
+function print_version {
+  echo $'hwb 0.01\nCopyright...'
+  exit 1
+}
+
+function dequote {
+  sed -e "s/^'//" -e "s/'$//"
+}
+
+OPTIONS=$(getopt -o 'cg:vwh' -l 'capitalize,greeting:,version,world,color:,help' -a -- "$@")
+
+if [[ $? > 0 ]]; then
+  exit 1;
+fi
+
+set -- $OPTIONS
+
+CAPITALIZE=false
+GREETING='Hello'
+WORLD=false
+if [ -t 1 ]; then
+  COLOR=true
+else
+  COLOR=false
+fi
+
+while true; do
+  case $1 in
+
+  -c|--capitalize)
+    CAPITALIZE=true
+  ;;
+
+  --color)
+    case $2 in
+    "'always'")
+      COLOR=true
+      ;;
+    "'never'")
+      COLOR=false
+      ;;
+    "'auto'")
+      ;;
+    *)
+      print_help
+      ;;
+    esac
+    shift
+  ;;
+
+  -g|--greeting)
+    GREETING=$(dequote <<< $2)
+    shift
+  ;;
+
+  -h|--help)
+    print_help
+  ;;
+
+  -v|--version)
+    print_version
+  ;;
+
+  -w|--world)
+    WORLD=true
+  ;;
+
+  --)
+    shift
+    break
+  ;;
+  
+  esac
+  shift
+done
+
+for name in $@; do
+  dequote <<< $name
+done \
+| ( if $WORLD; then echo 'world'; fi; cat ) \
+| if $CAPITALIZE; then capitalize; else cat; fi \
+| if $COLOR; then color; else cat; fi \
+| greet $GREETING

@@ -1,0 +1,47 @@
+#!/usr/bin/bash
+
+if [ $# -gt 1 ]; then
+  printf "Usage: %s [path]" $0
+  exit
+fi
+
+S_PATH="."
+
+if [ $# = 1 ]; then
+  S_PATH=$1
+fi
+
+OLD_IFS=$IFS
+IFS=$'\n'
+
+declare -a ARGS=(
+  --title='mp3play'
+  --width=700
+  --height=360
+  --cancel-label='Quit'
+  --ok-label='Play'
+  --list
+  --text='Choose track to be played.'
+  --column 'Path'
+  --column 'Title'
+  --column 'Artist'
+  --column 'Album'
+  --hide-column=1
+)
+
+for FILE in $(find $1 -regextype egrep -regex ".*.mp3$"); do
+  ALBUM=$(mp3info -p "%l" $FILE)
+  ARTIST=$(mp3info -p "%a" $FILE)
+  TITLE=$(mp3info -p "%t" $FILE)
+  ARGS+=("$FILE" "$TITLE" "$ARTIST" "$ALBUM")
+done
+
+IFS=$OLD_IFS
+
+while true; do
+  REPLY=$(zenity "${ARGS[@]}") # swap stdout with stderr
+  if [ -z "$REPLY" ]; then
+    break
+  fi
+  mplayer "$REPLY" 2>/dev/null
+done
