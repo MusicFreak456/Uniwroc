@@ -1,0 +1,57 @@
+#!/bin/bash
+
+rm -rf /tmp/virbian{1..4}
+mkdir /tmp/virbian{1..4}
+
+for x in {1..4}; do
+  ssh-copy-id -p 302$x -i ~/.ssh/virbians user@localhost
+done
+
+for x in {1..4}; do
+  sshfs -p 302$x user@localhost:/home/user /tmp/virbian$x \
+    -o IdentityFile=~/.ssh/virbians
+done
+
+ssh -p 3021 -i ~/.ssh/virbians user@localhost /bin/bash -s \
+<<EOF
+sudo -i
+ip link set name loc1 dev enp0s3;
+ip link set name loc2 dev enp0s8;
+ip addr add 172.16.0.1/16 dev loc1;
+ip addr add 192.168.1.1/24 dev loc2;
+ip link set up loc1;
+ip link set up loc2;
+EOF
+
+ssh -p 3022 -i ~/.ssh/virbians user@localhost /bin/bash -s \
+<<EOF
+sudo -i
+ip link set name loc2 dev enp0s3;
+ip link set name rem0 dev enp0s8;
+ip addr add 192.168.1.2/24 dev loc2;
+ip addr add 10.0.0.2/8 dev rem0;
+ip link set up loc2;
+ip link set up rem0;
+EOF
+
+ssh -p 3023 -i ~/.ssh/virbians user@localhost /bin/bash -s \
+<<EOF
+sudo -i;
+ip link set name loc0 dev enp0s3;
+ip link set name rem0 dev enp0s8;
+ip addr add 192.168.2.3/24 dev loc0;
+ip addr add 10.0.0.3/8 dev rem0;
+ip link set up loc0;
+ip link set up rem0;
+EOF
+
+ssh -p 3024 -i ~/.ssh/virbians user@localhost /bin/bash -s \
+<<EOF
+sudo -i;
+ip link set name loc0 dev enp0s3;
+ip link set name loc1 dev enp0s8;
+ip addr add 192.168.2.4/24 dev loc0;
+ip addr add 172.16.0.4/16 dev loc1;
+ip link set up loc0;
+ip link set up loc1;
+EOF
