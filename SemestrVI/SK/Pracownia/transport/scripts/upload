@@ -1,0 +1,14 @@
+#!/bin/bash
+
+make distclean
+  
+if [ -d /tmp/TransportClient/transport ]
+then
+  rm -rf /tmp/TransportClient/transport/*
+else
+  mkdir /tmp/TransportClient/transport
+fi
+
+cp -r ./* /tmp/TransportClient/transport
+ssh -p 30021 -i ~/.ssh/virbians user@localhost /bin/bash -s \
+  <<< "make -C ./transport"

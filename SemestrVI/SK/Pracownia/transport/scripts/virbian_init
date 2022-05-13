@@ -1,0 +1,35 @@
+#!/bin/bash
+
+ServerVM="TransportServer"
+ClientVM="TransportClient"
+VMs=($ClientVM $ServerVM)
+declare -A Ports
+Ports[$ClientVM]=30021
+Ports[$ServerVM]=30022
+
+Identity=~/.ssh/virbians
+Host=user@localhost
+
+for vm in ${VMs[@]}; do
+  rm -rf /tmp/$vm
+  mkdir /tmp/$vm
+
+  ssh-copy-id -p ${Ports[$vm]} -i $Identity $Host
+  sshfs -p ${Ports[$vm]} $Host:/home/user /tmp/$vm -o IdentityFile=$Identity 
+done
+
+ssh -p ${Ports[$ClientVM]} -i $Identity $Host /bin/bash -s \
+<<EOF
+sudo -i
+ip link set name loc0 dev enp0s3;
+ip addr add 192.168.0.1/24 dev loc0;
+ip link set up loc0;
+EOF
+
+ssh -p ${Ports[$ServerVM]} -i $Identity $Host /bin/bash -s \
+<<EOF
+sudo -i
+ip link set name loc0 dev enp0s3;
+ip addr add 192.168.0.2/24 dev loc0;
+ip link set up loc0;
+EOF
