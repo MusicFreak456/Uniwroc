@@ -1,3 +1,4 @@
+/* Cezary Świtała 316746 */
 #ifndef WINDOW_H
 #define WINDOW_H
 

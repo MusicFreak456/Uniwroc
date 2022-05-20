@@ -1,7 +1,7 @@
 # Cezary Świtała 316746
 PROG=transport
 CC=gcc
-CFLAGS=-std=gnu17 # -Wall -Wextra
+CFLAGS=-std=gnu17 -Wall -Wextra
 LIBS= -lrt
 RM=rm -f
 OBJ=$(PROG).o window.o watchdog.o

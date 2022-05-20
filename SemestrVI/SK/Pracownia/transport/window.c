@@ -1,3 +1,4 @@
+/* Cezary Świtała 316746 */
 #include"window.h"
 #include<stdbool.h>
 #include<unistd.h>
@@ -61,7 +62,7 @@ void send_part_request(window_s *window, part_s *part) {
   sprintf(message_buff, "GET %d %d\n", part->start, part->size);
   ssize_t message_size = strlen(message_buff);
 
-  printf("%s", message_buff);
+  debug("%s", message_buff);
 
   int bytes_sent = 0;
   int sockfd = window->sockfd;
@@ -104,7 +105,7 @@ void decode_package(void *buffer, int *start, int *size, void **data) {
     error("strtok", strerror(errno));
   }
 
-  printf("%s\n", header);
+  debug("%s\n", header);
   
   int scan_num = sscanf(header, "DATA %d %d", start, size);
   if(scan_num != 2) {
@@ -115,7 +116,6 @@ void decode_package(void *buffer, int *start, int *size, void **data) {
 }
 
 void receive_part(window_s *window, int idx, void *data) {
-  printf("idx %d\n", idx);
   if(idx == -1) return;
 
   part_s *part = &window->parts[idx];
@@ -127,14 +127,39 @@ void receive_part(window_s *window, int idx, void *data) {
   }
 }
 
+void print_progress(part_s *part, window_s *window) {
+  part_s *last_part = &window->parts[prev_idx(window->end_idx)];
+  int total = last_part->start + last_part->size + window->queued_bytes;
+  int bytes_received = part->start + part->size;
+  printf("\rDownloading... %.0f%%", (bytes_received/(float)total) * 100);
+  fflush(stdout);
+  if(total == bytes_received) printf("\n");
+}
+
+void save(int fd, void* data, int size){
+  int bytes_written = 0;
+  int bytes_to_be_written = size;
+
+  while(bytes_to_be_written > 0) {
+    bytes_written = write(fd, data + bytes_to_be_written, bytes_to_be_written);
+
+    if(bytes_written < 0 && errno != EINTR) {
+      error("write: ", strerror(errno));
+    } else {
+      bytes_to_be_written -= bytes_written;
+    }
+  }
+}
+
 void move_window(window_s *window) {
   while(
     window->number_of_parts > 0 && 
     window->parts[window->start_idx].received
   ) {
     part_s *first_part = &window->parts[window->start_idx];
-    write(window->output_fd, first_part->data, first_part->size);
 
+    print_progress(first_part, window);
+    write(window->output_fd, first_part->data, first_part->size);
     free(first_part->data);
 
     window->number_of_parts--;
@@ -184,9 +209,11 @@ void collect_packages(window_s *window) {
   }
 }
 
-void window_download(window_s *window, sockaddr_in server_address, 
-                     int number_of_bytes, int output_fd) {
-  printf("Downloading %d bytes\n", number_of_bytes);
+void window_download(
+    window_s *window, sockaddr_in server_address, int number_of_bytes, 
+    int output_fd
+  ) {
+  debug("Downloading %d bytes\n", number_of_bytes);
   window->server_address = server_address;
   window->output_fd = output_fd;
 
@@ -200,11 +227,11 @@ void window_download(window_s *window, sockaddr_in server_address,
     
     if(!window_append(window, start, size)){
       window->queued_bytes = number_of_bytes - start;
-      printf("Bytes queued %d\n", window->queued_bytes);
+      debug("Bytes queued %d\n", window->queued_bytes);
       break;
     }
 
-    printf("Add part: start %d size %d\n", start, size);
+    debug("Add part: start %d size %d\n", start, size);
 
     start += PACKET_SIZE;
   }

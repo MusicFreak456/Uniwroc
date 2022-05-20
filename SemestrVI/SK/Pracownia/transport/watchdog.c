@@ -1,3 +1,4 @@
+/* Cezary Świtała 316746 */
 #include"window.h"
 #include"common.h"
 #include<time.h>
