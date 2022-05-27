@@ -1,0 +1,152 @@
+\documentclass[a4paper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage{polski}
+\usepackage[polish]{babel}
+\usepackage{graphicx}
+\usepackage[labelsep=period]{caption}
+\usepackage{subcaption}
+\usepackage[export]{adjustbox}
+\usepackage[margin=1in]{geometry}
+\usepackage{float}
+\usepackage{hyperref}
+\usepackage[nochapter, owncaptions]{vhistory}
+
+\renewcommand\thesection{\arabic{section}.}
+\renewcommand\thesubsection{\arabic{section}.\arabic{subsection}.}
+\renewcommand\thesubsubsection{\arabic{section}.\arabic{subsection}.\arabic{subsubsection}.}
+
+\brokenpenalty=1000
+\clubpenalty=1000
+\widowpenalty=1000
+
+\renewcommand{\vhversionname}{Wersja}
+\renewcommand{\vhdatename}{Data}
+\renewcommand{\vhauthorname}{Autor}
+\renewcommand{\vhchangename}{Opis}
+
+\author{Cezary Świtała}
+\title{Specyfikacja funkcjonalna aplikacji e-sklep}
+
+\begin{document}
+
+\pagenumbering{gobble}
+\makeatletter
+\begin{titlepage}
+    \centering
+
+    \large Instytut Informatyki Uniwersytetu Wrocławskiego
+
+    \vspace*{6cm}
+
+    \large \@author
+
+    \vspace{0.5cm}
+
+    \huge \@title
+
+    \vspace{0.5cm}
+
+    \Large Kurs projektowania aplikacji z bazami danych 2021/2022
+
+    \vspace{1.5cm}
+
+    \vfill
+
+    \large Wrocław, 25 kwietnia 2022
+\end{titlepage}
+\makeatother
+\pagenumbering{arabic}
+
+\setcounter{page}{2}
+
+\noindent{\Large \textbf{Historia zmian}\par}
+
+\begin{versionhistory}
+  \vhEntry{1.0}{25.04.2022}{Cezary Świtała}{Utworzono dokument}
+\end{versionhistory}
+
+\newpage
+
+\section{Wstęp}
+
+Niniejszy dokument ma na celu określenie funkcjonalności aplikacji \emph{e-sklep} realizowanej w ramach przedmiotu \emph{Kurs projektowania aplikacji z bazami danych}, ze szczególnym uwzględnieniem wysokopoziomowego opisu głównego procesu biznesowego oraz omówienia wynikających z niego kluczowych funkcjonalności.
+
+\section{Główny proces biznesowy}
+
+Głównym procesem biznesowym aplikacji będzie proces dokonywania zakupu oferowanych przez sklep produktów.
+
+\subsection{Proces zakupu z perspektywy klienta}
+
+\begin{enumerate}
+	\item Klient przegląda dostępne w sklepie produkty, wyświetla ich szczegółowy opis, zapoznaje się z opiniami innych użytkowników.
+	\item Wybrane pozycje dodaje do koszyka.
+	\item Po zakończeniu przeglądania zapoznaje się z listą produktów w koszyku, wybiera opcje dostawy oraz zobowiązuje się dokonać płatności.
+	\item Klient przegląda listę złożonych zamówień. Może odczytać informacje o statusie ich realizacji.
+	\item Klient otrzymuje zakupione produkty.
+	\item Może podzielić się z innymi użytkownikami opinią dotyczącą usług i produktów.
+\end{enumerate}
+
+\subsection{Proces zakupu z perspektywy sprzedawcy}
+
+\begin{enumerate}
+	\item Sprzedawca dodaje, edytuje i usuwa produkty w ofercie sklepu.
+	\item Przegląda zamówienia złożone w sklepie wraz z ich szczegółowym opisem.
+	\item Może zmienić stan realizacji zamówienia.
+	\item W stosownym momencie przekazuje produkty do wysłania.
+	\item Sprzedawca może zapoznać się z opiniami związanymi z zamówieniami oraz poszczególnymi produktami.
+\end{enumerate}
+
+\section{Obiekty biznesowe}
+
+Do głównych obiektów biznesowych zaliczają się:
+
+\begin{itemize}
+	\item \textbf{Sklep} -- działalność, która prowadzi sprzedaż internetową za pomocą 
+	tworzonej aplikacji.
+	\item \textbf{Produkt} -- przedmiot, którego sprzedaż oferuje sklep.
+	\item \textbf{Użytkownik} -- każda osoba używająca aplikacji.
+	\begin{itemize}
+		\item \textbf{Klient} -- użytkownik uprawniony do przeglądania przedmiotów, 
+		składania zamówień itp.
+		\item \textbf{Sprzedawca} -- użytkownik uprawniony także do edytowania oferty 
+		sklepu, stanu zamówień itp.
+	\end{itemize}
+	\item \textbf{Zamówienie} -- zbiór produktów związany z klientem, dostawą i 
+	płatnością.
+	\item \textbf{Koszyk} -- zbiór produktów, który użytkownik może edytować w trakcie 
+	zakupów oraz na podstawie którego tworzy zamówienie.
+	\item \textbf{Płatność} -- opis metody opłacenia zakupionych przedmiotów.
+	\item \textbf{Dostawa} -- opis metody dostarczenia zakupionych produktów do klienta.
+\end{itemize}
+
+\section{Kluczowe funkcjonalności}
+
+\subsection{Produkt}
+
+\subsubsection{Edytowanie oferty sklepu}
+
+Uprawiony do tego użytkownik powinien mieć możliwość dodawania nowych produktów, a także aktualizowania lub usuwania pozycji obecnych w ofercie.
+
+\subsubsection{Przeglądanie listy produktów}
+
+Klient powinien móc wyświetlać produkty z oferty, z możliwością wygodnego filtrowania ich np. według kategorii lub ceny. Dodatkowo powinien mieć możliwość posortowania ich względem wybranego porządku. 
+
+\subsubsection{Wyświetlanie szczegółów produktu}
+
+Po kliknięciu w pozycję z listy produktów, klient powinien ujrzeć jego szczegółowy opis. W szczególności jego cenę, informację o dostępności i listę opinii innych użytkowników.
+
+\subsection{Koszyk}
+
+W trakcie zakupów w e-sklepie klient powinien mieć możliwość swobodnego dodawania, usuwania i zmieniania liczebności produktów w koszyku. Widok koszyka powinien informować go o aktualnej łącznej kwocie zamówienia.
+
+\subsection{Zamówienie}
+
+\subsubsection{Utworzenie zamówienia}
+
+Na podstawie koszyka klient powinien móc utworzyć zamówienie. W tym celu będzie musiał uzupełnić informacje o swoim adresie, wybranym sposobie dostawy i płatności, oraz zobowiązać się do uiszczenia zapłaty.
+
+\subsubsection{Edytowanie stanu zamówienia}
+
+Dla sprzedawców musi zostać udostępniona możliwość aktualizowania stanu realizacji zamówienia, który będzie widoczny dla użytkownika i zapewni mu komfort psychiczny.
+
+\end{document}
