@@ -1,0 +1,20 @@
+#!/sbin/openrc-run
+supervisor="supervise-daemon"
+command=/usr/bin/mystat
+command_args="$mystat_args"
+pidfile=/var/run/mystat.pid
+name="Mystat Daemon"
+
+description="Daemon that logs cpu usage"
+extra_commands="rotate"
+description_rotate="Reopens log files"
+
+depend() {
+  need localmount
+  after bootmisc
+}
+
+rotate() {
+  ${supervisor} ${RC_SVCNAME} --signal HUP --pidfile "${pidfile}"
+  eend $?
+}

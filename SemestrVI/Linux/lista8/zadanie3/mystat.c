@@ -1,0 +1,1 @@
+../zadanie4/mystat.c
