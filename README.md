@@ -2,7 +2,7 @@
 
 Repozytorium zawiera owoce pracy wykonanej w ramach studiowania na Uniwersytecie Wrocławskim.
 
-**Odradzam kopiowanie moich rozwiązań i przedstawianie jako własne.**
+**Odradzam kopiowanie moich rozwiązań i przedstawianie ich jako własne.**
 
 ## Kursy
 
