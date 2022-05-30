@@ -2,6 +2,10 @@
 
 Repozytorium zawiera owoce pracy wykonanej w ramach studiowania na Uniwersytecie Wrocławskim.
 
+## Uwagi
+
+Repozytorium zostało udostępnione publicznie 27 maja 2022r.
+
 **Odradzam kopiowanie moich rozwiązań i przedstawianie ich jako własne.**
 
 ## Kursy
