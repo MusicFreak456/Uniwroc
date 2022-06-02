@@ -1,17 +1,17 @@
 CC = gcc -g
 CFLAGS = -O3 -Wall -Werror
 
-OBJS = mdriver.o mm.o memlib.o
+OBJS = malloc.o memlib.o
 
-all: mm.o
+all: malloc.o
 
 memlib.o: memlib.c memlib.h
-mm.o: mm.c mm.h memlib.h
+malloc.o: malloc.c malloc.h memlib.h
 
 format:
 	clang-format --style=file -i *.c *.h
 
 clean:
-	rm -f *~ *.o mdriver
+	rm -f *~ *.o
 
 .PHONY: all

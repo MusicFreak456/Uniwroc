@@ -7,12 +7,10 @@
 #include <stddef.h>
 #include <unistd.h>
 
-#include "mm.h"
+#include "malloc.h"
 #include "memlib.h"
 
-/*
-
- */
+/* See README.md for full description */
 
 /* --=[ helpful types ]=----------------------------------------------------- */
 /*
