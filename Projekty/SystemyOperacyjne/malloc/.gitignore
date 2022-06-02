@@ -1,0 +1,9 @@
+# Compiled languages
+*.o
+*.so
+*.a
+.*.d
+
+# Vim
+*.swp
+*~
