@@ -1,20 +1,20 @@
 # Malloc
 
-This was one of the excercises during operating systems course at the university of Wrocław. It was written basically from scratch, under assumption that memory is no larger than 4GB. Only restriction was that we couldn't use mmap. **It was tested under lecturer's testing framework and achived total memory utilization of 95% and average of 315 cpu instructions per operation.**
+This was one of the exercises during an operating systems course at the university of Wrocław. It was written basically from scratch, under the assumption that memory is no larger than 4GB. The only restriction was that we couldn't use mmap. **It was tested under lecturer's testing framework and achieved total memory utilization of 95% and average of 315 cpu instructions per operation.**
 
 This implementation is largely inspired by a description of the glibc
-dynamic allocator, which I encountered while doing some CTF excercises
-(this hopefuly explains the 'exploitation' part), posted here:
+dynamic allocator, which I encountered while doing some CTF exercises
+(this hopefully explains the 'exploitation' part), posted here:
 https://azeria-labs.com/heap-exploitation-part-2-glibc-heap-free-bins/
 
 Major features of my implementation include:
 
 * optimized boundary tags -- 4 bytes of header per allocated block.
-* coalescing of adjecent free blocks -- lazy when block size is smaller
-  then TOP_FAST_BIN and eager for larger ones.
+* coalescing of adjacent free blocks -- lazy when the block size is smaller
+  than TOP_FAST_BIN and eager for larger ones.
 * free bins -- linked list of free blocks is divided into 4 types
   of bins:
-  * small bins -- bins containing list of blocks of exactly one size
+  * small bins -- bins containing a list of blocks of exactly one size
     from 16 to 16 * SMALL_BIN_NUM bytes.
   * large bins -- bins containing sorted by size list of blocks from
     given size class. Made in such way that i-th size class will cover
@@ -35,8 +35,8 @@ Major features of my implementation include:
 
 Major flaws of my implementation:
 
-* there are no dedicated areas for freaquently chosen/small sizes of
+* there are no dedicated areas for frequently chosen/small sizes of
   blocks, this means that large number of same sized blocks may be
   assigned to non-continous chunk of memory, leaving holes between them.
 * large requests are not handled by mmap, because this syscall whas
-  illegal in this excercise.
+  illegal in this exercise.

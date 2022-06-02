@@ -612,7 +612,7 @@ static block_t *expand_alloc(size_t new_block_size) {
 /*
  * Malloc control flow is as follows:
  * * If block size is lesser or equal to TOP_FAST_BIN check the corect
- *   fast bin and immidietely return if block was found.
+ *   fast bin and immediately return if block was found.
  *
  * * If requested block size is larger than TOP_FAST_BIN -- free and
  *   coalesce the fast bins entries.
