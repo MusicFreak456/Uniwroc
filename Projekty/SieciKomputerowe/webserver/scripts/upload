@@ -1,0 +1,14 @@
+#!/bin/bash
+
+make distclean
+  
+if [ -d /tmp/HTTPServer/http_server ]
+then
+  rm -rf /tmp/HTTPServer/http_server/*
+else
+  mkdir /tmp/HTTPServer/http_server
+fi
+
+cp -r ./* /tmp/HTTPServer/http_server
+ssh -p 30021 -i ~/.ssh/virbians user@localhost /bin/bash -s \
+  <<< "make CXXFLAGS=-DDEBUG -C ./http_server"

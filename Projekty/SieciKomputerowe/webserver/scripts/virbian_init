@@ -1,0 +1,17 @@
+#!/bin/bash
+
+ServerVM="HTTPServer"
+VMs=($ServerVM)
+declare -A Ports
+Ports[$ServerVM]=30021
+
+Identity=~/.ssh/virbians
+Host=user@localhost
+
+for vm in ${VMs[@]}; do
+  rm -rf /tmp/$vm
+  mkdir /tmp/$vm
+
+  ssh-copy-id -p ${Ports[$vm]} -i $Identity $Host
+  sshfs -p ${Ports[$vm]} $Host:/home/user /tmp/$vm -o IdentityFile=$Identity 
+done
